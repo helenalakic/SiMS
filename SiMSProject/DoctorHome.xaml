@@ -1,0 +1,74 @@
+﻿<Page x:Class="SiMSProject.DoctorHome"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SiMSProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="870"
+      Title="DoctorHome" Background="White">
+
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <Grid Height="35" Background="White">
+                <Button  Content="Sign out"  HorizontalAlignment="Left" Margin="775,8,0,0" VerticalAlignment="Top" Width="75" Click="GoBack" ></Button>
+
+            </Grid >
+            <StackPanel Orientation="Horizontal"  Height="415" Background="White">
+                <StackPanel  Height="415" Width="210">
+                    <Image Width="100" Height="100"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Medicines"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Medicines pending approval"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Accepted and obtained medicines" />
+                   
+                </StackPanel>
+                <Grid Width="700"  Height="418">
+                    <Label Content="Sort by:" FontFamily="Georgia" Margin="-490,59,0,0" VerticalAlignment="Top" Height="30" Width="70" FontSize="16"/>
+                    <ComboBox Margin="-310,60,0,0" Name="ComboBoxSort" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Height="25">
+                        <ComboBoxItem Content=""></ComboBoxItem>
+                        <ComboBoxItem Content="Manja Nedovic" ></ComboBoxItem>
+                        <ComboBoxItem Content="Helena Lakic"></ComboBoxItem>
+                        <ComboBoxItem Content="Nora Peric"></ComboBoxItem>
+                    </ComboBox>
+                    
+                    
+                    <Label Content="Search by:" FontFamily="Georgia" Margin="-70,59,0,0" VerticalAlignment="Top" Height="30" Width="85" FontSize="16"/>
+                    <TextBox x:Name="TextBoxSearch" Margin="480,60,0,0" TextChanged="TextBoxSearch_TextChanged" Background="White" FontSize="16" FontFamily="Georgia" TextAlignment="Left" Text="" Width="120" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Button Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="605,60,0,0" Width="25">
+                        <Image Height="25" Source="/Images/account-search-outline.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,0" Width="20"></Image>
+                    </Button>
+                    <ComboBox Margin="130,60,0,0" Name="ComboBoxDoctor" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Height="25">
+                        <ComboBoxItem Content=""></ComboBoxItem>
+                        <ComboBoxItem Content="Manja Nedovic" ></ComboBoxItem>
+                        <ComboBoxItem Content="Helena Lakic"></ComboBoxItem>
+                        <ComboBoxItem Content="Nora Peric"></ComboBoxItem>
+                    </ComboBox>
+                    <Button Content="Medical record " Height="30" Width="110" Margin="470,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="OpenMedicalRecord"/>
+                    <Button Content="Issue a prescription" Height="30" Width="110" Margin="220,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="OpenIssuePrescripption"/>
+                    <DataGrid x:Name="dataGridExaminations" d:ItemsSource="{Binding Examinations}" IsReadOnly="True "  
+                  SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Left" 
+                  Height="286" VerticalAlignment="Top" Width="560" Margin="74,95,0,0">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Patient" Width="*">
+                                <DataGridTextColumn.Binding>
+                                    <MultiBinding StringFormat="{}{0} {1}">
+                                        <Binding Path="Patient.NAME" />
+                                        <Binding Path="Patient.SURNAME" />
+                                    </MultiBinding>
+                                </DataGridTextColumn.Binding>
+                            </DataGridTextColumn>
+                            <DataGridTextColumn Header="Medical Record" Binding="{Binding Patient.MEDICALRECORD}" Width="100" />
+                            <DataGridTextColumn Header="Room" Binding="{Binding ROOM.NUMBER}" Width="*" />
+                            <DataGridTextColumn Header="Start time" Binding="{Binding StartTime}" Width="*" />
+                            <DataGridTextColumn Header="End time" Binding="{Binding EndTime}" Width="*"/>
+
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                </Grid>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</Page>
