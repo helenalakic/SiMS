@@ -27,21 +27,51 @@ namespace SiMSProject
         public MainWindow()
         {
             InitializeComponent();
-            LoginPage loginPage = new LoginPage(this);
+            LoginPage loginPage = new LoginPage();
             MainFrame.NavigationService.Navigate(loginPage);
-            UserController = new UserController();
+            
+            // za prvi put zbog upisa u datoteku
+            // UserController = new UserController();
+            //User user = new User();
+            //user.UMCN = "123";
+            //user.EMAIL = "hela";
+            //user.PASSWORD = "1";
+            //user.FIRSTNAME = "helena";
+            //user.LASTNAME = "lakic";
+            //user.PHONENUMBER = "555";
+            //user.USERTYPE = UserType.Doctor;
 
+            //User user1 = new User();
+            //user1.UMCN = "222";
+            //user1.EMAIL = "maga";
+            //user1.PASSWORD = "2";
+            //user1.FIRSTNAME = "magdalena";
+            //user1.LASTNAME = "lakic";
+            //user1.PHONENUMBER = "333";
+            //user1.USERTYPE = UserType.Pharmacist;
 
+            //User user2 = new User();
+            //user2.UMCN = "444";
+            //user2.EMAIL = "boka";
+            //user2.PASSWORD = "3";
+            //user2.FIRSTNAME = "bojana";
+            //user2.LASTNAME = "zekanovic";
+            //user2.PHONENUMBER = "777";
+            //user2.USERTYPE = UserType.Pharmacist;
 
-            User user = new User();
-            user.UMCN = "123";
-            user.EMAIL = "hela";
-            user.PASSWORD = "1";
-            user.FIRSTNAME = "helena";
-            user.LASTNAME = "lakic";
-            user.PHONENUMBER = "555";
-            user.USERTYPE = UserType.Doctor;
-            UserController.Add(user);
+            //User user3 = new User();
+            //user3.UMCN = "999";
+            //user3.EMAIL = "vanja";
+            //user3.PASSWORD = "4";
+            //user3.FIRSTNAME = "vanja";
+            //user3.LASTNAME = "teodorovic";
+            //user3.PHONENUMBER = "11";
+            //user3.USERTYPE = UserType.Manager;
+
+            //UserController.Add(user);
+            //UserController.Add(user1);
+            //UserController.Add(user2);
+            //UserController.Add(user3);
 
 
         }

@@ -34,5 +34,11 @@ namespace SiMSProject.Storage
             userSerializer.toCSV(fileName, users);
             return true;
         }
+
+        public List<User> GetAllUsers() 
+        {
+            return userSerializer.fromCSV(fileName);
+            
+        }
     }
 }

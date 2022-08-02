@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Model;
+using SiMSProject.Controller;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,46 +22,64 @@ namespace SiMSProject
     /// </summary>
     public partial class LoginPage : Page
     {
+        public Frame _mainFrame;
+        private UserController UserController;
+        private int counter;
 
-        //public Frame _mainFrame;
-        ////private Thread thread;
-        //Window MainWindow;
-
-        //public LoginPage(Window mainWindow)
-        //{
-        //    InitializeComponent();
-        //    _mainFrame = (Frame)Application.Current.MainWindow.FindName("MainFrame");
-        //    MainWindow = mainWindow;
-
-        //    //thread = new Thread(new ThreadStart(ThreadProc));
-        //}
-
-        //public void LoginUser(object sender, RoutedEventArgs e)
-        //{
-        //    string username = usernameTB.Text;
-        //    string password = passwordTB.Text;
-
-        //    usernameTB.Clear();
-        //    passwordTB.Clear();
-
-        //    PersonController pc = new PersonController();
-
-        //    if (!pc.Login(username, password, _mainFrame, thread, MainWindow))
-        //    {
-        //        MessageBox.Show("Username or password doesn't match");
-        //    }
-
-        //}
-        private MainWindow mainWindow;
-
-        public LoginPage(MainWindow mainWindow)
+        public LoginPage()
         {
-            this.mainWindow = mainWindow;
+            InitializeComponent();
+            _mainFrame = (Frame)Application.Current.MainWindow.FindName("MainFrame");
+            UserController = new UserController();
+            counter = 0;
+
         }
+
 
         private void LoginUser(object sender, RoutedEventArgs e)
         {
-
+            counter++;
+            var username = this.username.Text;
+            var password = this.password.Text;
+            //Console.WriteLine(username);
+            //Console.WriteLine(password);
+            User loggedUser = UserController.LoginUser(username, password);
+            if (loggedUser != null)
+            {   
+                NavigateToHomePage(loggedUser);
+            }
+            else
+            {
+                MessageBox.Show("Incorrect email or password!");
+                if(counter > 3)
+                { 
+                    MessageBox.Show("You cannot access the program!");
+                    LoginButton.IsEnabled = false;
+                }   
+            }
         }
+
+        private void NavigateToHomePage (User u)
+        {
+
+            if (u.USERTYPE.ToString().Equals("Doctor"))
+            {
+                DoctorHome doctorPage = new DoctorHome();
+                _mainFrame.NavigationService.Navigate(doctorPage);
+            }
+
+            if (u.USERTYPE.ToString().Equals("Pharmacist"))
+            {
+                PharmacistHome pharmacistPage = new PharmacistHome();
+                _mainFrame.NavigationService.Navigate(pharmacistPage);
+            }
+
+            if (u.USERTYPE.ToString().Equals("Manager"))
+            {
+                ManagerHome managerPage = new ManagerHome();
+                _mainFrame.NavigationService.Navigate(managerPage);
+            }
+        }
+
     }
 }

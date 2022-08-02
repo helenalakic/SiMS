@@ -23,6 +23,7 @@ namespace SiMSProject
         public DoctorHome()
         {
             InitializeComponent();
+            Console.WriteLine("DOKTOR STRANICA");
         }
 
         private void GoBack(object sender, RoutedEventArgs e)

@@ -22,6 +22,11 @@ namespace SiMSProject.Controller
 			userService.Add(user);
 		}
 
+		public User LoginUser(String username, String password)
+        {
+			 return userService.LoginUser(username, password);
+        }
+
 		//public void Edit(Surgery surgery)
 		//{
 		//	surgeryService.Edit(surgery);
