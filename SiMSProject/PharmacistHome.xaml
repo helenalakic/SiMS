@@ -45,22 +45,15 @@
                     </ComboBox>
                     <Button Content="Medical record " Height="30" Width="110" Margin="470,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="OpenMedicalRecord"/>
                     <Button Content="Issue a prescription" Height="30" Width="110" Margin="220,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="OpenIssuePrescripption"/>
-                    <DataGrid x:Name="dataGridExaminations" d:ItemsSource="{Binding Examinations}" IsReadOnly="True "  
+                    <DataGrid x:Name="dataGridExaminations" IsReadOnly="True "  
                   SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Left" 
                   Height="286" VerticalAlignment="Top" Width="560" Margin="74,95,0,0">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Patient" Width="*">
-                                <DataGridTextColumn.Binding>
-                                    <MultiBinding StringFormat="{}{0} {1}">
-                                        <Binding Path="Patient.NAME" />
-                                        <Binding Path="Patient.SURNAME" />
-                                    </MultiBinding>
-                                </DataGridTextColumn.Binding>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn Header="Medical Record" Binding="{Binding Patient.MEDICALRECORD}" Width="100" />
-                            <DataGridTextColumn Header="Room" Binding="{Binding ROOM.NUMBER}" Width="*" />
-                            <DataGridTextColumn Header="Start time" Binding="{Binding StartTime}" Width="*" />
-                            <DataGridTextColumn Header="End time" Binding="{Binding EndTime}" Width="*"/>
+                            <DataGridTextColumn Header="medicineId" Binding="{Binding Medicine.medicineId}" Width="*"/>
+                            <DataGridTextColumn Header="medicineName" Binding="{Binding Medicine.medicineName}" Width="100" />
+                            <DataGridTextColumn Header="manufacturer" Binding="{Binding Medicine.manufacturer}" Width="*" />
+                            <DataGridTextColumn Header="quantity" Binding="{Binding Medicine.quantity}" Width="*" />
+                            <DataGridTextColumn Header="ingredient" Binding="{Binding Medicine.ingredient}" Width="*"/>
 
 
                         </DataGrid.Columns>

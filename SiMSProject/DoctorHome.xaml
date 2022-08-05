@@ -24,11 +24,11 @@
                 </StackPanel>
                 <Grid Width="700"  Height="418">
                     <Label Content="Sort by:" FontFamily="Georgia" Margin="-490,59,0,0" VerticalAlignment="Top" Height="30" Width="70" FontSize="16"/>
-                    <ComboBox Margin="-310,60,0,0" Name="ComboBoxSort" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Height="25">
+                    <ComboBox Margin="-310,60,0,0" Name="ComboBoxSort" SelectionChanged="SortBy" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Height="25">
                         <ComboBoxItem Content=""></ComboBoxItem>
-                        <ComboBoxItem Content="Manja Nedovic" ></ComboBoxItem>
-                        <ComboBoxItem Content="Helena Lakic"></ComboBoxItem>
-                        <ComboBoxItem Content="Nora Peric"></ComboBoxItem>
+                        <ComboBoxItem Content="Medicine name" ></ComboBoxItem>
+                        <ComboBoxItem Content="Price"></ComboBoxItem>
+                        <ComboBoxItem Content="Quantity in stock"></ComboBoxItem>
                     </ComboBox>
                     
                     
@@ -45,22 +45,17 @@
                     </ComboBox>
                     <Button Content="Medical record " Height="30" Width="110" Margin="470,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="OpenMedicalRecord"/>
                     <Button Content="Issue a prescription" Height="30" Width="110" Margin="220,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" Click="OpenIssuePrescripption"/>
-                    <DataGrid x:Name="dataGridExaminations" d:ItemsSource="{Binding Examinations}" IsReadOnly="True "  
-                  SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Left" 
+                   
+                    <DataGrid x:Name="dataGridMedicines" ItemsSource="{Binding Medicines}" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Left" 
                   Height="286" VerticalAlignment="Top" Width="560" Margin="74,95,0,0">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Patient" Width="*">
-                                <DataGridTextColumn.Binding>
-                                    <MultiBinding StringFormat="{}{0} {1}">
-                                        <Binding Path="Patient.NAME" />
-                                        <Binding Path="Patient.SURNAME" />
-                                    </MultiBinding>
-                                </DataGridTextColumn.Binding>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn Header="Medical Record" Binding="{Binding Patient.MEDICALRECORD}" Width="100" />
-                            <DataGridTextColumn Header="Room" Binding="{Binding ROOM.NUMBER}" Width="*" />
-                            <DataGridTextColumn Header="Start time" Binding="{Binding StartTime}" Width="*" />
-                            <DataGridTextColumn Header="End time" Binding="{Binding EndTime}" Width="*"/>
+                            <DataGridTextColumn Header="medicineId" Binding="{Binding MedicineId}" Width="*"/>
+                            <DataGridTextColumn Header="medicineName" Binding="{Binding MedicineName}" Width="100" />
+                            <DataGridTextColumn Header="manufacturer" Binding="{Binding Manufacturer}" Width="*" />
+                            <DataGridTextColumn Header="quantity" Binding="{Binding Quantity}" Width="*" />
+                            <!--<DataGridTextColumn Header="ingredient" Binding="{Binding Medicine.INGREDIENT}" Width="*"/>-->
+                            <DataGridTextColumn Header="quantityInStock" Binding="{Binding QuantityInStock}" Width="*" />
+                            <DataGridTextColumn Header="price (RSD)" Binding="{Binding Price}" Width="*" />
 
 
                         </DataGrid.Columns>

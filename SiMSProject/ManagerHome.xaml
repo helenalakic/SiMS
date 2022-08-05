@@ -50,20 +50,11 @@
                   SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Left" 
                   Height="286" VerticalAlignment="Top" Width="560" Margin="74,95,0,0">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Id" Width="*">
-                                <DataGridTextColumn.Binding>
-                                    <MultiBinding StringFormat="{}{0} {1}">
-                                        <Binding Path="Patient.NAME" />
-                                        <Binding Path="Patient.SURNAME" />
-                                    </MultiBinding>
-                                </DataGridTextColumn.Binding>
-                            </DataGridTextColumn>
-                            <DataGridTextColumn Header="Name" Binding="{Binding Patient.MEDICALRECORD}" Width="100" />
-                            <DataGridTextColumn Header="Manufacturer" Binding="{Binding ROOM.NUMBER}" Width="*" />
-                            <DataGridTextColumn Header="Quantity" Binding="{Binding StartTime}" Width="*" />
-                            <DataGridTextColumn Header="Ingredients" Binding="{Binding EndTime}" Width="*"/>
-                            <DataGridTextColumn Header="Ingredients" Binding="{Binding EndTime}" Width="*"/>
-                            <DataGridTextColumn Header="Ingredients" Binding="{Binding EndTime}" Width="*"/>
+                            <DataGridTextColumn Header="medicineId" Binding="{Binding Medicine.medicineId}" Width="*"/>
+                            <DataGridTextColumn Header="medicineName" Binding="{Binding Medicine.medicineName}" Width="100" />
+                            <DataGridTextColumn Header="manufacturer" Binding="{Binding Medicine.manufacturer}" Width="*" />
+                            <DataGridTextColumn Header="quantity" Binding="{Binding Medicine.quantity}" Width="*" />
+                            <DataGridTextColumn Header="ingredient" Binding="{Binding Medicine.ingredient}" Width="*"/>
 
 
                         </DataGrid.Columns>

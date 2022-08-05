@@ -56,6 +56,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controller\MedicineController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="DoctorHome.xaml.cs">
       <DependentUpon>DoctorHome.xaml</DependentUpon>
@@ -70,7 +71,9 @@
     <Compile Include="PharmacistHome.xaml.cs">
       <DependentUpon>PharmacistHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Service\MedicineService.cs" />
     <Compile Include="Service\UserService.cs" />
+    <Compile Include="Storage\MedicineStorage.cs" />
     <Compile Include="Storage\Serialization\Serializable.cs" />
     <Compile Include="Storage\Serialization\Serializer.cs" />
     <Compile Include="Storage\UserStorage.cs" />
