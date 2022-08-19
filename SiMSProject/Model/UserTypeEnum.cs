@@ -7,7 +7,7 @@ using System;
 
 namespace Model
 {
-    public enum UserType
+    public enum UserTypeEnum
     {
         Manager,
         Doctor,

@@ -25,12 +25,15 @@ namespace SiMSProject.Storage
 
         public bool Create(Medicine medicine)
         {
-            List<Medicine> medicines = medicineSerializer.fromCSV(fileName);
+            List<Medicine> medicines = new List<Medicine>();
+
+            medicines = medicineSerializer.fromCSV(fileName);
             foreach (Medicine m in medicines)
             {
                 if (medicine.MedicineId == m.MedicineId)
                     return false;
             }
+
             medicines.Add(medicine);
             medicineSerializer.toCSV(fileName, medicines);
             return true;
@@ -41,5 +44,7 @@ namespace SiMSProject.Storage
             return medicineSerializer.fromCSV(fileName);
 
         }
+
+       
     }
 }

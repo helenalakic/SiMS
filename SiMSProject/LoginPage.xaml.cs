@@ -62,19 +62,19 @@ namespace SiMSProject
         private void NavigateToHomePage (User u)
         {
 
-            if (u.USERTYPE.ToString().Equals("Doctor"))
+            if (u.UserType.ToString().Equals("Doctor"))
             {
                 DoctorHome doctorPage = new DoctorHome();
                 _mainFrame.NavigationService.Navigate(doctorPage);
             }
 
-            if (u.USERTYPE.ToString().Equals("Pharmacist"))
+            if (u.UserType.ToString().Equals("Pharmacist"))
             {
                 PharmacistHome pharmacistPage = new PharmacistHome();
                 _mainFrame.NavigationService.Navigate(pharmacistPage);
             }
 
-            if (u.USERTYPE.ToString().Equals("Manager"))
+            if (u.UserType.ToString().Equals("Manager"))
             {
                 ManagerHome managerPage = new ManagerHome();
                 _mainFrame.NavigationService.Navigate(managerPage);

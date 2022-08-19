@@ -26,5 +26,17 @@ namespace SiMSProject.Controller
         {
             return medicineService.GetAllMedicines();
         }
+        public List<Medicine> GetAllAcceptedMedicines()
+        {
+            return medicineService.GetAllAcceptedMedicines();
+        }
+        public List<Medicine> GetAllRejectedMedicines()
+        {
+            return medicineService.GetAllRejectedMedicines();
+        }
+        public List<Medicine> GetAllPendingApprovalMedicines()
+        {
+            return medicineService.GetAllPendingApprovalMedicines();
+        }
     }
 }

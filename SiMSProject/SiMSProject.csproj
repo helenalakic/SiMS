@@ -56,6 +56,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AcceptedMedicines.xaml.cs">
+      <DependentUpon>AcceptedMedicines.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AllUsers.xaml.cs">
+      <DependentUpon>AllUsers.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controller\MedicineController.cs" />
     <Compile Include="Controller\UserController.cs" />
     <Compile Include="DoctorHome.xaml.cs">
@@ -67,9 +73,22 @@
     <Compile Include="ManagerHome.xaml.cs">
       <DependentUpon>ManagerHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MedicinesPendingApprovalDoctor.xaml.cs">
+      <DependentUpon>MedicinesPendingApprovalDoctor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MedicinesPendingApprovalPharmacist.xaml.cs">
+      <DependentUpon>MedicinesPendingApprovalPharmacist.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Model\Medicine.cs" />
+    <Compile Include="Model\MedicineStatusEnum.cs" />
     <Compile Include="PharmacistHome.xaml.cs">
       <DependentUpon>PharmacistHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RefusedMedicines.xaml.cs">
+      <DependentUpon>RefusedMedicines.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Registration.xaml.cs">
+      <DependentUpon>Registration.xaml</DependentUpon>
     </Compile>
     <Compile Include="Service\MedicineService.cs" />
     <Compile Include="Service\UserService.cs" />
@@ -77,6 +96,14 @@
     <Compile Include="Storage\Serialization\Serializable.cs" />
     <Compile Include="Storage\Serialization\Serializer.cs" />
     <Compile Include="Storage\UserStorage.cs" />
+    <Page Include="AcceptedMedicines.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AllUsers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DoctorHome.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -101,7 +128,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MedicinesPendingApprovalDoctor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MedicinesPendingApprovalPharmacist.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PharmacistHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RefusedMedicines.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Registration.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,7 +155,7 @@
     <Compile Include="Model\Manager.cs" />
     <Compile Include="Model\Pharmacist.cs" />
     <Compile Include="Model\User.cs" />
-    <Compile Include="Model\UserType.cs" />
+    <Compile Include="Model\UserTypeEnum.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

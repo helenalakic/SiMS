@@ -75,11 +75,6 @@ namespace SiMSProject
             dataGridMedicines.ItemsSource = Medicines;
         }
 
-        private void GoBack(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void TextBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             var comboBoxSearchName = ComboBoxSearch.SelectedItem.ToString().Split(':')[1].TrimStart(' ');
@@ -163,6 +158,18 @@ namespace SiMSProject
             }
             Medicines = sortedMedicines;
             dataGridMedicines.ItemsSource = Medicines;
+        }
+
+        private void MedicinesPendingApproval(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("MedicinesPendingApprovalDoctor.xaml", UriKind.Relative));
+
+        }
+
+        private void SignOut(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("LoginPage.xaml", UriKind.Relative));
+
         }
     }
 }

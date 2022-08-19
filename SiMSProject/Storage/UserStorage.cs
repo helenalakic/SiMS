@@ -27,7 +27,7 @@ namespace SiMSProject.Storage
             List<User> users = userSerializer.fromCSV(fileName);
             foreach (User u in users)
             {
-                if (user.UMCN == u.UMCN)
+                if (user.Umcn == u.Umcn)
                     return false;
             }
             users.Add(user);
@@ -35,6 +35,7 @@ namespace SiMSProject.Storage
             return true;
         }
 
+       
         public List<User> GetAllUsers() 
         {
             return userSerializer.fromCSV(fileName);

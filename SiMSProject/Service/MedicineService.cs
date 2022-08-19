@@ -1,4 +1,5 @@
 ﻿using Model;
+using SiMSProject.Model;
 using SiMSProject.Storage;
 using System;
 using System.Collections.Generic;
@@ -27,5 +28,20 @@ namespace SiMSProject.Service
             return medicineStorage.GetAllMedicines();
         }
 
+        public List<Medicine> GetAllAcceptedMedicines()
+        {
+            return medicineStorage.GetAllMedicines().Where(x => x.MedicineStatus == MedicineStatusEnum.Accepted).ToList();
+
+        }
+        public List<Medicine> GetAllRejectedMedicines()
+        {
+            return medicineStorage.GetAllMedicines().Where(x => x.MedicineStatus == MedicineStatusEnum.Rejected).ToList();
+        }
+
+        public List<Medicine> GetAllPendingApprovalMedicines()
+        {
+            return medicineStorage.GetAllMedicines().Where(x => x.MedicineStatus == MedicineStatusEnum.PendingApproval).ToList();
+
+        }
     }
 }

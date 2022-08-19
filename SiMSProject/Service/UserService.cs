@@ -28,13 +28,40 @@ namespace SiMSProject.Service
             users = userStorage.GetAllUsers();
             foreach (User user in users)
             {
-                if(user.EMAIL.Equals(username) && user.PASSWORD.Equals(password))
+                if(user.Email.Equals(username) && user.Password.Equals(password))
                 {
                     return user;
                 }
             }
             return null;
         }
+
+        public User RegisterUser(User user)
+        {
+            List<User> users = new List<User>();
+             users = userStorage.GetAllUsers();
+             foreach(User u in users)
+             { 
+                if (u.Umcn.Equals(user.Umcn))
+                {
+                    return null;
+                }
+             }
+             return user;
+        }
+        
+
+        public List<User> GetAllUsers()
+        {
+           return userStorage.GetAllUsers();
+        }
+
+        public List<User> GetAllUsersExceptManager()
+        {
+            return userStorage.GetAllUsers().Where(x => x.UserType != UserTypeEnum.Manager).ToList();
+
+        }
+
 
         //public void Remove(string surgeryId)
         //{

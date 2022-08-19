@@ -27,6 +27,22 @@ namespace SiMSProject.Controller
 			 return userService.LoginUser(username, password);
         }
 
+		public List<User> GetAllUsers()
+        {
+			return userService.GetAllUsers();
+
+		}
+		public User RegisterUser(User user)
+        {
+			return userService.RegisterUser(user);
+
+		}
+		public List<User> GetAllUsersExceptManager()
+		{
+			return userService.GetAllUsersExceptManager();
+
+		}
+
 		//public void Edit(Surgery surgery)
 		//{
 		//	surgeryService.Edit(surgery);

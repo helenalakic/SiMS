@@ -3,6 +3,7 @@
 // Created: Sunday, July 24, 2022 16:51:48 
 // Purpose: Definition of Class Medicine
 
+using SiMSProject.Model;
 using SiMSProject.Storage;
 using System;
 using System.Collections.Generic;
@@ -17,10 +18,11 @@ namespace Model
         public String Manufacturer { get; set; }
         public int Quantity { get; set; }
         public IDictionary<string, Ingredient> Ingredients { get; set; }
-        public bool Accepted { get; set; }
+        public MedicineStatusEnum MedicineStatus { get; set; }
         public bool Deleted { get; set; }
         public int QuantityInStock { get; set; }
         public double Price { get; set; }
+
 
         public void fromCSV(string[] values)
         {
@@ -30,6 +32,10 @@ namespace Model
             Quantity = Int32.Parse(values[3]);
             QuantityInStock = Int32.Parse(values[4]);
             Price = Double.Parse(values[5]);
+            MedicineStatus = (MedicineStatusEnum)Enum.Parse(typeof(MedicineStatusEnum), values[6]);
+
+
+
             //var ingredientsString = values[4].Split(',');
             //var ingredientsKey = ingredientsString[0];
             //var ingredientsValue = ingredientsString[1];
@@ -46,6 +52,8 @@ namespace Model
                 Quantity.ToString(),
                 QuantityInStock.ToString(),
                 Price.ToString(),
+                Enum.GetName(MedicineStatus.GetType(), MedicineStatus),
+
                // ingredient.ingredientName,
             };
             return medicine;

@@ -1,5 +1,6 @@
 ﻿using Model;
 using SiMSProject.Controller;
+using SiMSProject.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,13 +24,50 @@ namespace SiMSProject
     public partial class MainWindow : Window
     {
         private UserController UserController;
+        private MedicineController MedicineController;
 
         public MainWindow()
         {
             InitializeComponent();
             LoginPage loginPage = new LoginPage();
             MainFrame.NavigationService.Navigate(loginPage);
-            
+
+            //MedicineController = new MedicineController();
+
+            //Medicine medicine = new Medicine();
+            //medicine.MedicineId = "5a";
+            //medicine.MedicineName = "rapten";
+            //medicine.Manufacturer = "galen";
+            //medicine.Quantity = 10;
+            //medicine.QuantityInStock = 50;
+            //medicine.Price = 1000;
+            //medicine.MedicineStatus = MedicineStatusEnum.Accepted;
+
+            //Medicine medicine1 = new Medicine();
+            //medicine1.MedicineId = "7b";
+            //medicine1.MedicineName = "brufen";
+            //medicine1.Manufacturer = "pharm";
+            //medicine1.Quantity = 70;
+            //medicine1.QuantityInStock = 20;
+            //medicine1.Price = 200;
+            //medicine1.MedicineStatus = MedicineStatusEnum.PendingApproval;
+
+
+            //Medicine medicine2 = new Medicine();
+            //medicine2.MedicineId = "1p";
+            //medicine2.MedicineName = "paracetamol";
+            //medicine2.Manufacturer = "galen";
+            //medicine2.Quantity = 2;
+            //medicine2.QuantityInStock = 40;
+            //medicine2.Price = 3500;
+            //medicine2.MedicineStatus = MedicineStatusEnum.Rejected;
+
+
+            //MedicineController.Add(medicine);
+            //MedicineController.Add(medicine1);
+            //MedicineController.Add(medicine2);
+
+
             // za prvi put zbog upisa u datoteku
             // UserController = new UserController();
             //User user = new User();
