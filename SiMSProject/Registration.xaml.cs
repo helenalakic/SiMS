@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -40,15 +41,19 @@ namespace SiMSProject
             this.NavigationService.Navigate(new Uri("ManagerHome.xaml", UriKind.Relative));
 
         }
-        private void AllUsers(object sender, RoutedEventArgs e)
+        private void ToAllUsers(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("AllUsers.xaml", UriKind.Relative));
 
         }
 
-        private void GoBack(object sender, RoutedEventArgs e)
+        private void SignOut(object sender, RoutedEventArgs e)
         {
-
+            if (System.Windows.Forms.MessageBox.Show("Are you sure you want to log out?", "Sign out", MessageBoxButtons.YesNo)
+                == (DialogResult)MessageBoxResult.Yes)
+            {
+                this.NavigationService.Navigate(new Uri("LoginPage.xaml", UriKind.Relative));
+            }
         }
 
         private void ClickToRegisterUser(object sender, RoutedEventArgs e)
@@ -83,13 +88,19 @@ namespace SiMSProject
 
             if(registredUser == null)
             {
-                MessageBox.Show("This user already exist!");
+                System.Windows.MessageBox.Show("This user already exist!");
                 return;
             }
 
             userController.Add(registredUser);
-            MessageBox.Show("The user has been added to the list of all users");
+            System.Windows.MessageBox.Show("The user has been added to the list of all users");
             
+        }
+
+        private void ToCreateMedicine(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("CreateMedicine.xaml", UriKind.Relative));
+
         }
     }
 }

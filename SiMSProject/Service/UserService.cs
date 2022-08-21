@@ -24,14 +24,16 @@ namespace SiMSProject.Service
 
         public User LoginUser(String username, String password)
         {
-           List<User> users = new List<User>();
+            List<User> users = new List<User>();
             users = userStorage.GetAllUsers();
             foreach (User user in users)
             {
-                if(user.Email.Equals(username) && user.Password.Equals(password))
+               
+                if (user.Email.Equals(username) && user.Password.Equals(password) && !user.IsBlocked)
                 {
                     return user;
                 }
+              
             }
             return null;
         }
@@ -39,21 +41,21 @@ namespace SiMSProject.Service
         public User RegisterUser(User user)
         {
             List<User> users = new List<User>();
-             users = userStorage.GetAllUsers();
-             foreach(User u in users)
-             { 
-                if (u.Umcn.Equals(user.Umcn))
+            users = userStorage.GetAllUsers();
+            foreach (User u in users)
+            {
+                if (u.Umcn.Equals(user.Umcn) || u.Email.Equals(user.Email))
                 {
                     return null;
                 }
-             }
-             return user;
+            }
+            return user;
         }
-        
+
 
         public List<User> GetAllUsers()
         {
-           return userStorage.GetAllUsers();
+            return userStorage.GetAllUsers();
         }
 
         public List<User> GetAllUsersExceptManager()
@@ -62,6 +64,22 @@ namespace SiMSProject.Service
 
         }
 
+        public void BlockUser(User user)
+        {
+            user.IsBlocked = true;
+            userStorage.Update(user);
+
+        }
+        public void UnblockUser(User user)
+        {
+            user.IsBlocked = false;
+            userStorage.Update(user);
+
+        }
+        public bool Update(User user)
+        {
+            return userStorage.Update(user);
+        }
 
         //public void Remove(string surgeryId)
         //{

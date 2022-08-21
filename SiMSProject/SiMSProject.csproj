@@ -38,6 +38,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -73,6 +74,9 @@
     <Compile Include="ManagerHome.xaml.cs">
       <DependentUpon>ManagerHome.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CreateMedicine.xaml.cs">
+      <DependentUpon>CreateMedicine.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MedicinesPendingApprovalDoctor.xaml.cs">
       <DependentUpon>MedicinesPendingApprovalDoctor.xaml</DependentUpon>
     </Compile>
@@ -83,6 +87,12 @@
     <Compile Include="Model\MedicineStatusEnum.cs" />
     <Compile Include="PharmacistHome.xaml.cs">
       <DependentUpon>PharmacistHome.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ProcurementOfMedicines.xaml.cs">
+      <DependentUpon>ProcurementOfMedicines.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReasonForRejection.xaml.cs">
+      <DependentUpon>ReasonForRejection.xaml</DependentUpon>
     </Compile>
     <Compile Include="RefusedMedicines.xaml.cs">
       <DependentUpon>RefusedMedicines.xaml</DependentUpon>
@@ -128,6 +138,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CreateMedicine.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MedicinesPendingApprovalDoctor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -137,6 +151,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PharmacistHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ProcurementOfMedicines.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReasonForRejection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

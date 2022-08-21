@@ -50,7 +50,7 @@ namespace SiMSProject
             }
             else
             {
-                MessageBox.Show("Incorrect email or password!");
+                MessageBox.Show("Incorrect email or password or user is blocked!");
                 if(counter > 3)
                 { 
                     MessageBox.Show("You cannot access the program!");

@@ -35,7 +35,21 @@ namespace SiMSProject.Storage
             return true;
         }
 
-       
+        public bool Update(User user)
+        {
+            List<User> allUsers = userSerializer.fromCSV(fileName);
+            int foundIndex = -1;
+            foreach (User u in allUsers)
+            {
+                if (user.Umcn == u.Umcn)
+                    foundIndex = allUsers.IndexOf(u);
+            }
+            allUsers.RemoveAt(foundIndex);
+            allUsers.Insert(foundIndex, user);
+            userSerializer.toCSV(fileName, allUsers);
+            return true;
+        }
+
         public List<User> GetAllUsers() 
         {
             return userSerializer.fromCSV(fileName);

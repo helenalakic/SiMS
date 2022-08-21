@@ -41,7 +41,23 @@ namespace SiMSProject.Service
         public List<Medicine> GetAllPendingApprovalMedicines()
         {
             return medicineStorage.GetAllMedicines().Where(x => x.MedicineStatus == MedicineStatusEnum.PendingApproval).ToList();
-
+        }
+        public Medicine CreateMedicine(Medicine medicine)
+        {
+            List<Medicine> medicines = new List<Medicine>();
+            medicines = medicineStorage.GetAllMedicines();
+            foreach (Medicine m in medicines)
+            {
+                if (m.MedicineId.Equals(medicine.MedicineId))
+                {
+                    return null;
+                }
+            }
+            return medicine;
+        }
+        public bool Update(Medicine medicine)
+        {
+            return medicineStorage.Update(medicine);
         }
     }
 }

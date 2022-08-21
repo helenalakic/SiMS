@@ -11,12 +11,12 @@
     <Grid>
         <StackPanel Orientation="Vertical">
             <Grid Height="35" Background="White">
-                <Button  Content="Sign out"  HorizontalAlignment="Left" Margin="689,8,0,0" VerticalAlignment="Top" Width="75" Click="GoBack" ></Button>
+                <Button  Content="Sign out"  HorizontalAlignment="Left" Margin="689,8,0,0" VerticalAlignment="Top" Width="75" Click="SignOut" ></Button>
             </Grid >
             <StackPanel Orientation="Horizontal"  Height="415" Background="White">
                 <StackPanel  Height="415" Width="210">
                     <Image Width="100" Height="100"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Medicines" Click="Medicines"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Medicines" Click="ToMedicines"/>
                     <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Medicines pending approval"/>
                    
                 </StackPanel>
@@ -40,17 +40,17 @@
                             <!--<DataGridTextColumn Header="ingredient" Binding="{Binding Medicine.INGREDIENT}" Width="*"/>-->
                             <DataGridTextColumn Header="quantityInStock" Binding="{Binding QuantityInStock}" Width="92" />
                             <DataGridTextColumn Header="price (RSD)" Binding="{Binding Price}" Width="68" />
-                            <DataGridTemplateColumn Header="Confirm" Width="53">
+                            <DataGridTemplateColumn Header="Accept" Width="55">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Name="Confirm_btn" Content="Confirm" Click="ConfirmButton" Background="#1d2345" Foreground="White"/>
+                                        <Button Name="Accept_btn" Content="Accept" Click="AcceptButton" Background="#1d2345" Foreground="White"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>
-                            <DataGridTemplateColumn Header="Cancel" Width="50">
+                            <DataGridTemplateColumn Header="Decline" Width="50">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Button Name="Cancel_btn" Content="Cancel" Click="CancelButton" Background="#1d2345" Foreground="White"/>
+                                        <Button Name="Decline_btn" Content="Decline" Click="DeclineButton" Background="#1d2345" Foreground="White"/>
                                     </DataTemplate>
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>

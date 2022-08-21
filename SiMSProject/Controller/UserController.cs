@@ -40,8 +40,20 @@ namespace SiMSProject.Controller
 		public List<User> GetAllUsersExceptManager()
 		{
 			return userService.GetAllUsersExceptManager();
-
 		}
+		public bool Update(User user)
+        {
+			return userService.Update(user);
+        }
+		public void BlockUser(User user)
+        {
+			userService.BlockUser(user);
+        }
+		public void UnblockUser(User user)
+		{
+			userService.UnblockUser(user);
+		}
+
 
 		//public void Edit(Surgery surgery)
 		//{

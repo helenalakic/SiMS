@@ -1,0 +1,56 @@
+﻿<Page x:Class="SiMSProject.CreateMedicine"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:SiMSProject"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="870" Background="White"
+      Title="CreateMedicine">
+
+    <Grid>
+        <StackPanel Orientation="Vertical">
+            <Grid Height="35" Background="White">
+                <Button  Content="Sign out"  HorizontalAlignment="Left" Margin="689,8,0,0" VerticalAlignment="Top" Width="75" Click="SignOut" ></Button>
+            </Grid >
+            <StackPanel Orientation="Horizontal"  Height="415" Background="White">
+                <StackPanel  Height="415" Width="210">
+                    <Image Width="100" Height="100"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Medicines" Click="ToMedicines"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Register new users" Click="ToRegistration"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="All users" Click="ToAllUsers" />
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Create a medicine" />
+
+                </StackPanel>
+                <Grid Width="660"  Height="418">
+
+
+                    <!--<Button Content="Medical record " Height="30" Width="110" Margin="445,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenMedicalRecord" Grid.ColumnSpan="2"/>
+                    <Button Content="Issue a prescription" Height="30" Width="110" Margin="325,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenIssuePrescripption"/>-->
+
+                    <Label Content="Enter the medicine" HorizontalAlignment="Left" Margin="20,30,0,0"  VerticalAlignment="Top" Height="35" Width="160" FontSize="18"/>
+                    <Label Content="Medicine id:" HorizontalAlignment="Left" Margin="20,100,0,10"  VerticalAlignment="Top" Height="35" Width="100" FontSize="14"/>
+                    <Label Content="Medicine name:" HorizontalAlignment="Left" Margin="20,160,0,10"  VerticalAlignment="Top" Height="35" Width="107" FontSize="14"/>
+                    <Label Content="Manufacturer:" HorizontalAlignment="Left" Margin="20,220,0,10"  VerticalAlignment="Top" Height="35" Width="120" FontSize="14"/>
+                    <Label Content="Ingredients:" HorizontalAlignment="Left" Margin="20,280,0,10"  VerticalAlignment="Top" Height="35" Width="120" FontSize="14"/>
+                    <Label Content="Quantity:" HorizontalAlignment="Right" Margin="0,100,230,0"  VerticalAlignment="Top" Height="35" Width="120" FontSize="14"/>
+                    <Label Content="Quantity in stock:" HorizontalAlignment="Right" Margin="0,160,230,0"  VerticalAlignment="Top" Height="35" Width="120" FontSize="14"/>
+                    <Label Content="Price:" HorizontalAlignment="Right" Margin="0,220,230,0"  VerticalAlignment="Top" Height="35" Width="120" FontSize="14"/>
+
+                    <TextBox x:Name="medicineId"  Width="140" Height="22" Margin="125,105,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                    <TextBox x:Name="medicineName"  Width="140" Height="22" Margin="125,165,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                    <TextBox x:Name="manufacturer"  Width="140" Height="22" Margin="125,225,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                    <!--<TextBox x:Name="ingredients"  Width="140" Height="22" Margin="125,285,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>-->
+                    <TextBox x:Name="quantity"  Width="140" Height="22" Margin="0,105,90,0" HorizontalAlignment="Right" VerticalAlignment="Top"></TextBox>
+                    <TextBox x:Name="quantityInStock"  Width="140" Height="22" Margin="0,165,90,0" HorizontalAlignment="Right" VerticalAlignment="Top"></TextBox>
+                    <TextBox x:Name="price"  Width="140" Height="22" Margin="0,225,90,0" HorizontalAlignment="Right" VerticalAlignment="Top"></TextBox>
+                    <Button Width="70" Height="20" Name="SubmitButton" Margin="0,0,140,110" VerticalAlignment="Bottom" HorizontalAlignment="Right" Click="ClickToCreateMedicine">Submit</Button>
+
+                </Grid>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+
+
+</Page>

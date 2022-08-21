@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\App.xaml
-11-1864298348
+14-462653308
 
-32-1002669703
-13-1310406943
-AcceptedMedicines.xaml;AllUsers.xaml;DoctorHome.xaml;LoginPage.xaml;MainWindow.xaml;ManagerHome.xaml;MedicinesPendingApprovalDoctor.xaml;MedicinesPendingApprovalPharmacist.xaml;PharmacistHome.xaml;RefusedMedicines.xaml;Registration.xaml;
+35-743058611
+14-2011955616
+AcceptedMedicines.xaml;AllUsers.xaml;DoctorHome.xaml;LoginPage.xaml;MainWindow.xaml;ManagerHome.xaml;CreateMedicine.xaml;MedicinesPendingApprovalDoctor.xaml;MedicinesPendingApprovalPharmacist.xaml;PharmacistHome.xaml;ProcurementOfMedicines.xaml;ReasonForRejection.xaml;RefusedMedicines.xaml;Registration.xaml;
 
 True
 

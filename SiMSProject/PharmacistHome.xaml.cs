@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -46,9 +47,13 @@ namespace SiMSProject
             dataGridMedicines.ItemsSource = Medicines;
         }
 
-        private void GoBack(object sender, RoutedEventArgs e)
+        private void SignOut(object sender, RoutedEventArgs e)
         {
-
+            if (System.Windows.Forms.MessageBox.Show("Are you sure you want to log out?", "Sign out", MessageBoxButtons.YesNo)
+                == (DialogResult)MessageBoxResult.Yes)
+            {
+                this.NavigationService.Navigate(new Uri("LoginPage.xaml", UriKind.Relative));
+            }
         }
 
         private void TextBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -136,24 +141,23 @@ namespace SiMSProject
 
         }
 
-        private void MedicinesPendingApproval(object sender, RoutedEventArgs e)
+        private void ToMedicinesPendingApproval(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("MedicinesPendingApprovalPharmacist.xaml", UriKind.Relative));
 
         }
 
-        private void AcceptedMedicines(object sender, RoutedEventArgs e)
+        private void ToAcceptedMedicines(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("AcceptedMedicines.xaml", UriKind.Relative));
 
         }
 
-        private void RefusedMedicines(object sender, RoutedEventArgs e)
+        private void ToRefusedMedicines(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("RefusedMedicines.xaml", UriKind.Relative));
 
         }
 
-       
     }
 }

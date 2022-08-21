@@ -18,6 +18,8 @@ namespace Model
         public String LastName { get; set; }
         public String PhoneNumber { get; set; }
         public UserTypeEnum UserType { get; set; }
+        public bool IsBlocked { get; set; }
+
 
         public void fromCSV(string[] values)
         {
@@ -29,7 +31,7 @@ namespace Model
             PhoneNumber = values[5];
             //ne radiuserType = (UserType) Enum.Parse(typeof(UserType), values[6], true);
             UserType = (UserTypeEnum)Enum.Parse(typeof(UserTypeEnum), values[6]);
-
+            IsBlocked = values[7].ToLower().Equals("true") ? true : false;
         }
 
         public string[] toCSV()
@@ -43,6 +45,7 @@ namespace Model
                 LastName,
                 PhoneNumber,
                 Enum.GetName(UserType.GetType(), UserType),
+                IsBlocked.ToString()
              //   nameof(userType)
         };
             return user;

@@ -38,5 +38,15 @@ namespace SiMSProject.Controller
         {
             return medicineService.GetAllPendingApprovalMedicines();
         }
+        public Medicine CreateMedicine(Medicine medicine)
+        {
+            return medicineService.CreateMedicine(medicine);
+
+        }
+        public bool Update(Medicine medicine)
+        {
+            return medicineService.Update(medicine);
+        }
+
     }
 }

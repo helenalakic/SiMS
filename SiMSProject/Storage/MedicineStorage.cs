@@ -38,6 +38,20 @@ namespace SiMSProject.Storage
             medicineSerializer.toCSV(fileName, medicines);
             return true;
         }
+        public bool Update(Medicine medicine)
+        {
+            List<Medicine> allMedicines = medicineSerializer.fromCSV(fileName);
+            int foundIndex = -1;
+            foreach (Medicine m in allMedicines)
+            {
+                if (medicine.MedicineId == m.MedicineId)
+                    foundIndex = allMedicines.IndexOf(m);
+            }
+            allMedicines.RemoveAt(foundIndex);
+            allMedicines.Insert(foundIndex, medicine);
+            medicineSerializer.toCSV(fileName, allMedicines);
+            return true;
+        }
 
         public List<Medicine> GetAllMedicines()
         {

@@ -58,3 +58,9 @@ C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\Me
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\MedicinesPendingApprovalPharmacist.baml
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\RefusedMedicines.baml
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\Registration.baml
+C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\ProcurementOfMedicines.g.cs
+C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\ProcurementOfMedicines.baml
+C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\ReasonForRejection.g.cs
+C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\ReasonForRejection.baml
+C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\CreateMedicine.g.cs
+C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\CreateMedicine.baml

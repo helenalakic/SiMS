@@ -18,7 +18,7 @@ namespace Model
         public String Manufacturer { get; set; }
         public int Quantity { get; set; }
         public IDictionary<string, Ingredient> Ingredients { get; set; }
-        public MedicineStatusEnum MedicineStatus { get; set; }
+        public MedicineStatusEnum MedicineStatus { get; set; } = MedicineStatusEnum.PendingApproval;
         public bool Deleted { get; set; }
         public int QuantityInStock { get; set; }
         public double Price { get; set; }

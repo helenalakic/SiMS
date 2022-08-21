@@ -18,7 +18,7 @@
                 <StackPanel  Height="415" Width="210">
                     <Image Width="100" Height="100"/>
                     <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Medicines"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Medicines pending approval" Click="MedicinesPendingApproval"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Medicines pending approval" Click="ToMedicinesPendingApproval"/>
 
                 </StackPanel>
                 <Grid Width="660"  Height="418">

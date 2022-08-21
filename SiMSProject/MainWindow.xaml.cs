@@ -69,47 +69,51 @@ namespace SiMSProject
 
 
             // za prvi put zbog upisa u datoteku
-            // UserController = new UserController();
-            //User user = new User();
-            //user.UMCN = "123";
-            //user.EMAIL = "hela";
-            //user.PASSWORD = "1";
-            //user.FIRSTNAME = "helena";
-            //user.LASTNAME = "lakic";
-            //user.PHONENUMBER = "555";
-            //user.USERTYPE = UserType.Doctor;
+            UserController = new UserController();
+            User user = new User();
+            user.Umcn = "123";
+            user.Email = "hela";
+            user.Password = "1";
+            user.FirstName = "helena";
+            user.LastName = "lakic";
+            user.PhoneNumber = "555";
+            user.UserType = UserTypeEnum.Doctor;
+            user.IsBlocked = false;
 
-            //User user1 = new User();
-            //user1.UMCN = "222";
-            //user1.EMAIL = "maga";
-            //user1.PASSWORD = "2";
-            //user1.FIRSTNAME = "magdalena";
-            //user1.LASTNAME = "lakic";
-            //user1.PHONENUMBER = "333";
-            //user1.USERTYPE = UserType.Pharmacist;
+            User user1 = new User();
+            user1.Umcn = "222";
+            user1.Email = "maga";
+            user1.Password = "2";
+            user1.FirstName = "magdalena";
+            user1.LastName = "lakic";
+            user1.PhoneNumber = "333";
+            user1.UserType = UserTypeEnum.Pharmacist;
+            user1.IsBlocked = false;
 
-            //User user2 = new User();
-            //user2.UMCN = "444";
-            //user2.EMAIL = "boka";
-            //user2.PASSWORD = "3";
-            //user2.FIRSTNAME = "bojana";
-            //user2.LASTNAME = "zekanovic";
-            //user2.PHONENUMBER = "777";
-            //user2.USERTYPE = UserType.Pharmacist;
+            User user2 = new User();
+            user2.Umcn = "444";
+            user2.Email = "boka";
+            user2.Password = "3";
+            user2.FirstName = "bojana";
+            user2.LastName = "zekanovic";
+            user2.PhoneNumber = "777";
+            user2.UserType = UserTypeEnum.Pharmacist;
+            user2.IsBlocked = false;
 
-            //User user3 = new User();
-            //user3.UMCN = "999";
-            //user3.EMAIL = "vanja";
-            //user3.PASSWORD = "4";
-            //user3.FIRSTNAME = "vanja";
-            //user3.LASTNAME = "teodorovic";
-            //user3.PHONENUMBER = "11";
-            //user3.USERTYPE = UserType.Manager;
+            User user3 = new User();
+            user3.Umcn = "999";
+            user3.Email = "vanja";
+            user3.Password = "4";
+            user3.FirstName = "vanja";
+            user3.LastName = "teodorovic";
+            user3.PhoneNumber = "11";
+            user3.UserType = UserTypeEnum.Manager;
+            user3.IsBlocked = false;
 
-            //UserController.Add(user);
-            //UserController.Add(user1);
-            //UserController.Add(user2);
-            //UserController.Add(user3);
+            UserController.Add(user);
+            UserController.Add(user1);
+            UserController.Add(user2);
+            UserController.Add(user3);
 
 
         }

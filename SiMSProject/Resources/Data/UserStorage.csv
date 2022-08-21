@@ -1,9 +1,4 @@
-123|hela|1|helena|lakic|555|Doctor
-222|maga|2|magdalena|lakic|333|Pharmacist
-444|boka|3|bojana|zekanovic|777|Pharmacist
-999|vanja|4|vanja|teodorovic|11|Manager
-33|4|4|f|2|22|Manager
-999999|3|5|f|rf|44|Manager
-4567876|nknkj|877|jj|jhgn|765|Doctor
-3356u|njkn|8uyy|hjjm|bbh|6567|Pharmacist
-111|d|ff3|ana|mil|2|Doctor
+123|hela|1|helena|lakic|555|Doctor|False
+222|maga|2|magdalena|lakic|333|Pharmacist|True
+444|boka|3|bojana|zekanovic|777|Pharmacist|False
+999|vanja|4|vanja|teodorovic|11|Manager|False

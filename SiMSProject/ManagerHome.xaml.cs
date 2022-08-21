@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -48,9 +49,13 @@ namespace SiMSProject
             dataGridMedicines.ItemsSource = Medicines;
         }
 
-        private void GoBack(object sender, RoutedEventArgs e)
+        private void SignOut(object sender, RoutedEventArgs e)
         {
-
+            if (System.Windows.Forms.MessageBox.Show("Are you sure you want to log out?", "Sign out", MessageBoxButtons.YesNo)
+                == (DialogResult)MessageBoxResult.Yes)
+            {
+                this.NavigationService.Navigate(new Uri("LoginPage.xaml", UriKind.Relative));
+            }
         }
 
         private void TextBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
@@ -138,7 +143,7 @@ namespace SiMSProject
             dataGridMedicines.ItemsSource = Medicines;
         }
 
-        private void AllUsers(object sender, RoutedEventArgs e)
+        private void ToAllUsers(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("AllUsers.xaml", UriKind.Relative));
 
@@ -146,12 +151,19 @@ namespace SiMSProject
 
         private void ProcurementButton(object sender, RoutedEventArgs e)
         {
+            Window win = new ProcurementOfMedicines();
+            win.ShowDialog();
+        }
+
+        private void ToRegistration(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Registration.xaml", UriKind.Relative));
 
         }
 
-        private void Registration(object sender, RoutedEventArgs e)
+        private void ToCreateMedicine(object sender, RoutedEventArgs e)
         {
-            this.NavigationService.Navigate(new Uri("Registration.xaml", UriKind.Relative));
+            this.NavigationService.Navigate(new Uri("CreateMedicine.xaml", UriKind.Relative));
 
         }
     }

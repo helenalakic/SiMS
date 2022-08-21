@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -26,6 +27,7 @@ namespace SiMSProject
         private MedicineController medicineController;
         private List<Medicine> PendingApprovalMedicineList { get; set; }
         private ObservableCollection<Medicine> PendingApprovalMedicines { get; set; }
+
 
         public MedicinesPendingApprovalDoctor()
         {
@@ -45,22 +47,16 @@ namespace SiMSProject
             dataGridMedicines.ItemsSource = PendingApprovalMedicines;
         }
 
-        private void GoBack(object sender, RoutedEventArgs e)
+        private void SignOut(object sender, RoutedEventArgs e)
         {
-
+            if (System.Windows.Forms.MessageBox.Show("Are you sure you want to log out?", "Sign out", MessageBoxButtons.YesNo)
+                == (DialogResult)MessageBoxResult.Yes)
+            {
+                this.NavigationService.Navigate(new Uri("LoginPage.xaml", UriKind.Relative));
+            }
         }
 
-        private void ConfirmButton(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void CancelButton(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Medicines(object sender, RoutedEventArgs e)
+        private void ToMedicines(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("DoctorHome.xaml", UriKind.Relative));
 
@@ -70,5 +66,20 @@ namespace SiMSProject
         {
 
         }
+
+        private void DeclineButton(object sender, RoutedEventArgs e)
+        {
+            //Window win = new ReasonForRejection();
+            //win.ShowDialog();
+            
+
+        }
+
+        private void AcceptButton(object sender, RoutedEventArgs e)
+        {
+            System.Windows.MessageBox.Show("The medicine is approved and is included in the list of all approved medicines", "", MessageBoxButton.OK);
+        }
+
+       
     }
 }
