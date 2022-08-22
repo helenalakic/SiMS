@@ -1,0 +1,17 @@
+﻿<Window x:Class="SiMSProject.Ingredients"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SiMSProject"
+        mc:Ignorable="d"
+        Title="Ingredients" Height="350" Width="370">
+    <Grid>
+        <Label Content="Name:" HorizontalAlignment="Left" Margin="40,70,0,0"  VerticalAlignment="Top" Height="35" Width="110" FontSize="14"/>
+        <Label Content="Description:" HorizontalAlignment="Left" Margin="40,150,0,0"  VerticalAlignment="Top" Height="35" Width="110" FontSize="14"/>
+        <TextBox x:Name="name"  Width="140" Height="22" Margin="30,74,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" IsReadOnly="True"></TextBox>
+        <TextBox x:Name="description"  Width="140" Height="80" Margin="30,150,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"></TextBox>
+        <Button Width="70" Height="20" Name="OkButton" Margin="0,0,0,50" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ToOk">OK</Button>
+
+    </Grid>
+</Window>

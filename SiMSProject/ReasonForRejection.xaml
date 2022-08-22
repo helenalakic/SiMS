@@ -1,0 +1,31 @@
+﻿<Window x:Class="SiMSProject.ReasonForRejection"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SiMSProject"
+        mc:Ignorable="d"
+        Title="ReasonForRejection" Height="350" Width="370"  MaxHeight="350" MaxWidth="370" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" Focusable="True" WindowStyle="ToolWindow">
+
+    <Grid>
+        <StackPanel Orientation="Vertical" Width="370" Height="350">
+            <Label Content="First name:" HorizontalAlignment="Left" Margin="40,20,0,0"  VerticalAlignment="Top" Height="35" Width="110" FontSize="14"/>
+            <Label Content="Last name:" HorizontalAlignment="Left" Margin="40,20,0,0"  VerticalAlignment="Top" Height="35" Width="110" FontSize="14"/>
+            <Label Content="User type:" HorizontalAlignment="Left" Margin="40,20,0,0"  VerticalAlignment="Top" Height="35" Width="120" FontSize="14"/>
+            <Label Content="Enter a reason:" HorizontalAlignment="Left" Margin="40,20,0,0"  VerticalAlignment="Top" Height="35" Width="120" FontSize="14"/>
+
+            <TextBox x:Name="firstName"  Width="140" Height="22" Margin="150,-195,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True"></TextBox>
+            <TextBox x:Name="lastName"  Width="140" Height="22" Margin="150,-140,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True"></TextBox>
+            <TextBox x:Name="userType"  Width="140" Height="22" Margin="150,-90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True"></TextBox>
+            <TextBox x:Name="reason"  Width="140" Height="80" Margin="150,-35,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+
+
+
+            <Button Width="70" Height="20" Name="ConfirmButton" Margin="0,15,0,0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ClickToRejection">Confirm</Button>
+
+
+        </StackPanel>
+    </Grid>
+
+
+</Window>
