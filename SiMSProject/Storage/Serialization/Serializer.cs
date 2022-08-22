@@ -16,6 +16,7 @@ namespace SiMSProject.Storage
             foreach (Serializable obj in objects)
             {
                 string line = string.Join(DELIMITER.ToString(), obj.toCSV());
+                Console.WriteLine(line);    
                 streamWriter.WriteLine(line);
             }
         }

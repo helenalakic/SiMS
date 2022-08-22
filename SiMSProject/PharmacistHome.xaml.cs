@@ -27,6 +27,7 @@ namespace SiMSProject
         private MedicineController medicineController;
         private List<Medicine> MedicineList { get; set; }
         private ObservableCollection<Medicine> Medicines { get; set; }
+        public User User = LoginPage.LoggedUser;
 
         public PharmacistHome()
         {
@@ -37,7 +38,7 @@ namespace SiMSProject
             MedicineList = new List<Medicine>();
             Medicines = new ObservableCollection<Medicine>();
 
-            MedicineList = medicineController.GetAllMedicines();
+            MedicineList = medicineController.GetAllAcceptedMedicines();
 
             foreach (Medicine k in MedicineList)
             {
@@ -93,11 +94,6 @@ namespace SiMSProject
             }
         }
 
-        private void OpenMedicalRecord(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void SortBy(object sender, SelectionChangedEventArgs e)
         {
             var comboBoxSortName = ComboBoxSort.SelectedItem.ToString().Split(':')[1].TrimStart(' ');
@@ -136,20 +132,10 @@ namespace SiMSProject
             dataGridMedicines.ItemsSource = Medicines;
         }
 
-        private void OpenIssuePrescripption(object sender, RoutedEventArgs e)
-        {
-
-        }
-
+       
         private void ToMedicinesPendingApproval(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("MedicinesPendingApprovalPharmacist.xaml", UriKind.Relative));
-
-        }
-
-        private void ToAcceptedMedicines(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("AcceptedMedicines.xaml", UriKind.Relative));
 
         }
 
@@ -159,5 +145,10 @@ namespace SiMSProject
 
         }
 
+        private void IngredientsButton(object sender, RoutedEventArgs e)
+        {
+            Window win = new Ingredients();
+            win.ShowDialog();
+        }
     }
 }

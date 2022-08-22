@@ -81,26 +81,11 @@ namespace SiMSProject.Service
             return userStorage.Update(user);
         }
 
-        //public void Remove(string surgeryId)
-        //{
-        //    surgeryStorage.Delete(surgeryId);
-        //}
-
-        //public List<Surgery> GetSurgeriesByPatient(Patient patient)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public List<Surgery> GetByDoctor(string Id)
-        //{
-        //    return surgeryStorage.ReadByDoctor(Id);
-        //}
-
-        //public void Edit(Surgery surgery)
-        //{
-        //    surgeryStorage.Update(surgery);
-        //}
-
+        
+        public User GetUserByUmcn(String umcn)
+        {
+            return userStorage.GetAllUsers().FirstOrDefault(x => x.Umcn.Equals(umcn));
+        }
 
     }
 }

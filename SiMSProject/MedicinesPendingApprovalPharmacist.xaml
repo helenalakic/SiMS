@@ -5,28 +5,27 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SiMSProject"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="870" Background="White"
+      d:DesignHeight="450" d:DesignWidth="980" Background="White"
       Title="MedicinesPendingApprovalPharmacist">
 
     <Grid>
         <StackPanel Orientation="Vertical">
             <Grid Height="35" Background="White">
-                <Button  Content="Sign out"  HorizontalAlignment="Left" Margin="689,8,0,0" VerticalAlignment="Top" Width="75" Click="SignOut" ></Button>
+                <Button  Content="Sign out"  HorizontalAlignment="Left" Margin="860,8,0,0" VerticalAlignment="Top" Width="75" Click="SignOut" ></Button>
             </Grid >
             <StackPanel Orientation="Horizontal"  Height="415" Background="White">
                 <StackPanel  Height="415" Width="210">
                     <Image Width="100" Height="100"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Medicines" Click="ToMedicines"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="All medicines" Click="ToMedicines"/>
                     <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Medicines pending approval"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Accepted medicines" Click="ToAcceptedMedicines" />
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Refused medicines" Click="ToRefusedMedicines" />
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Rejected medicines" Click="ToRefusedMedicines" />
 
                 </StackPanel>
-                <Grid Width="660"  Height="418">
+                <Grid Width="760"  Height="418">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="133*"/>
-                        <ColumnDefinition Width="20*"/>
-                        <ColumnDefinition Width="12*"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="0*"/>
+                        <ColumnDefinition Width="0*"/>
                     </Grid.ColumnDefinitions>
 
                     <!--<Button Content="Medical record " Height="30" Width="110" Margin="445,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenMedicalRecord"/>
@@ -34,16 +33,29 @@
 
                     <DataGrid x:Name="dataGridMedicines"  d:ItemsSource="{Binding PendingApprovalMedicines}" IsReadOnly="True "  
                   SelectionMode="Single" SelectedItem="{Binding pa}" AutoGenerateColumns="False" HorizontalAlignment="Left" 
-                  Height="270" VerticalAlignment="Top" Width="560" Margin="0,95,0,0" Grid.ColumnSpan="2">
+                  Height="270" VerticalAlignment="Top" Width="724" Margin="0,95,0,0">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="medicineId" Binding="{Binding MedicineId}" Width="68"/>
-                            <DataGridTextColumn Header="medicineName" Binding="{Binding MedicineName}" Width="90" />
-                            <DataGridTextColumn Header="manufacturer" Binding="{Binding Manufacturer}" Width="81" />
+                            <DataGridTextColumn Header="medicineName" Binding="{Binding MedicineName}" Width="100" />
+                            <DataGridTextColumn Header="manufacturer" Binding="{Binding Manufacturer}" Width="85" />
                             <DataGridTextColumn Header="quantity" Binding="{Binding Quantity}" Width="54" />
-                            <!--<DataGridTextColumn Header="ingredient" Binding="{Binding Medicine.INGREDIENT}" Width="*"/>-->
+                            <DataGridTemplateColumn Header="ingredients" Width="70">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Name="Ingredients_btn" Content="Ingredients" Click="IngredientsButton" Background="#1d2345" Foreground="White"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
                             <DataGridTextColumn Header="quantityInStock" Binding="{Binding QuantityInStock}" Width="92" />
                             <DataGridTextColumn Header="price (RSD)" Binding="{Binding Price}" Width="68" />
-                            <DataGridTemplateColumn Header="Accept" Width="53">
+                            <DataGridTemplateColumn Header="Approved by" Width="80">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Name="ApprovedBy_btn" Content="Click" Click="ApprovedByButton" Background="#1d2345" Foreground="White"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn Header="Accept" Width="50">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>
                                         <Button Name="Accept_btn" Content="Accept" Click="AcceptButton" Background="#1d2345" Foreground="White"/>

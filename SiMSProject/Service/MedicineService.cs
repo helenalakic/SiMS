@@ -12,10 +12,12 @@ namespace SiMSProject.Service
     public class MedicineService
     {
         private MedicineStorage medicineStorage;
+        private UserStorage userStorage;
 
         public MedicineService()
         {
             medicineStorage = new MedicineStorage();
+            userStorage = new UserStorage();
         }
 
         public void Add(Medicine medicine)
@@ -42,6 +44,8 @@ namespace SiMSProject.Service
         {
             return medicineStorage.GetAllMedicines().Where(x => x.MedicineStatus == MedicineStatusEnum.PendingApproval).ToList();
         }
+       
+       
         public Medicine CreateMedicine(Medicine medicine)
         {
             List<Medicine> medicines = new List<Medicine>();
@@ -59,5 +63,12 @@ namespace SiMSProject.Service
         {
             return medicineStorage.Update(medicine);
         }
+        public void RejectedMedicines(Medicine medicine)
+        {
+            medicine.MedicineStatus = MedicineStatusEnum.Rejected;
+            medicineStorage.Update(medicine);
+        }
+
+        
     }
 }

@@ -5,31 +5,30 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SiMSProject"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="870" Background="White"
+      d:DesignHeight="450" d:DesignWidth="980" Background="White"
       Title="RefusedMedicines">
 
     <Grid>
         <StackPanel Orientation="Vertical">
             <Grid Height="35" Background="White">
-                <Button  Content="Sign out"  HorizontalAlignment="Left" Margin="689,8,0,0" VerticalAlignment="Top" Width="75" Click="SignOut" ></Button>
+                <Button  Content="Sign out"  HorizontalAlignment="Left" Margin="860,8,0,0" VerticalAlignment="Top" Width="75" Click="SignOut" ></Button>
 
             </Grid >
             <StackPanel Orientation="Horizontal"  Height="415" Background="White">
                 <StackPanel  Height="415" Width="210">
                     <Image Width="100" Height="100"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Medicines" Click="ToMedicines"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="All medicines" Click="ToMedicines"/>
                     <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Medicines pending approval" Click="ToMedicinesPendingApproval"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Accepted medicines" Click="ToAcceptedMedicines" />
                     <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Refused medicines" />
 
                 </StackPanel>
-                <Grid Width="660"  Height="418">
+                <Grid Width="760"  Height="418">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="511*"/>
-                        <ColumnDefinition Width="149*"/>
+                        <ColumnDefinition Width="729*"/>
+                        <ColumnDefinition Width="31*"/>
                     </Grid.ColumnDefinitions>
-                    <Label Content="Sort by:" FontFamily="Georgia" Margin="-5,59,446,0" VerticalAlignment="Top" Height="30" Width="70" FontSize="16"/>
-                    <ComboBox Margin="60,60,0,0" Name="ComboBoxSort" SelectionChanged="SortBy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="25">
+                    <Label Content="Sort by:" FontFamily="Georgia" Margin="2,59,529,0" VerticalAlignment="Top" Height="30" FontSize="16"/>
+                    <ComboBox Margin="70,60,0,0" Name="ComboBoxSort" SelectionChanged="SortBy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="25">
                         <!--<ComboBoxItem Content=""></ComboBoxItem>-->
                         <ComboBoxItem Content="Medicine name" ></ComboBoxItem>
                         <ComboBoxItem Content="Price"></ComboBoxItem>
@@ -37,12 +36,9 @@
                     </ComboBox>
 
 
-                    <Label Content="Search by:" FontFamily="Georgia" Margin="228,59,199,0" VerticalAlignment="Top" Height="30" Width="85" FontSize="16"/>
-                    <TextBox x:Name="TextBoxSearch" Margin="440,60,0,0" TextChanged="TextBoxSearch_TextChanged" Background="White" FontSize="16" FontFamily="Georgia" TextAlignment="Left" Text="" Width="120" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                    <!--<Button Height="25" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="605,60,0,0" Width="25">
-                        <Image Height="25" Source="/Images/account-search-outline.png" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,0,0,0" Width="20"></Image>
-                    </Button>-->
-                    <ComboBox Margin="310,60,0,0" Name="ComboBoxSearch" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="25">
+                    <Label Content="Search by:" FontFamily="Georgia" Margin="385,59,243,0" VerticalAlignment="Top" Height="30" FontSize="16"/>
+                    <TextBox x:Name="TextBoxSearch" Margin="600,60,0,0" TextChanged="TextBoxSearch_TextChanged" Background="White" FontSize="16" FontFamily="Georgia" TextAlignment="Left" Text="" Width="120" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <ComboBox Margin="470,60,0,0" Name="ComboBoxSearch" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="25">
                         <!--<ComboBoxItem Content=""></ComboBoxItem>-->
                         <ComboBoxItem Content="Medicine id" ></ComboBoxItem>
                         <ComboBoxItem Content="Medicine name"></ComboBoxItem>
@@ -54,16 +50,22 @@
                     <!--<Button Content="Medical record " Height="30" Width="110" Margin="445,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenMedicalRecord" Grid.ColumnSpan="2"/>
                     <Button Content="Issue a prescription" Height="30" Width="110" Margin="325,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenIssuePrescripption"/>-->
 
-                    <DataGrid x:Name="dataGridMedicines" ItemsSource="{Binding RejectedMedicines}" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Left" 
-                  Height="270" VerticalAlignment="Top" Width="560" Margin="0,95,0,0" Grid.ColumnSpan="2">
+                    <DataGrid x:Name="dataGridMedicines" ItemsSource="{Binding RejectedMedicines}" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Center" 
+                  Height="270" VerticalAlignment="Top" Width="724" Margin="0,95,0,0">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="medicineId" Binding="{Binding MedicineId}" Width="68"/>
-                            <DataGridTextColumn Header="medicineName" Binding="{Binding MedicineName}" Width="90" />
-                            <DataGridTextColumn Header="manufacturer" Binding="{Binding Manufacturer}" Width="81" />
-                            <DataGridTextColumn Header="quantity" Binding="{Binding Quantity}" Width="54" />
-                            <!--<DataGridTextColumn Header="ingredient" Binding="{Binding Medicine.INGREDIENT}" Width="*"/>-->
-                            <DataGridTextColumn Header="quantityInStock" Binding="{Binding QuantityInStock}" Width="92" />
-                            <DataGridTextColumn Header="price (RSD)" Binding="{Binding Price}" Width="68" />
+                            <DataGridTextColumn Header="medicineId" Binding="{Binding MedicineId}" Width="*"/>
+                            <DataGridTextColumn Header="medicineName" Binding="{Binding MedicineName}" Width="100" />
+                            <DataGridTextColumn Header="manufacturer" Binding="{Binding Manufacturer}" Width="*" />
+                            <DataGridTextColumn Header="quantity" Binding="{Binding Quantity}" Width="60" />
+                            <DataGridTemplateColumn Header="ingredients" Width="70">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Name="Ingredients_btn" Content="Ingredients" Click="IngredientsButton" Background="#1d2345" Foreground="White"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="quantityInStock" Binding="{Binding QuantityInStock}" Width="100" />
+                            <DataGridTextColumn Header="price (RSD)" Binding="{Binding Price}" Width="75" />
                             <DataGridTemplateColumn Header="Rejected(reason)" Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>

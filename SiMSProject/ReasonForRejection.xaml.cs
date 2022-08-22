@@ -42,10 +42,11 @@ namespace SiMSProject
 
         private void ClickToRejection(object sender, RoutedEventArgs e)
         {
-            declineMedicine.MedicineStatus = MedicineStatusEnum.Rejected;
-            medicineController.Update(declineMedicine);
+           // declineMedicine.MedicineStatus = MedicineStatusEnum.Rejected;
+            medicineController.RejectedMedicines(declineMedicine);
             this.Hide();
-
+            System.Windows.MessageBox.Show("The medicine has been rejected and is in rejected medicines.");
+            
         }
     }
 }

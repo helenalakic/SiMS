@@ -46,13 +46,11 @@ C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\Si
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\SiMSProject.csproj.CoreCompileInputs.cache
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\SiMSProject.exe
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\SiMSProject.pdb
-C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\AcceptedMedicines.g.cs
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\AllUsers.g.cs
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\MedicinesPendingApprovalDoctor.g.cs
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\MedicinesPendingApprovalPharmacist.g.cs
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\RefusedMedicines.g.cs
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\Registration.g.cs
-C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\AcceptedMedicines.baml
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\AllUsers.baml
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\MedicinesPendingApprovalDoctor.baml
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\MedicinesPendingApprovalPharmacist.baml
@@ -64,3 +62,5 @@ C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\Re
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\ReasonForRejection.baml
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\CreateMedicine.g.cs
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\CreateMedicine.baml
+C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\Ingredients.g.cs
+C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\Ingredients.baml

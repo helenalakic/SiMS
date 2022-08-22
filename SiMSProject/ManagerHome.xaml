@@ -5,26 +5,28 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SiMSProject"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="870"
+      d:DesignHeight="450" d:DesignWidth="980"
       Title="ManagerHome">
 
     <Grid>
         <StackPanel Orientation="Vertical">
             <Grid Height="35" Background="White">
-                <Button  Content="Sign out"  HorizontalAlignment="Left" Margin="689,8,0,0" VerticalAlignment="Top" Width="75" Click="SignOut" ></Button>
+                <Button  Content="Sign out"  HorizontalAlignment="Left" Margin="860,8,0,0" VerticalAlignment="Top" Width="75" Click="SignOut" ></Button>
             </Grid >
             <StackPanel Orientation="Horizontal"  Height="415" Background="White">
                 <StackPanel  Height="415" Width="210">
                     <Image Width="100" Height="100"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Medicines"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Register new users" Click="ToRegistration"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="All users" Click="ToAllUsers" />
+                    <Label Content="Medicines" FontFamily="Georgia" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" FontSize="16"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="All medicines"/>
                     <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Create a medicine" Click="ToCreateMedicine" />
+                    <Label Content="Users" FontFamily="Georgia" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" FontSize="16"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="All users" Click="ToAllUsers" />
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Register new users" Click="ToRegistration"/>
 
                 </StackPanel>
-                <Grid Width="660"  Height="418">
-                    <Label Content="Sort by:" FontFamily="Georgia" Margin="-600,59,0,0" VerticalAlignment="Top" Height="30" Width="70" FontSize="16"/>
-                    <ComboBox Margin="-420,60,0,0" Name="ComboBoxSort" SelectionChanged="SortBy" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Height="25">
+                <Grid Width="760"  Height="418">
+                    <Label Content="Sort by:" FontFamily="Georgia" Margin="2,59,529,0" VerticalAlignment="Top" Height="30" FontSize="16"/>
+                    <ComboBox Margin="70,60,0,0" Name="ComboBoxSort" SelectionChanged="SortBy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="25">
                         <!--<ComboBoxItem Content=""></ComboBoxItem>-->
                         <ComboBoxItem Content="Medicine name" ></ComboBoxItem>
                         <ComboBoxItem Content="Price"></ComboBoxItem>
@@ -32,9 +34,9 @@
                     </ComboBox>
 
 
-                    <Label Content="Search by:" FontFamily="Georgia" Margin="-120,59,0,0" VerticalAlignment="Top" Height="30" Width="85" FontSize="16"/>
-                    <TextBox x:Name="TextBoxSearch" Margin="440,60,0,0" TextChanged="TextBoxSearch_TextChanged" Background="White" FontSize="16" FontFamily="Georgia" TextAlignment="Left" Text="" Width="120" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <ComboBox Margin="80,60,0,0" Name="ComboBoxSearch" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Height="25">
+                    <Label Content="Search by:" FontFamily="Georgia" Margin="385,59,243,0" VerticalAlignment="Top" Height="30" FontSize="16"/>
+                    <TextBox x:Name="TextBoxSearch" Margin="600,60,0,0" TextChanged="TextBoxSearch_TextChanged" Background="White" FontSize="16" FontFamily="Georgia" TextAlignment="Left" Text="" Width="120" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <ComboBox Margin="470,60,0,0" Name="ComboBoxSearch" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="25">
                         <!--<ComboBoxItem Content=""></ComboBoxItem>-->
                         <ComboBoxItem Content="Medicine id" ></ComboBoxItem>
                         <ComboBoxItem Content="Medicine name"></ComboBoxItem>
@@ -43,20 +45,26 @@
                         <ComboBoxItem Content="Quantity"></ComboBoxItem>
                         <ComboBoxItem Content="Ingredients"></ComboBoxItem>
                     </ComboBox>
-                    <Button Content="Medical record " Height="30" Width="110" Margin="445,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenMedicalRecord" Grid.ColumnSpan="2"/>
-                    <Button Content="Issue a prescription" Height="30" Width="110" Margin="325,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenIssuePrescripption"/>
+                    <!--<Button Content="Medical record " Height="30" Width="110" Margin="445,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenMedicalRecord" Grid.ColumnSpan="2"/>
+                    <Button Content="Issue a prescription" Height="30" Width="110" Margin="325,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenIssuePrescripption"/>-->
 
                     <DataGrid x:Name="dataGridMedicines" d:ItemsSource="{Binding Medicines}" IsReadOnly="True "  
                   SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Left" 
-                  Height="270" VerticalAlignment="Top" Width="560" Margin="0,95,0,0">
+                  Height="270" VerticalAlignment="Top" Width="724" Margin="0,95,0,0">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="medicineId" Binding="{Binding MedicineId}" Width="68"/>
-                            <DataGridTextColumn Header="medicineName" Binding="{Binding MedicineName}" Width="90" />
-                            <DataGridTextColumn Header="manufacturer" Binding="{Binding Manufacturer}" Width="81" />
-                            <DataGridTextColumn Header="quantity" Binding="{Binding Quantity}" Width="54" />
-                            <!--<DataGridTextColumn Header="ingredient" Binding="{Binding Medicine.INGREDIENT}" Width="*"/>-->
-                            <DataGridTextColumn Header="quantityInStock" Binding="{Binding QuantityInStock}" Width="92" />
-                            <DataGridTextColumn Header="price (RSD)" Binding="{Binding Price}" Width="68" />
+                            <DataGridTextColumn Header="medicineId" Binding="{Binding MedicineId}" Width="*"/>
+                            <DataGridTextColumn Header="medicineName" Binding="{Binding MedicineName}" Width="100" />
+                            <DataGridTextColumn Header="manufacturer" Binding="{Binding Manufacturer}" Width="*" />
+                            <DataGridTextColumn Header="quantity" Binding="{Binding Quantity}" Width="*" />
+                            <DataGridTemplateColumn Header="ingredients" Width="*">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Name="Ingredients_btn" Content="Ingredients" Click="IngredientsButton" Background="#1d2345" Foreground="White"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTextColumn Header="quantityInStock" Binding="{Binding QuantityInStock}" Width="100" />
+                            <DataGridTextColumn Header="price (RSD)" Binding="{Binding Price}" Width="*" />
                             <DataGridTemplateColumn Header="procurement" Width="*">
                                 <DataGridTemplateColumn.CellTemplate>
                                     <DataTemplate>

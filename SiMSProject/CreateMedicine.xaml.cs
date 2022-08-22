@@ -1,5 +1,6 @@
 ﻿using Model;
 using SiMSProject.Controller;
+using SiMSProject.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,7 +74,7 @@ namespace SiMSProject
                 return;
             }
             medicineController.Add(createdMedicine);
-            System.Windows.MessageBox.Show("The medicine has been added to the list of all medicines");
+            System.Windows.MessageBox.Show("The medicine is pending approval.");
         }
 
         private void SignOut(object sender, RoutedEventArgs e)

@@ -26,6 +26,8 @@ namespace SiMSProject
         private UserController UserController;
         private int counter;
 
+        public static User LoggedUser = new User();
+
         public LoginPage()
         {
             InitializeComponent();
@@ -43,10 +45,10 @@ namespace SiMSProject
             var password = this.password.Text;
             //Console.WriteLine(username);
             //Console.WriteLine(password);
-            User loggedUser = UserController.LoginUser(username, password);
-            if (loggedUser != null)
+            LoggedUser = UserController.LoginUser(username, password);
+            if (LoggedUser != null)
             {   
-                NavigateToHomePage(loggedUser);
+                NavigateToHomePage(LoggedUser);
             }
             else
             {

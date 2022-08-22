@@ -75,15 +75,15 @@ namespace SiMSProject
 
         }
 
-        private void ToAcceptedMedicines(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("AcceptedMedicines.xaml", UriKind.Relative));
-
-        }
-
         private void ToMedicines(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("PharmacistHome.xaml", UriKind.Relative));
+
+        }
+
+        private void IngredientsButton(object sender, RoutedEventArgs e)
+        {
+            this.NavigationService.Navigate(new Uri("Ingredients.xaml", UriKind.Relative));
 
         }
     }

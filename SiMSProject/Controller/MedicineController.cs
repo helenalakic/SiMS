@@ -47,6 +47,9 @@ namespace SiMSProject.Controller
         {
             return medicineService.Update(medicine);
         }
-
+        public void RejectedMedicines(Medicine medicine)
+        {
+            medicineService.RejectedMedicines(medicine);
+        }
     }
 }

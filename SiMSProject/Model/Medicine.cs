@@ -4,10 +4,12 @@
 // Purpose: Definition of Class Medicine
 
 using SiMSProject.Model;
+using SiMSProject.Service;
 using SiMSProject.Storage;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 
 namespace Model
 {
@@ -22,6 +24,8 @@ namespace Model
         public bool Deleted { get; set; }
         public int QuantityInStock { get; set; }
         public double Price { get; set; }
+        public List<User> AcceptedByUsers { get; set; } = new List<User>();
+        public User DeclinedBy { get; set; } = new User();
 
 
         public void fromCSV(string[] values)
@@ -34,7 +38,22 @@ namespace Model
             Price = Double.Parse(values[5]);
             MedicineStatus = (MedicineStatusEnum)Enum.Parse(typeof(MedicineStatusEnum), values[6]);
 
+            UserService userService = new UserService();
 
+            if (string.IsNullOrEmpty(values[7]))
+            {
+                AcceptedByUsers = new List<User>();
+            }else {
+                var acceptedByUsersUmcn = values[7].Split('x');
+                foreach (string umcn in acceptedByUsersUmcn)
+                {
+                    User u = new User();
+                    u = userService.GetUserByUmcn(umcn);
+                    AcceptedByUsers.Add(u);
+                }
+            }
+
+            DeclinedBy = string.IsNullOrEmpty(values[8]) ? new User() : userService.GetUserByUmcn(values[8]);
 
             //var ingredientsString = values[4].Split(',');
             //var ingredientsKey = ingredientsString[0];
@@ -44,6 +63,7 @@ namespace Model
 
         public string[] toCSV()
         {
+
             string[] medicine =
             {
                 MedicineId,
@@ -53,9 +73,11 @@ namespace Model
                 QuantityInStock.ToString(),
                 Price.ToString(),
                 Enum.GetName(MedicineStatus.GetType(), MedicineStatus),
-
+                string.Join("x", AcceptedByUsers.Select(user => user.Umcn).ToList()),
+                DeclinedBy != null ? DeclinedBy.Umcn : "",
                // ingredient.ingredientName,
             };
+
             return medicine;
         }
 

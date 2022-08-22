@@ -1,5 +1,6 @@
 ﻿using Model;
 using SiMSProject.Controller;
+using SiMSProject.Model;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -38,6 +39,7 @@ namespace SiMSProject
             medicineController = new MedicineController();
             PendingApprovalMedicineList = new List<Medicine>();
             PendingApprovalMedicines = new ObservableCollection<Medicine>();
+            pa = new Medicine();
 
             PendingApprovalMedicineList = medicineController.GetAllPendingApprovalMedicines();
 
@@ -57,13 +59,6 @@ namespace SiMSProject
             }
         }
 
-
-        private void ToAcceptedMedicines(object sender, RoutedEventArgs e)
-        {
-            this.NavigationService.Navigate(new Uri("AcceptedMedicines.xaml", UriKind.Relative));
-
-        }
-
         private void ToRefusedMedicines(object sender, RoutedEventArgs e)
         {
             this.NavigationService.Navigate(new Uri("RefusedMedicines.xaml", UriKind.Relative));
@@ -78,13 +73,57 @@ namespace SiMSProject
 
         private void AcceptButton(object sender, RoutedEventArgs e)
         {
-            System.Windows.MessageBox.Show("Are you sure you want to approve the medicine?","Question", MessageBoxButton.YesNo);
+            User u = LoginPage.LoggedUser;
+
+            foreach(User user in pa.AcceptedByUsers)
+            {
+                if (user.Umcn.Equals(u.Umcn))
+                {
+                    System.Windows.MessageBox.Show("You've already approved this medicine!");
+                    return;
+                }
+            }
+
+            if (System.Windows.Forms.MessageBox.Show("Are you sure you want to approve this medicine", "Approve the medicine", MessageBoxButtons.YesNo)
+               == (DialogResult)MessageBoxResult.Yes)
+            {
+                pa.AcceptedByUsers.Add(u);
+                medicineController.Update(pa);
+            }
+
+            int countDoctors = pa.AcceptedByUsers.Where(x => x.UserType.ToString().Equals("Doctor")).ToList().Count();
+            Console.WriteLine("BROJ DOKTORA U LISTI " + countDoctors);
+            int countPharmacists = pa.AcceptedByUsers.Where(x => x.UserType.ToString().Equals("Pharmacist")).ToList().Count();
+            Console.WriteLine("BROJ FARMACEUTaA U LISTI " + countPharmacists);
+
+            if(countDoctors >= 1 && countPharmacists >= 2)
+            {
+                pa.MedicineStatus = MedicineStatusEnum.Accepted;
+                medicineController.Update(pa);
+                System.Windows.MessageBox.Show("Medicine is accepted and you can find it in list of All Medicines");
+
+                PendingApprovalMedicines.Remove(pa);
+                dataGridMedicines.ItemsSource = PendingApprovalMedicines;
+            }
         }
 
         private void DeclineButton(object sender, RoutedEventArgs e)
         {
             Console.WriteLine(pa.MedicineName);
             Window win = new ReasonForRejection(pa);
+            win.ShowDialog();
+        }
+
+        private void ApprovedByButton(object sender, RoutedEventArgs e)
+        {
+
+            var approvedByUserType = string.Join(" ", pa.AcceptedByUsers.Select(user => user.UserType).ToList());
+            System.Windows.MessageBox.Show("This medicine is approved by: " + approvedByUserType);
+        }
+
+        private void IngredientsButton(object sender, RoutedEventArgs e)
+        {
+            Window win = new Ingredients();
             win.ShowDialog();
         }
     }

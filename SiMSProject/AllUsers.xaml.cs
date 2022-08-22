@@ -148,28 +148,18 @@ namespace SiMSProject
         private void BlockButton(object sender, RoutedEventArgs e)
         {
             userController.BlockUser(au);
-            System.Windows.Controls.Button Block_btn = (System.Windows.Controls.Button)sender;
-            Block_btn.IsEnabled = false;
-        }
-        async Task Button1Clicked()
-        {
-            button2Disabled = true;
-            await Task.Delay(3000);
-            button2Disabled = false;
-        }
-
-        async Task Button2Clicked()
-        {
-            if (button2Disabled == false) // optional guard
-            {
-            }
+            //System.Windows.Controls.Button Block_btn = (System.Windows.Controls.Button)sender;
+            //Block_btn.IsEnabled = false;
+            System.Windows.MessageBox.Show("The user is blocked!");
         }
 
         private void UnblockButton(object sender, RoutedEventArgs e)
         {
             userController.UnblockUser(au);
-            System.Windows.Controls.Button Unblock_btn = (System.Windows.Controls.Button)sender;
-            Unblock_btn.IsEnabled = false;
+            //System.Windows.Controls.Button Unblock_btn = (System.Windows.Controls.Button)sender;
+            //Unblock_btn.IsEnabled = false;
+            System.Windows.MessageBox.Show("The user is unblocked!");
+
         }
 
         private void ToMedicines(object sender, RoutedEventArgs e)

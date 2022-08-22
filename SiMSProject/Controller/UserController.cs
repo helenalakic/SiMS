@@ -54,25 +54,10 @@ namespace SiMSProject.Controller
 			userService.UnblockUser(user);
 		}
 
+		public User GetUserByUmcn(String umcn)
+        {
+			return userService.GetUserByUmcn(umcn);
+        }
 
-		//public void Edit(Surgery surgery)
-		//{
-		//	surgeryService.Edit(surgery);
-		//}
-
-		//internal List<Surgery> GetByDoctor(string Id)
-		//{
-		//	return surgeryService.GetByDoctor(Id);
-		//}
-
-		///*public List<Surgery> GetAll()
-		//{
-		//	return surgeryService.GetAll();
-		//}*/
-
-		//public void Remove(string surgeryId)
-		//{
-		//	surgeryService.Remove(surgeryId);
-		//}
 	}
 }

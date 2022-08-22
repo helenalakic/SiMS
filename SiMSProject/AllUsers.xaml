@@ -5,33 +5,35 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SiMSProject"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="870" Background="White"
+      d:DesignHeight="450" d:DesignWidth="980" Background="White"
       Title="AllUsers">
 
     <Grid>
         <StackPanel Orientation="Vertical">
             <Grid Height="35" Background="White">
-                <Button  Content="Sign out"  HorizontalAlignment="Left" Margin="689,8,0,0" VerticalAlignment="Top" Width="75" Click="SignOut" ></Button>
+                <Button  Content="Sign out"  HorizontalAlignment="Left" Margin="860,8,0,0" VerticalAlignment="Top" Width="75" Click="SignOut" ></Button>
             </Grid >
             <StackPanel Orientation="Horizontal"  Height="415" Background="White">
                 <StackPanel  Height="415" Width="210">
                     <Image Width="100" Height="100"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Medicines" Click="ToMedicines"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Register new users" Click="ToRegistration"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="All users" />
+                    <Label Content="Medicines" FontFamily="Georgia" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" FontSize="16"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="All Medicines" Click="ToMedicines"/>
                     <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Create a medicine" Click="ToCreateMedicine" />
+                    <Label Content="Users" FontFamily="Georgia" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" FontSize="16"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="All users" />
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Register new users" Click="ToRegistration"/>
 
                 </StackPanel>
-                <Grid Width="660"  Height="418">
-                    <Label Content="Sort:" FontFamily="Georgia" Margin="-600,59,0,0" VerticalAlignment="Top" Height="30" Width="70" FontSize="16"/>
-                    <ComboBox Margin="-490,60,0,0" Name="ComboBoxSortBy" HorizontalAlignment="Center" VerticalAlignment="Top" Width="90" Height="25">
+                <Grid Width="760"  Height="418">
+                    <Label Content="Sort:" FontFamily="Georgia" Margin="-700,59,0,0" VerticalAlignment="Top" Height="30" Width="70" FontSize="16"/>
+                    <ComboBox Margin="-595,60,0,0" Name="ComboBoxSortBy" HorizontalAlignment="Center" VerticalAlignment="Top" Width="90" Height="25">
                         <!--<ComboBoxItem Content=""></ComboBoxItem>-->
                         <ComboBoxItem Content="Ascending" ></ComboBoxItem>
                         <ComboBoxItem Content="Descending"></ComboBoxItem>
                     </ComboBox>
-                    <Label Content="by:" FontFamily="Georgia" Margin="-310,59,0,0" VerticalAlignment="Top" Height="30" Width="70" FontSize="16"/>
+                    <Label Content="by:" FontFamily="Georgia" Margin="-430,59,0,0" VerticalAlignment="Top" Height="30" Width="70" FontSize="16"/>
 
-                    <ComboBox Margin="-200,60,0,0" Name="ComboBoxSort" SelectionChanged="SortBy" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Height="25">
+                    <ComboBox Margin="-320,60,0,0" Name="ComboBoxSort" SelectionChanged="SortBy" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Height="25">
                         <!--<ComboBoxItem Content=""></ComboBoxItem>-->
                         <ComboBoxItem Content="First name" ></ComboBoxItem>
                         <ComboBoxItem Content="Last name"></ComboBoxItem>
@@ -39,8 +41,8 @@
                    
 
                     
-                    <Label Content="Filter by:" FontFamily="Georgia" Margin="155,59,0,0" VerticalAlignment="Top" Height="30" Width="85" FontSize="16"/>
-                    <ComboBox Margin="335,60,0,0" Name="ComboBoxFilter" SelectionChanged="FilterBy" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Height="25">
+                    <Label Content="Filter by:" FontFamily="Georgia" Margin="385,59,0,0" VerticalAlignment="Top" Height="30" Width="85" FontSize="16"/>
+                    <ComboBox Margin="565,60,0,0" Name="ComboBoxFilter" SelectionChanged="FilterBy" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Height="25">
                         <!--<ComboBoxItem Content=""></ComboBoxItem>-->
                         <ComboBoxItem Content="Doctor" ></ComboBoxItem>
                         <ComboBoxItem Content="Pharmacist"></ComboBoxItem>
@@ -50,7 +52,7 @@
 
                     <DataGrid x:Name="dataGridUsers" d:ItemsSource="{Binding Users}" IsReadOnly="True "  SelectedItem="{Binding au}"
                   SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Left" 
-                  Height="270" VerticalAlignment="Top" Width="560" Margin="0,95,0,0">
+                  Height="270" VerticalAlignment="Top" Width="724" Margin="0,95,0,0">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="UMCN" Binding="{Binding Umcn}" Width="*"/>
                             <DataGridTextColumn Header="email" Binding="{Binding Email}" Width="100" />

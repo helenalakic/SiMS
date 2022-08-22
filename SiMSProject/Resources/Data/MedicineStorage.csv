@@ -1,13 +1,5 @@
-5a|rapten|galen|10|50|1000|Accepted
-7b|brufen|pharm|70|20|200|Rejected
-1p|paracetamol|galen|2|40|3500|Rejected
-|||0|0|0|PendingApproval
-|||0|0|0|PendingApproval
-|||0|0|0|PendingApproval
-|||0|0|0|PendingApproval
-|||0|0|0|PendingApproval
-|||0|0|0|Rejected
-7h|andol|betty|99|8|120|Rejected
-8p|placenta|biologique|7|1|6600|Rejected
-85h|dexomen|galen|99|190|75|Rejected
-k9|aspirin|betty|11|8|190|PendingApproval
+5a|rapten|galen|10|50|1000|Accepted|123x222x444|
+7b|brufen|pharm|70|20|200|Accepted|123x222x444|
+1p|paracetamol|galen|2|40|3500|Rejected||222
+k90|cefaleksin|antib|99|8|19|Rejected|123x222|
+u89|cefaleksin|crystal derma|43|5|54|Accepted|222x444x123|

@@ -26,49 +26,18 @@ namespace SiMSProject
         private UserController UserController;
         private MedicineController MedicineController;
 
+        public User LoggedUser = new User();
+
         public MainWindow()
         {
             InitializeComponent();
             LoginPage loginPage = new LoginPage();
+
             MainFrame.NavigationService.Navigate(loginPage);
 
-            //MedicineController = new MedicineController();
-
-            //Medicine medicine = new Medicine();
-            //medicine.MedicineId = "5a";
-            //medicine.MedicineName = "rapten";
-            //medicine.Manufacturer = "galen";
-            //medicine.Quantity = 10;
-            //medicine.QuantityInStock = 50;
-            //medicine.Price = 1000;
-            //medicine.MedicineStatus = MedicineStatusEnum.Accepted;
-
-            //Medicine medicine1 = new Medicine();
-            //medicine1.MedicineId = "7b";
-            //medicine1.MedicineName = "brufen";
-            //medicine1.Manufacturer = "pharm";
-            //medicine1.Quantity = 70;
-            //medicine1.QuantityInStock = 20;
-            //medicine1.Price = 200;
-            //medicine1.MedicineStatus = MedicineStatusEnum.PendingApproval;
 
 
-            //Medicine medicine2 = new Medicine();
-            //medicine2.MedicineId = "1p";
-            //medicine2.MedicineName = "paracetamol";
-            //medicine2.Manufacturer = "galen";
-            //medicine2.Quantity = 2;
-            //medicine2.QuantityInStock = 40;
-            //medicine2.Price = 3500;
-            //medicine2.MedicineStatus = MedicineStatusEnum.Rejected;
-
-
-            //MedicineController.Add(medicine);
-            //MedicineController.Add(medicine1);
-            //MedicineController.Add(medicine2);
-
-
-            // za prvi put zbog upisa u datoteku
+            // ************** USERS ************** 
             UserController = new UserController();
             User user = new User();
             user.Umcn = "123";
@@ -79,6 +48,7 @@ namespace SiMSProject
             user.PhoneNumber = "555";
             user.UserType = UserTypeEnum.Doctor;
             user.IsBlocked = false;
+
 
             User user1 = new User();
             user1.Umcn = "222";
@@ -110,10 +80,54 @@ namespace SiMSProject
             user3.UserType = UserTypeEnum.Manager;
             user3.IsBlocked = false;
 
-            UserController.Add(user);
-            UserController.Add(user1);
-            UserController.Add(user2);
-            UserController.Add(user3);
+            //UserController.Add(user);
+            //UserController.Add(user1);
+            //UserController.Add(user2);
+            //UserController.Add(user3);
+
+
+           // **************MEDICINES * *************
+            MedicineController = new MedicineController();
+            Medicine medicine = new Medicine();
+            medicine.MedicineId = "5a";
+            medicine.MedicineName = "rapten";
+            medicine.Manufacturer = "galen";
+            medicine.Quantity = 10;
+            medicine.QuantityInStock = 50;
+            medicine.Price = 1000;
+            medicine.MedicineStatus = MedicineStatusEnum.Accepted;
+            medicine.AcceptedByUsers.Add(user);
+            medicine.AcceptedByUsers.Add(user1);
+            medicine.AcceptedByUsers.Add(user2);
+            medicine.DeclinedBy = new User();
+
+            Medicine medicine1 = new Medicine();
+            medicine1.MedicineId = "7b";
+            medicine1.MedicineName = "brufen";
+            medicine1.Manufacturer = "pharm";
+            medicine1.Quantity = 70;
+            medicine1.QuantityInStock = 20;
+            medicine1.Price = 200;
+            medicine1.MedicineStatus = MedicineStatusEnum.PendingApproval;
+            medicine1.AcceptedByUsers.Add(user);
+            medicine1.DeclinedBy = new User();
+
+
+            Medicine medicine2 = new Medicine();
+            medicine2.MedicineId = "1p";
+            medicine2.MedicineName = "paracetamol";
+            medicine2.Manufacturer = "galen";
+            medicine2.Quantity = 2;
+            medicine2.QuantityInStock = 40;
+            medicine2.Price = 3500;
+            medicine2.MedicineStatus = MedicineStatusEnum.Rejected;
+            medicine2.AcceptedByUsers = new List<User>();
+            medicine2.DeclinedBy = user1;
+
+            //MedicineController.Add(medicine);
+            //MedicineController.Add(medicine1);
+            //MedicineController.Add(medicine2);
+
 
 
         }

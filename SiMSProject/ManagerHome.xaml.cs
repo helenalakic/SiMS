@@ -95,16 +95,6 @@ namespace SiMSProject
             }
         }
 
-        private void OpenMedicalRecord(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void OpenIssuePrescripption(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void SortBy(object sender, SelectionChangedEventArgs e)
         {
             var comboBoxSortName = ComboBoxSort.SelectedItem.ToString().Split(':')[1].TrimStart(' ');
@@ -165,6 +155,12 @@ namespace SiMSProject
         {
             this.NavigationService.Navigate(new Uri("CreateMedicine.xaml", UriKind.Relative));
 
+        }
+
+        private void IngredientsButton(object sender, RoutedEventArgs e)
+        {
+            Window win = new Ingredients();
+            win.ShowDialog();
         }
     }
 }

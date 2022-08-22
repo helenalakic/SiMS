@@ -66,7 +66,7 @@ namespace SiMSProject
             //medicineController.Add(m1);
             //medicineController.Add(m2);
 
-            MedicineList = medicineController.GetAllMedicines();
+            MedicineList = medicineController.GetAllAcceptedMedicines();
 
             foreach (Medicine k in MedicineList)
             {
@@ -111,16 +111,6 @@ namespace SiMSProject
                 //kod za pretragu
                 return;
             }
-        }
-
-        private void OpenMedicalRecord(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void OpenIssuePrescripption(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void SortBy(object sender, SelectionChangedEventArgs e)
@@ -176,6 +166,10 @@ namespace SiMSProject
             }
         }
 
-       
+        private void IngredientsButton(object sender, RoutedEventArgs e)
+        {
+            Window win = new Ingredients();
+            win.ShowDialog();
+        }
     }
 }
