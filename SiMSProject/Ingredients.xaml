@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SiMSProject"
         mc:Ignorable="d"
-        Title="Ingredients" Height="350" Width="370">
+        Title="Ingredients" Height="350" Width="370" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Background="#b5d2eb">
     <Grid>
         <Label Content="Name:" HorizontalAlignment="Left" Margin="40,70,0,0"  VerticalAlignment="Top" Height="35" Width="110" FontSize="14"/>
         <Label Content="Description:" HorizontalAlignment="Left" Margin="40,150,0,0"  VerticalAlignment="Top" Height="35" Width="110" FontSize="14"/>

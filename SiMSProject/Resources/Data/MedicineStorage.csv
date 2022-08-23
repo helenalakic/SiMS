@@ -1,5 +1,10 @@
-5a|rapten|galen|10|50|1000|Accepted|123x222x444|
-7b|brufen|pharm|70|20|200|Accepted|123x222x444|
-1p|paracetamol|galen|2|40|3500|Rejected||222
-k90|cefaleksin|antib|99|8|19|Rejected|123x222|
-u89|cefaleksin|crystal derma|43|5|54|Accepted|222x444x123|
+5a|rapten|galen|765|50|1000|Accepted|123x222x444||
+7b|brufen|pharm|70|20|200|Rejected|123||
+1p|paracetamol|galen|2|40|3500|Rejected||222|Wrong manufacturer
+789a|krema|placenta|8|9|6600|Rejected|||
+121p|cefaleksin|crystal derma|1|99|150|Rejected|||
+12m|amoksicilin|crystal derma|14|8|150|Rejected|||
+43kk|presing|galia|43|344|994|Rejected||222|The name is not valid
+54kkd|vitamin c|mani|34|88|34|Rejected||222|The name is not correct
+a8s|vitamin cink|oligogal|200|4|442|Rejected||222|Manufacturer is not valid
+99k|cink|oligogal|9|1919|11|Accepted|222x123x444||

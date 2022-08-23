@@ -29,7 +29,8 @@ namespace SiMSProject
         private MedicineController medicineController;
         private List<Medicine> MedicineList { get; set; }
         private ObservableCollection<Medicine> Medicines { get; set; }
-       
+        public static Medicine mp { get; set; }
+
         public ManagerHome()
         {
             InitializeComponent();
@@ -38,8 +39,9 @@ namespace SiMSProject
             medicineController = new MedicineController();
             MedicineList = new List<Medicine>();
             Medicines = new ObservableCollection<Medicine>();
+            mp = new Medicine();
 
-            MedicineList = medicineController.GetAllMedicines();
+            MedicineList = medicineController.GetAllAcceptedMedicines();
 
             foreach (Medicine k in MedicineList)
             {
@@ -141,8 +143,17 @@ namespace SiMSProject
 
         private void ProcurementButton(object sender, RoutedEventArgs e)
         {
-            Window win = new ProcurementOfMedicines();
+            Window win = new ProcurementOfMedicines(mp);
             win.ShowDialog();
+
+            MedicineList = new List<Medicine>();
+            Medicines = new ObservableCollection<Medicine>();
+            MedicineList = medicineController.GetAllAcceptedMedicines();
+            foreach (Medicine k in MedicineList)
+            {
+                Medicines.Add(k);
+            }
+            dataGridMedicines.ItemsSource = Medicines;
         }
 
         private void ToRegistration(object sender, RoutedEventArgs e)

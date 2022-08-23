@@ -5,34 +5,34 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SiMSProject"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="980" Background="White"
+      d:DesignHeight="450" d:DesignWidth="980" Background="#b5d2eb"
       Title="AllUsers">
 
     <Grid>
         <StackPanel Orientation="Vertical">
-            <Grid Height="35" Background="White">
+            <Grid Height="35" Background="#b5d2eb">
                 <Button  Content="Sign out"  HorizontalAlignment="Left" Margin="860,8,0,0" VerticalAlignment="Top" Width="75" Click="SignOut" ></Button>
             </Grid >
-            <StackPanel Orientation="Horizontal"  Height="415" Background="White">
+            <StackPanel Orientation="Horizontal"  Height="415" Background="#b5d2eb">
                 <StackPanel  Height="415" Width="210">
                     <Image Width="100" Height="100"/>
                     <Label Content="Medicines" FontFamily="Georgia" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" FontSize="16"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="All Medicines" Click="ToMedicines"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Create a medicine" Click="ToCreateMedicine" />
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="White" Content="All medicines" Click="ToMedicines"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="White" Content="Create a medicine" Click="ToCreateMedicine" />
                     <Label Content="Users" FontFamily="Georgia" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" FontSize="16"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="All users" />
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Register new users" Click="ToRegistration"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="White" Content="All users" />
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="White" Content="Register new users" Click="ToRegistration"/>
 
                 </StackPanel>
                 <Grid Width="760"  Height="418">
                     <Label Content="Sort:" FontFamily="Georgia" Margin="-700,59,0,0" VerticalAlignment="Top" Height="30" Width="70" FontSize="16"/>
-                    <ComboBox Margin="-595,60,0,0" Name="ComboBoxSortBy" HorizontalAlignment="Center" VerticalAlignment="Top" Width="90" Height="25">
+                    <ComboBox Margin="-595,60,0,0" Name="ComboBoxSortBy" SelectionChanged="SortByAscDesc" HorizontalAlignment="Center" VerticalAlignment="Top" Width="90" Height="25">
                         <!--<ComboBoxItem Content=""></ComboBoxItem>-->
                         <ComboBoxItem Content="Ascending" ></ComboBoxItem>
                         <ComboBoxItem Content="Descending"></ComboBoxItem>
                     </ComboBox>
+                    
                     <Label Content="by:" FontFamily="Georgia" Margin="-430,59,0,0" VerticalAlignment="Top" Height="30" Width="70" FontSize="16"/>
-
                     <ComboBox Margin="-320,60,0,0" Name="ComboBoxSort" SelectionChanged="SortBy" HorizontalAlignment="Center" VerticalAlignment="Top" Width="120" Height="25">
                         <!--<ComboBoxItem Content=""></ComboBoxItem>-->
                         <ComboBoxItem Content="First name" ></ComboBoxItem>

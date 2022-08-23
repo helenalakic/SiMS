@@ -26,6 +26,7 @@ namespace Model
         public double Price { get; set; }
         public List<User> AcceptedByUsers { get; set; } = new List<User>();
         public User DeclinedBy { get; set; } = new User();
+        public String ReasonForRejection { get; set; }
 
 
         public void fromCSV(string[] values)
@@ -54,6 +55,7 @@ namespace Model
             }
 
             DeclinedBy = string.IsNullOrEmpty(values[8]) ? new User() : userService.GetUserByUmcn(values[8]);
+            ReasonForRejection = values[9];
 
             //var ingredientsString = values[4].Split(',');
             //var ingredientsKey = ingredientsString[0];
@@ -75,6 +77,7 @@ namespace Model
                 Enum.GetName(MedicineStatus.GetType(), MedicineStatus),
                 string.Join("x", AcceptedByUsers.Select(user => user.Umcn).ToList()),
                 DeclinedBy != null ? DeclinedBy.Umcn : "",
+                ReasonForRejection,
                // ingredient.ingredientName,
             };
 

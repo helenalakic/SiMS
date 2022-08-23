@@ -100,6 +100,7 @@ namespace SiMSProject
             medicine.AcceptedByUsers.Add(user1);
             medicine.AcceptedByUsers.Add(user2);
             medicine.DeclinedBy = new User();
+            medicine.ReasonForRejection = "";
 
             Medicine medicine1 = new Medicine();
             medicine1.MedicineId = "7b";
@@ -111,6 +112,7 @@ namespace SiMSProject
             medicine1.MedicineStatus = MedicineStatusEnum.PendingApproval;
             medicine1.AcceptedByUsers.Add(user);
             medicine1.DeclinedBy = new User();
+            medicine1.ReasonForRejection = "";
 
 
             Medicine medicine2 = new Medicine();
@@ -123,6 +125,7 @@ namespace SiMSProject
             medicine2.MedicineStatus = MedicineStatusEnum.Rejected;
             medicine2.AcceptedByUsers = new List<User>();
             medicine2.DeclinedBy = user1;
+            medicine2.ReasonForRejection = "Wrong manufacturer";
 
             //MedicineController.Add(medicine);
             //MedicineController.Add(medicine1);

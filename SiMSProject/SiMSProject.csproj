@@ -106,6 +106,9 @@
     <Compile Include="Storage\Serialization\Serializable.cs" />
     <Compile Include="Storage\Serialization\Serializer.cs" />
     <Compile Include="Storage\UserStorage.cs" />
+    <Compile Include="ViewReasonForRejection.xaml.cs">
+      <DependentUpon>ViewReasonForRejection.xaml</DependentUpon>
+    </Compile>
     <Page Include="AllUsers.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -167,6 +170,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Registration.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewReasonForRejection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
