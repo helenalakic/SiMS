@@ -5,23 +5,23 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:SiMSProject"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="980"
+      d:DesignHeight="450" d:DesignWidth="980" Background="#b5d2eb"
       Title="ManagerHome">
 
-    <Grid>
+    <Grid >
         <StackPanel Orientation="Vertical">
-            <Grid Height="35" Background="White">
+            <Grid Height="35" Background="#b5d2eb">
                 <Button  Content="Sign out"  HorizontalAlignment="Left" Margin="860,8,0,0" VerticalAlignment="Top" Width="75" Click="SignOut" ></Button>
             </Grid >
-            <StackPanel Orientation="Horizontal"  Height="415" Background="White">
+            <StackPanel Orientation="Horizontal"  Height="415" >
                 <StackPanel  Height="415" Width="210">
                     <Image Width="100" Height="100"/>
                     <Label Content="Medicines" FontFamily="Georgia" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" FontSize="16"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="All medicines"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Create a medicine" Click="ToCreateMedicine" />
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="White" Content="All medicines"/>
+                    <Button Padding="10" Background="White" Margin="0,0,0,0" BorderBrush="Transparent" Content="Create a medicine" Click="ToCreateMedicine" />
                     <Label Content="Users" FontFamily="Georgia" Margin="0,0,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Height="30" FontSize="16"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="All users" Click="ToAllUsers" />
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Register new users" Click="ToRegistration"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="White" Content="All users" Click="ToAllUsers" />
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="White" Content="Register new users" Click="ToRegistration"/>
 
                 </StackPanel>
                 <Grid Width="760"  Height="418">
@@ -48,7 +48,7 @@
                     <!--<Button Content="Medical record " Height="30" Width="110" Margin="445,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenMedicalRecord" Grid.ColumnSpan="2"/>
                     <Button Content="Issue a prescription" Height="30" Width="110" Margin="325,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenIssuePrescripption"/>-->
 
-                    <DataGrid x:Name="dataGridMedicines" d:ItemsSource="{Binding Medicines}" IsReadOnly="True "  
+                    <DataGrid x:Name="dataGridMedicines" d:ItemsSource="{Binding Medicines}" SelectedItem="{Binding mp}" IsReadOnly="True "  
                   SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Left" 
                   Height="270" VerticalAlignment="Top" Width="724" Margin="0,95,0,0">
                         <DataGrid.Columns>

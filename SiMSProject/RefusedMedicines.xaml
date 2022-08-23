@@ -10,16 +10,16 @@
 
     <Grid>
         <StackPanel Orientation="Vertical">
-            <Grid Height="35" Background="White">
+            <Grid Height="35" Background="#b5d2eb">
                 <Button  Content="Sign out"  HorizontalAlignment="Left" Margin="860,8,0,0" VerticalAlignment="Top" Width="75" Click="SignOut" ></Button>
 
             </Grid >
-            <StackPanel Orientation="Horizontal"  Height="415" Background="White">
+            <StackPanel Orientation="Horizontal"  Height="415" Background="#b5d2eb">
                 <StackPanel  Height="415" Width="210">
                     <Image Width="100" Height="100"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="All medicines" Click="ToMedicines"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Medicines pending approval" Click="ToMedicinesPendingApproval"/>
-                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="Transparent" Content="Refused medicines" />
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="White" Content="All medicines" Click="ToMedicines"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="White" Content="Medicines pending approval" Click="ToMedicinesPendingApproval"/>
+                    <Button Padding="10"  Margin="0,0,0,0" BorderBrush="Transparent" Background="White" Content="Rejected medicines" />
 
                 </StackPanel>
                 <Grid Width="760"  Height="418">
@@ -37,8 +37,15 @@
 
 
                     <Label Content="Search by:" FontFamily="Georgia" Margin="385,59,243,0" VerticalAlignment="Top" Height="30" FontSize="16"/>
-                    <TextBox x:Name="TextBoxSearch" Margin="600,60,0,0" TextChanged="TextBoxSearch_TextChanged" Background="White" FontSize="16" FontFamily="Georgia" TextAlignment="Left" Text="" Width="120" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <ComboBox Margin="470,60,0,0" Name="ComboBoxSearch" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="25">
+                    <!--<Label Content="Min:" FontFamily="Georgia" Margin="510,59,243,0" VerticalAlignment="Top" Height="30" FontSize="16"/>-->
+                    <TextBox x:Name="TextBoxMin"  Margin="600,60,0,0" Visibility="Hidden" Background="White" FontSize="16" FontFamily="Georgia" TextAlignment="Left" Text="" Width="50" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <!--<Label Content="Max:" FontFamily="Georgia" Margin="385,59,243,0" VerticalAlignment="Top" Height="30" FontSize="16"/>-->
+                    <TextBox x:Name="TextBoxMax" Margin="670,60,0,0" Visibility="Hidden"  Background="White" FontSize="16" FontFamily="Georgia" TextAlignment="Left" Text="" Width="50" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Button Height="25" Name="SearchPrice_btn" Visibility="Hidden" Click="SearchByPrice" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,23,20,0" Width="25">
+                        <Image Height="25" Source="/Images/account-search-outline.png" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,0,0" Width="20"></Image>
+                    </Button>
+                    <TextBox x:Name="TextBoxSearch" Margin="599,60,0,0" TextChanged="TextBoxSearch_TextChanged" Background="White" FontSize="16" FontFamily="Georgia" TextAlignment="Left" Text="" Width="120" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <ComboBox Margin="470,60,0,0" Name="ComboBoxSearch" SelectionChanged="ComboBoxSearchByChanged" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="25">
                         <!--<ComboBoxItem Content=""></ComboBoxItem>-->
                         <ComboBoxItem Content="Medicine id" ></ComboBoxItem>
                         <ComboBoxItem Content="Medicine name"></ComboBoxItem>
@@ -50,7 +57,7 @@
                     <!--<Button Content="Medical record " Height="30" Width="110" Margin="445,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenMedicalRecord" Grid.ColumnSpan="2"/>
                     <Button Content="Issue a prescription" Height="30" Width="110" Margin="325,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenIssuePrescripption"/>-->
 
-                    <DataGrid x:Name="dataGridMedicines" ItemsSource="{Binding RejectedMedicines}" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Center" 
+                    <DataGrid x:Name="dataGridMedicines" ItemsSource="{Binding RejectedMedicines}" SelectedItem="{Binding rm}" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Center" 
                   Height="270" VerticalAlignment="Top" Width="724" Margin="0,95,0,0">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="medicineId" Binding="{Binding MedicineId}" Width="*"/>

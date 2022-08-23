@@ -109,9 +109,14 @@ namespace SiMSProject
 
         private void DeclineButton(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(pa.MedicineName);
-            Window win = new ReasonForRejection(pa);
+            User u = LoginPage.LoggedUser;
+
+            Window win = new ReasonForRejection(pa, u);
             win.ShowDialog();
+
+            PendingApprovalMedicines.Remove(pa);
+            dataGridMedicines.ItemsSource = PendingApprovalMedicines;
+
         }
 
         private void ApprovedByButton(object sender, RoutedEventArgs e)

@@ -51,5 +51,14 @@ namespace SiMSProject.Controller
         {
             medicineService.RejectedMedicines(medicine);
         }
+        public List<Medicine> GetPricesOfAcceptedMedicines(double min, double max)
+        {
+            return medicineService.GetPricesOfAcceptedMedicines(min, max);
+        }
+        public List<Medicine> GetPricesOfRejectedMedicines(double min, double max)
+        {
+            return medicineService.GetPricesOfRejectedMedicines(min, max);
+        }
+
     }
 }

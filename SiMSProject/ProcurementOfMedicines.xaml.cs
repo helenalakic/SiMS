@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Model;
+using SiMSProject.Controller;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,14 +23,30 @@ namespace SiMSProject
     /// </summary>
     public partial class ProcurementOfMedicines : Window
     {
-        public ProcurementOfMedicines()
+        private MedicineController medicineController;
+        private Medicine medicineProcurement;
+        private ObservableCollection<Medicine> Medicines { get; set; }
+
+
+        public ProcurementOfMedicines(Medicine medicine)
         {
             InitializeComponent();
+            medicineProcurement = new Medicine();
+            medicineProcurement = medicine;
+            medicineController = new MedicineController();
+
+            this.medicineId.Text = medicine.MedicineId;
+            this.medicineName.Text = medicine.MedicineName;
 
         }
 
         private void ClickToProcurement(object sender, RoutedEventArgs e)
         {
+            var quantity = this.quantity.Text;
+            medicineProcurement.Quantity = Int32.Parse(quantity);
+            medicineController.Update(medicineProcurement);
+
+            this.Hide();
 
         }
     }

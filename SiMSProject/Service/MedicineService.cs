@@ -69,6 +69,14 @@ namespace SiMSProject.Service
             medicineStorage.Update(medicine);
         }
 
-        
+        public List<Medicine> GetPricesOfAcceptedMedicines(double min, double max)
+        {
+            return GetAllAcceptedMedicines().Where(x => x.Price >= min && x.Price <= max).ToList();
+        }
+        public List<Medicine> GetPricesOfRejectedMedicines(double min, double max)
+        {
+            return GetAllRejectedMedicines().Where(x => x.Price >= min && x.Price <= max).ToList();
+        }
+
     }
 }

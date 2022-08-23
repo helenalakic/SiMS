@@ -78,7 +78,6 @@ namespace SiMSProject
             }
             if (comboBoxSearchName.Equals("Price range"))
             {
-                //kod za pretragu
                 return;
 
             }
@@ -149,6 +148,36 @@ namespace SiMSProject
         {
             Window win = new Ingredients();
             win.ShowDialog();
+        }
+
+        private void SearchByPrice(object sender, RoutedEventArgs e)
+        {
+            var resultMin = string.IsNullOrEmpty(this.TextBoxMin.Text) ? 0.0 : Double.Parse(this.TextBoxMin.Text); 
+            var resultMax = string.IsNullOrEmpty(this.TextBoxMax.Text) ? 0.0 : Double.Parse(this.TextBoxMax.Text);
+
+            List<Medicine> medicinePriceList = new List<Medicine>();
+            medicinePriceList = medicineController.GetPricesOfAcceptedMedicines(resultMin,resultMax);
+
+            Medicines = new ObservableCollection<Medicine>();
+            foreach(Medicine m in medicinePriceList)
+            {
+                Medicines.Add(m);
+            }
+            dataGridMedicines.ItemsSource = Medicines;
+
+
+        }
+
+        private void ComboBoxSearchByChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ComboBoxSearch.SelectedItem == null || !ComboBoxSearch.SelectedItem.ToString().Split(':')[1].TrimStart(' ').Equals("Price range"))
+            {
+                return;
+            }
+            this.TextBoxSearch.Visibility = Visibility.Hidden;
+            this.TextBoxMin.Visibility = Visibility.Visible;
+            this.TextBoxMax.Visibility = Visibility.Visible;
+            this.SearchPrice_btn.Visibility = Visibility.Visible;
         }
     }
 }

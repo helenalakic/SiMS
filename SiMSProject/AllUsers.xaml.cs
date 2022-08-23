@@ -49,33 +49,17 @@ namespace SiMSProject
 
         private void SortBy(object sender, SelectionChangedEventArgs e)
         {
-            //var comboBoxSortName = ComboBoxSort.SelectedItem.ToString().Split(':')[1].TrimStart(' ');
-            //Console.WriteLine(ComboBoxSort.SelectedItem);
-
-            //if (comboBoxSortName.Equals("First name"))
-            //{
-            //    UsersList.Sort((x, y) => x.FirstName.CompareTo(y.FirstName));
-            //    SortListToObsCollection();
-            //    return;
-            //}
-
-            //if (comboBoxSortName.Equals("Last name"))
-            //{
-            //    UsersList.Sort((x, y) => x.LastName.CompareTo(y.LastName));
-            //    SortListToObsCollection();
-            //    return;
-            //}
-            var comboBoxSortName = ComboBoxSort.SelectedItem.ToString().Split(':')[1].TrimStart(' ');
-            var comboBoxSortAscDesc = ComboBoxSortBy.SelectedItem.ToString().Split(':')[1].TrimStart(' ');
-            if(comboBoxSortName == null)
+            var comboBoxSortName = ComboBoxSort.SelectedItem != null ? ComboBoxSort.SelectedItem.ToString().Split(':')[1].TrimStart(' ') : "";
+            var comboBoxSortAscDesc = ComboBoxSortBy.SelectedItem != null ? ComboBoxSortBy.SelectedItem.ToString().Split(':')[1].TrimStart(' ') : "";
+            if (comboBoxSortAscDesc.Equals(""))
             {
+                Console.WriteLine("SORT BY ASC");
                 System.Windows.MessageBox.Show("Select a sort method!");
                 return;
             }
-            if (comboBoxSortName.Equals("First name") && comboBoxSortAscDesc.Equals("Ascending"))
+            if (comboBoxSortName.Equals(""))
             {
-                UsersList.Sort((x, y) => x.FirstName.CompareTo(y.FirstName));
-                SortListToObsCollection();
+                System.Windows.MessageBox.Show("Choose sort field!");
                 return;
             }
             if (comboBoxSortName.Equals("First name") && comboBoxSortAscDesc.Equals("Descending"))
@@ -110,11 +94,17 @@ namespace SiMSProject
         }
         private void SortByAscDesc(object sender, SelectionChangedEventArgs e)
         {
-            var comboBoxSortName = ComboBoxSort.SelectedItem.ToString().Split(':')[1].TrimStart(' ');
-            var comboBoxSortAscDesc = ComboBoxSortBy.SelectedItem.ToString().Split(':')[1].TrimStart(' ');
-            if (comboBoxSortAscDesc == null)
+            var comboBoxSortName = ComboBoxSort.SelectedItem != null ? ComboBoxSort.SelectedItem.ToString().Split(':')[1].TrimStart(' ') : "";
+            var comboBoxSortAscDesc = ComboBoxSortBy.SelectedItem != null ? ComboBoxSortBy.SelectedItem.ToString().Split(':')[1].TrimStart(' ') : "";
+            if (comboBoxSortAscDesc.Equals(""))
             {
-                System.Windows.MessageBox.Show("Choose what to sort by!");
+                Console.WriteLine("SORT BY ASC");
+                System.Windows.MessageBox.Show("Select a sort method!");
+                return;
+            }
+            if (comboBoxSortName.Equals(""))
+            {
+                System.Windows.MessageBox.Show("Choose sort field!");
                 return;
             }
             if (comboBoxSortName.Equals("First name") && comboBoxSortAscDesc.Equals("Ascending"))

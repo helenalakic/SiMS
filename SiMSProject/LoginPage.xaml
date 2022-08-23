@@ -6,16 +6,16 @@
       xmlns:local="clr-namespace:SiMSProject"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="LoginPage" Background="White">
+      Title="LoginPage" Background="#b5d2eb">
 
-    <Grid>
-        <Grid>
-            <StackPanel VerticalAlignment="Center">
+    <Grid Background="#b5d2eb">
+        <Grid Background="#b5d2eb">
+            <StackPanel VerticalAlignment="Center" Background="#b5d2eb">
                 <Label HorizontalAlignment="Center" Margin="0,0,190,0">Username</Label>
                 <TextBox x:Name="username"  Width="250" Height="20" ></TextBox>
                 <Label HorizontalAlignment="Center" Margin="0,10,190,0">Password</Label>
                 <TextBox x:Name="password" Width="250" Height="20"></TextBox>
-                <Button Width="70" Name="LoginButton" Margin="181,10,0,0" Click="LoginUser">Submit</Button>
+                <Button Width="70" Name="LoginButton" Content="_Login" Margin="181,10,0,0" Click="LoginUser"></Button>
             </StackPanel>
         </Grid>
     </Grid>

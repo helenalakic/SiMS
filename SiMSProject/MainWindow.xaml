@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SiMSProject"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="970" ResizeMode="NoResize">
-    <Grid>
+        Title="MainWindow" Height="450" Width="970"  WindowStyle="ToolWindow" ResizeMode="NoResize"  WindowStartupLocation="CenterScreen" Background="#b5d2eb">
+    <Grid  Background="#b5d2eb">
         <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden"/>
-
+        
     </Grid>
 </Window>
