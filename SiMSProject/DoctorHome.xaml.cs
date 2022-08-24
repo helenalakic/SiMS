@@ -33,6 +33,11 @@ namespace SiMSProject
             InitializeComponent();
             this.DataContext = this;
 
+            TextBoxMin.Text = "Min";
+            TextBoxMin.Foreground = Brushes.Gray;
+            TextBoxMax.Text = "Max";
+            TextBoxMax.Foreground = Brushes.Gray;
+
             medicineController = new MedicineController();
             MedicineList = new List<Medicine>();
             Medicines = new ObservableCollection<Medicine>();
@@ -97,7 +102,6 @@ namespace SiMSProject
             }
             if (comboBoxSearchName.Equals("Price range"))
             {
-                //kod za pretragu
                 return;
 
             }
@@ -170,6 +174,71 @@ namespace SiMSProject
         {
             Window win = new Ingredients();
             win.ShowDialog();
+        }
+        private void SearchByPrice(object sender, RoutedEventArgs e)
+        {
+            var resultMin = string.IsNullOrEmpty(this.TextBoxMin.Text) ? 0.0 : Double.Parse(this.TextBoxMin.Text);
+            var resultMax = string.IsNullOrEmpty(this.TextBoxMax.Text) ? 0.0 : Double.Parse(this.TextBoxMax.Text);
+
+            List<Medicine> medicinePriceList = new List<Medicine>();
+            medicinePriceList = medicineController.GetPricesOfAcceptedMedicines(resultMin, resultMax);
+
+            Medicines = new ObservableCollection<Medicine>();
+            foreach (Medicine m in medicinePriceList)
+            {
+                Medicines.Add(m);
+            }
+            dataGridMedicines.ItemsSource = Medicines;
+
+
+        }
+
+        private void ComboBoxSearchByChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ComboBoxSearch.SelectedItem == null || !ComboBoxSearch.SelectedItem.ToString().Split(':')[1].TrimStart(' ').Equals("Price range"))
+            {
+                return;
+            }
+            this.TextBoxSearch.Visibility = Visibility.Hidden;
+            this.TextBoxMin.Visibility = Visibility.Visible;
+            this.TextBoxMax.Visibility = Visibility.Visible;
+            this.SearchPrice_btn.Visibility = Visibility.Visible;
+        }
+        private void textBoxMin_GetFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxMin.Text.Trim().Equals("Min"))
+            {
+                TextBoxMin.Text = "";
+                TextBoxMin.Foreground = Brushes.Black;
+            }
+        }
+
+        private void textBoxMin_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxMin.Text.Trim().Equals(String.Empty))
+            {
+                TextBoxMin.Text = "Min";
+                TextBoxMin.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void textBoxMax_GetFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxMax.Text.Trim().Equals("Min"))
+            {
+                TextBoxMax.Text = "";
+                TextBoxMax.Foreground = Brushes.Black;
+            }
+
+        }
+
+        private void textBoxMax_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxMax.Text.Trim().Equals(String.Empty))
+            {
+                TextBoxMax.Text = "Min";
+                TextBoxMax.Foreground = Brushes.Gray;
+            }
         }
     }
 }

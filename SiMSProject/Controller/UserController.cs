@@ -53,6 +53,11 @@ namespace SiMSProject.Controller
 		{
 			userService.UnblockUser(user);
 		}
+		//public bool IsUserBlocked(string username, string password)
+  //      {
+		//	return userService.IsUserBlocked(username, password);
+  //      }
+
 
 		public User GetUserByUmcn(String umcn)
         {

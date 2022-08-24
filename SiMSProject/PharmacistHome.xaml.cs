@@ -34,6 +34,11 @@ namespace SiMSProject
             InitializeComponent();
             this.DataContext = this;
 
+            TextBoxMin.Text = "Min";
+            TextBoxMin.Foreground = Brushes.Gray;
+            TextBoxMax.Text = "Max";
+            TextBoxMax.Foreground = Brushes.Gray;
+
             medicineController = new MedicineController();
             MedicineList = new List<Medicine>();
             Medicines = new ObservableCollection<Medicine>();
@@ -178,6 +183,44 @@ namespace SiMSProject
             this.TextBoxMin.Visibility = Visibility.Visible;
             this.TextBoxMax.Visibility = Visibility.Visible;
             this.SearchPrice_btn.Visibility = Visibility.Visible;
+
+        }
+
+        private void textBoxMin_GetFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxMin.Text.Trim().Equals("Min"))
+            {
+                TextBoxMin.Text = "";
+                TextBoxMin.Foreground = Brushes.Black;
+            }
+        }
+
+        private void textBoxMin_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxMin.Text.Trim().Equals(String.Empty))
+            {
+                TextBoxMin.Text = "Min";
+                TextBoxMin.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void textBoxMax_GetFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxMax.Text.Trim().Equals("Min"))
+            {
+                TextBoxMax.Text = "";
+                TextBoxMax.Foreground = Brushes.Black;
+            }
+
+        }
+
+        private void textBoxMax_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxMax.Text.Trim().Equals(String.Empty))
+            {
+                TextBoxMax.Text = "Min";
+                TextBoxMax.Foreground = Brushes.Gray;
+            }
         }
     }
 }

@@ -28,8 +28,7 @@ namespace SiMSProject.Service
             users = userStorage.GetAllUsers();
             foreach (User user in users)
             {
-               
-                if (user.Email.Equals(username) && user.Password.Equals(password) && !user.IsBlocked)
+                if (user.Email.Equals(username) && user.Password.Equals(password))
                 {
                     return user;
                 }
@@ -70,12 +69,14 @@ namespace SiMSProject.Service
             userStorage.Update(user);
 
         }
+       
         public void UnblockUser(User user)
         {
             user.IsBlocked = false;
             userStorage.Update(user);
 
         }
+       
         public bool Update(User user)
         {
             return userStorage.Update(user);

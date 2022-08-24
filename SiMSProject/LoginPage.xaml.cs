@@ -40,24 +40,35 @@ namespace SiMSProject
 
         private void LoginUser(object sender, RoutedEventArgs e)
         {
+            //TO DO premjestiti u servis
             counter++;
-            var username = this.username.Text;
-            var password = this.password.Text;
-            //Console.WriteLine(username);
-            //Console.WriteLine(password);
+            var username = this.usernameTextBox.Text;
+            var password = this.passwordTextBox.Text;
+            
             LoggedUser = UserController.LoginUser(username, password);
-            if (LoggedUser != null)
-            {   
+
+            if (usernameTextBox.Text == "" || passwordTextBox.Text == "" || usernameTextBox.Text == null || passwordTextBox.Text == null)
+            {
+                MessageBox.Show("Fields cannot be empty!");
+                return;
+            }
+            if (LoggedUser != null )
+            {
+                 if(LoggedUser.IsBlocked)
+                 {
+                    MessageBox.Show("User is blocked!");
+                    return;
+                 }
                 NavigateToHomePage(LoggedUser);
             }
             else
             {
-                MessageBox.Show("Incorrect email or password or user is blocked!");
-                if(counter > 3)
+                MessageBox.Show("Incorrect email or password!");
+                if (counter > 3)
                 { 
                     MessageBox.Show("You cannot access the program!");
                     LoginButton.IsEnabled = false;
-                }   
+                }
             }
         }
 

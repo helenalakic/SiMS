@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -25,6 +26,8 @@ namespace SiMSProject
     {
         private UserController UserController;
         private MedicineController MedicineController;
+        private static Timer aTimer;
+
 
         public User LoggedUser = new User();
 
@@ -35,13 +38,21 @@ namespace SiMSProject
 
             MainFrame.NavigationService.Navigate(loginPage);
 
+            startTimer();
+           
+
+
+
+
+            Console.WriteLine("Press the Enter key to exit the program at any time... ");
+            Console.ReadLine();
 
 
             // ************** USERS ************** 
             UserController = new UserController();
             User user = new User();
             user.Umcn = "123";
-            user.Email = "hela";
+            user.Email = "hela@gmail.com";
             user.Password = "1";
             user.FirstName = "helena";
             user.LastName = "lakic";
@@ -52,7 +63,7 @@ namespace SiMSProject
 
             User user1 = new User();
             user1.Umcn = "222";
-            user1.Email = "maga";
+            user1.Email = "maga@gmail.com";
             user1.Password = "2";
             user1.FirstName = "magdalena";
             user1.LastName = "lakic";
@@ -62,7 +73,7 @@ namespace SiMSProject
 
             User user2 = new User();
             user2.Umcn = "444";
-            user2.Email = "boka";
+            user2.Email = "boka@gmail.com";
             user2.Password = "3";
             user2.FirstName = "bojana";
             user2.LastName = "zekanovic";
@@ -72,7 +83,7 @@ namespace SiMSProject
 
             User user3 = new User();
             user3.Umcn = "999";
-            user3.Email = "vanja";
+            user3.Email = "vanja@gmail.com";
             user3.Password = "4";
             user3.FirstName = "vanja";
             user3.LastName = "teodorovic";
@@ -86,7 +97,7 @@ namespace SiMSProject
             //UserController.Add(user3);
 
 
-           // **************MEDICINES * *************
+            // **************MEDICINES * *************
             MedicineController = new MedicineController();
             Medicine medicine = new Medicine();
             medicine.MedicineId = "5a";
@@ -135,5 +146,34 @@ namespace SiMSProject
 
         }
 
+        private void startTimer()
+        {
+            aTimer = new Timer();
+            aTimer.Interval = 2000;
+
+            // Hook up the Elapsed event for the timer. 
+            aTimer.Elapsed += OnTimedEvent;
+
+            // Have the timer fire repeated events (true is the default)
+            aTimer.AutoReset = true;
+
+            // Start the timer
+            aTimer.Enabled = true;
+
+          
+        }
+
+        private static void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
+        {
+            Console.WriteLine("The Elapsed event was raised at {0}", e.SignalTime);
+            var dateNow = DateTime.Now;
+            var nabavkaDateTime = new DateTime(2022, 8, 25);
+
+            if (nabavkaDateTime >= dateNow)
+            {
+                Console.WriteLine("IZVRIO SE");
+                //izvrsi neki kod za navakufhhc
+            }
+        }
     }
 }

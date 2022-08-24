@@ -59,6 +59,10 @@ namespace SiMSProject.Controller
         {
             return medicineService.GetPricesOfRejectedMedicines(min, max);
         }
+        public List<Medicine> GetPricesOfPendingApprovalMedicines(double min, double max)
+        {
+            return medicineService.GetPricesOfPendingApprovalMedicines(min, max);
+        }
 
     }
 }

@@ -30,14 +30,20 @@ namespace SiMSProject
             userDeclined = new User();
             userDeclined = user;
 
-            this.firstName.Text = user.FirstName;
-            this.lastName.Text = user.LastName;
-            this.userType.Text = user.UserType.ToString();
+            this.firstNameTextBox.Text = user.FirstName;
+            this.lastNameTextBox.Text = user.LastName;
+            this.userTypeTextBox.Text = user.UserType.ToString();
         }
 
         private void ClickToRejection(object sender, RoutedEventArgs e)
         {
-            var reason = this.reason.Text;
+            if (reasonTextBox.Text == "" || reasonTextBox.Text == null)
+            {
+                MessageBox.Show("Fields cannot be empty!");
+                return;
+            }
+            
+            var reason = this.reasonTextBox.Text;
             declineMedicine.ReasonForRejection = reason;
             declineMedicine.DeclinedBy = userDeclined;
 

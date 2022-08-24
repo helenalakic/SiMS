@@ -36,6 +36,11 @@ namespace SiMSProject
             InitializeComponent();
             this.DataContext = this;
 
+            TextBoxMin.Text = "Min";
+            TextBoxMin.Foreground = Brushes.Gray;
+            TextBoxMax.Text = "Max";
+            TextBoxMax.Foreground = Brushes.Gray;
+
             medicineController = new MedicineController();
             PendingApprovalMedicineList = new List<Medicine>();
             PendingApprovalMedicines = new ObservableCollection<Medicine>();
@@ -124,6 +129,144 @@ namespace SiMSProject
         {
             Window win = new Ingredients();
             win.ShowDialog();
+        }
+        private void TextBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var comboBoxSearchName = ComboBoxSearch.SelectedItem.ToString().Split(':')[1].TrimStart(' ');
+            if (comboBoxSearchName.Equals("Medicine id"))
+            {
+                var resultList = PendingApprovalMedicines.Where(medicine => medicine.MedicineId.ToLower().Contains(TextBoxSearch.Text.ToLower()));
+                dataGridMedicines.ItemsSource = resultList;
+                return;
+            }
+            if (comboBoxSearchName.Equals("Medicine name"))
+            {
+                var resultList = PendingApprovalMedicines.Where(medicine => medicine.MedicineName.ToLower().Contains(TextBoxSearch.Text.ToLower()));
+                dataGridMedicines.ItemsSource = resultList; return;
+            }
+            if (comboBoxSearchName.Equals("Manufacturer"))
+            {
+                var resultList = PendingApprovalMedicines.Where(medicine => medicine.Manufacturer.ToLower().Contains(TextBoxSearch.Text.ToLower()));
+                dataGridMedicines.ItemsSource = resultList; return;
+            }
+            if (comboBoxSearchName.Equals("Price range"))
+            {
+                return;
+
+            }
+            if (comboBoxSearchName.Equals("Quantity"))
+            {
+                var resultList = PendingApprovalMedicines.Where(medicine => medicine.Quantity.ToString().Contains(TextBoxSearch.Text));
+                dataGridMedicines.ItemsSource = resultList; return;
+            }
+            if (comboBoxSearchName.Equals("Ingredients"))
+            {
+                //kod za pretragu
+                return;
+            }
+        }
+
+        private void SortBy(object sender, SelectionChangedEventArgs e)
+        {
+            var comboBoxSortName = ComboBoxSort.SelectedItem.ToString().Split(':')[1].TrimStart(' ');
+            Console.WriteLine(ComboBoxSort.SelectedItem);
+
+            if (comboBoxSortName.Equals("Medicine name"))
+            {
+                PendingApprovalMedicineList.Sort((x, y) => x.MedicineName.CompareTo(y.MedicineName));
+                SortListToObsCollection();
+                return;
+            }
+
+            if (comboBoxSortName.Equals("Price"))
+            {
+                PendingApprovalMedicineList.Sort((x, y) => x.Price.CompareTo(y.Price));
+                SortListToObsCollection();
+                return;
+            }
+
+            if (comboBoxSortName.Equals("Quantity in stock"))
+            {
+                PendingApprovalMedicineList.Sort((x, y) => x.QuantityInStock.CompareTo(y.QuantityInStock));
+                SortListToObsCollection();
+                return;
+            }
+        }
+
+        public void SortListToObsCollection()
+        {
+            ObservableCollection<Medicine> sortedMedicines = new ObservableCollection<Medicine>();
+            foreach (Medicine k in PendingApprovalMedicineList)
+            {
+                sortedMedicines.Add(k);
+            }
+            PendingApprovalMedicines = sortedMedicines;
+            dataGridMedicines.ItemsSource = PendingApprovalMedicines;
+        }
+        private void SearchByPrice(object sender, RoutedEventArgs e)
+        {
+            var resultMin = string.IsNullOrEmpty(this.TextBoxMin.Text) ? 0.0 : Double.Parse(this.TextBoxMin.Text);
+            var resultMax = string.IsNullOrEmpty(this.TextBoxMax.Text) ? 0.0 : Double.Parse(this.TextBoxMax.Text);
+
+            List<Medicine> medicinePriceList = new List<Medicine>();
+            medicinePriceList = medicineController.GetPricesOfPendingApprovalMedicines(resultMin, resultMax);
+
+            PendingApprovalMedicines = new ObservableCollection<Medicine>();
+            foreach (Medicine m in medicinePriceList)
+            {
+                PendingApprovalMedicines.Add(m);
+            }
+            dataGridMedicines.ItemsSource = PendingApprovalMedicines;
+
+
+        }
+
+        private void ComboBoxSearchByChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ComboBoxSearch.SelectedItem == null || !ComboBoxSearch.SelectedItem.ToString().Split(':')[1].TrimStart(' ').Equals("Price range"))
+            {
+                return;
+            }
+            this.TextBoxSearch.Visibility = Visibility.Hidden;
+            this.TextBoxMin.Visibility = Visibility.Visible;
+            this.TextBoxMax.Visibility = Visibility.Visible;
+            this.SearchPrice_btn.Visibility = Visibility.Visible;
+        }
+        private void textBoxMin_GetFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxMin.Text.Trim().Equals("Min"))
+            {
+                TextBoxMin.Text = "";
+                TextBoxMin.Foreground = Brushes.Black;
+            }
+        }
+
+        private void textBoxMin_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxMin.Text.Trim().Equals(String.Empty))
+            {
+                TextBoxMin.Text = "Min";
+                TextBoxMin.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void textBoxMax_GetFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxMax.Text.Trim().Equals("Min"))
+            {
+                TextBoxMax.Text = "";
+                TextBoxMax.Foreground = Brushes.Black;
+            }
+
+        }
+
+        private void textBoxMax_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxMax.Text.Trim().Equals(String.Empty))
+            {
+                TextBoxMax.Text = "Min";
+                TextBoxMax.Foreground = Brushes.Gray;
+            }
         }
     }
 }

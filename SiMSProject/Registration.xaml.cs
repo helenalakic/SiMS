@@ -58,12 +58,12 @@ namespace SiMSProject
 
         private void ClickToRegisterUser(object sender, RoutedEventArgs e)
         {
-            var firstName = this.firstName.Text;
-            var lastName = this.lastName.Text;
-            var phoneNumber = this.phoneNumber.Text;
-            var umcn = this.umcn.Text;
-            var email = this.email.Text;
-            var password = this.password.Text;
+            var firstName = this.firstNameTextBox.Text;
+            var lastName = this.lastNameTextBox.Text;
+            var phoneNumber = this.phoneNumberTextBox.Text;
+            var umcn = this.umcnTextBox.Text;
+            var email = this.emailTextBox.Text;
+            var password = this.passwordTextBox.Text;
             var userType = this.ComboBoxUser.Text;
             Console.WriteLine(userType);
 
@@ -86,15 +86,33 @@ namespace SiMSProject
             User registredUser = new User();
             registredUser = userController.RegisterUser(user);
 
-            if(registredUser == null)
+            var fieldsEmpty = false;
+            //TO DO null or empty : string.IsNullOrEmpty(firstNameTextBox.Text)
+            if (firstNameTextBox.Text == "" || lastNameTextBox.Text == "" || phoneNumberTextBox.Text == "" || umcnTextBox.Text == ""
+                || emailTextBox.Text == "" || passwordTextBox.Text == "" || ComboBoxUser.Text == "" || firstNameTextBox.Text == null ||
+                lastNameTextBox.Text == null || phoneNumberTextBox.Text == null || umcnTextBox.Text == null ||
+                emailTextBox.Text == null || passwordTextBox.Text == null || ComboBoxUser.Text == null)
+            {
+                System.Windows.MessageBox.Show("Fields cannot be empty!");
+                fieldsEmpty = true;
+                return;
+            }
+            if (!fieldsEmpty && (!emailTextBox.Text.Contains("@")))
+            {
+                System.Windows.MessageBox.Show("Email must contain @");
+                return;
+
+            }
+            if (registredUser == null)
             {
                 System.Windows.MessageBox.Show("This user already exist!");
                 return;
             }
-
-            userController.Add(registredUser);
-            System.Windows.MessageBox.Show("The user has been added to the list of all users");
-            
+            if (!fieldsEmpty && emailTextBox.Text.Contains("@") && registredUser!=null)
+            {
+                userController.Add(registredUser);
+                System.Windows.MessageBox.Show("The user has been added to the list of all users");
+            }
         }
 
         private void ToCreateMedicine(object sender, RoutedEventArgs e)
