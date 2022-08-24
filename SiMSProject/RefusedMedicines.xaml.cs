@@ -37,6 +37,11 @@ namespace SiMSProject
             InitializeComponent();
             this.DataContext = this;
 
+            TextBoxMin.Text = "Min";
+            TextBoxMin.Foreground = Brushes.Gray;
+            TextBoxMax.Text = "Max";
+            TextBoxMax.Foreground = Brushes.Gray;
+
             medicineController = new MedicineController();
             RefusedMedicineList = new List<Medicine>();
             RejectedMedicines = new ObservableCollection<Medicine>();
@@ -185,6 +190,42 @@ namespace SiMSProject
         {
             Window win = new Ingredients();
             win.ShowDialog();
+        }
+        private void textBoxMin_GetFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxMin.Text.Trim().Equals("Min"))
+            {
+                TextBoxMin.Text = "";
+                TextBoxMin.Foreground = Brushes.Black;
+            }
+        }
+
+        private void textBoxMin_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxMin.Text.Trim().Equals(String.Empty))
+            {
+                TextBoxMin.Text = "Min";
+                TextBoxMin.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void textBoxMax_GetFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxMax.Text.Trim().Equals("Min"))
+            {
+                TextBoxMax.Text = "";
+                TextBoxMax.Foreground = Brushes.Black;
+            }
+
+        }
+
+        private void textBoxMax_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (TextBoxMax.Text.Trim().Equals(String.Empty))
+            {
+                TextBoxMax.Text = "Min";
+                TextBoxMax.Foreground = Brushes.Gray;
+            }
         }
     }
 }

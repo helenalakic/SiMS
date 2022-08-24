@@ -33,13 +33,13 @@ namespace SiMSProject
 
         private void ClickToCreateMedicine(object sender, RoutedEventArgs e)
         {
-            var medicineId = this.medicineId.Text;
-            var medicineName = this.medicineName.Text;
-            var manufacturer = this.manufacturer.Text;
+            var medicineId = this.medicineIdTextBox.Text;
+            var medicineName = this.medicineNameTextBox.Text;
+            var manufacturer = this.manufacturerTextBox.Text;
             //var ingredients = this.ingredients.Text;
-            var quantity = this.quantity.Text;
-            var quantityInStock = this.quantityInStock.Text;
-            var price = this.price.Text;
+            var quantity = this.quantityTextBox.Text;
+            var quantityInStock = this.quantityInStockTextBox.Text;
+            var price = this.priceTextBox.Text;
             Console.WriteLine(medicineId);
             Console.WriteLine(medicineName);
             Console.WriteLine(quantity);
@@ -51,9 +51,9 @@ namespace SiMSProject
             medicine.MedicineId = medicineId.ToString();
             medicine.MedicineName = medicineName.ToString();
             medicine.Manufacturer = manufacturer.ToString();
-            medicine.Quantity = Int32.Parse(quantity);
-            medicine.QuantityInStock = Int32.Parse(quantityInStock);
-            double price1 = Double.Parse(price);
+            medicine.Quantity = string.IsNullOrEmpty(quantity) ? 0 : Int32.Parse(quantity);
+            medicine.QuantityInStock = string.IsNullOrEmpty(quantityInStock) ? 0 : Int32.Parse(quantityInStock);
+            double price1 = string.IsNullOrEmpty(price) ? 0.0 : Double.Parse(price);
             medicine.Price = price1;
             // medicine.Ingredients = ingredients;
 
@@ -68,13 +68,27 @@ namespace SiMSProject
             Medicine createdMedicine = new Medicine();
             createdMedicine = medicineController.CreateMedicine(medicine);
 
-            if(createdMedicine == null)
+            var fieldsEmpty = false;
+
+            if (medicineIdTextBox.Text == "" || medicineNameTextBox.Text == "" || manufacturerTextBox.Text == "" || quantityTextBox.Text == "" ||
+                 quantityInStockTextBox.Text == "" || priceTextBox.Text == "" || medicineIdTextBox.Text == null || medicineNameTextBox.Text == null ||
+                 manufacturerTextBox.Text == null || quantityTextBox.Text == null || quantityInStockTextBox.Text == null || priceTextBox.Text == null)
+            {
+                System.Windows.MessageBox.Show("Fields cannot be empty!");
+                fieldsEmpty = true;
+                return;
+            }
+            if (createdMedicine == null)
             {
                 System.Windows.MessageBox.Show("This medicine already exist!");
                 return;
             }
-            medicineController.Add(createdMedicine);
-            System.Windows.MessageBox.Show("The medicine is pending approval.");
+            if(!fieldsEmpty && createdMedicine != null)
+            {
+                medicineController.Add(createdMedicine);
+                System.Windows.MessageBox.Show("The medicine is pending approval.");
+            }
+           
         }
 
         private void SignOut(object sender, RoutedEventArgs e)

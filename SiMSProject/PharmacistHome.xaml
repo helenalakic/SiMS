@@ -35,16 +35,14 @@
                     </ComboBox>
 
                     <Label Content="Search by:" FontFamily="Georgia" Margin="385,59,243,0" VerticalAlignment="Top" Height="30" FontSize="16"/>
-                    <!--<Label Content="Min:" FontFamily="Georgia" Margin="510,59,243,0" VerticalAlignment="Top" Height="30" FontSize="16"/>-->
-                    <TextBox x:Name="TextBoxMin"  Margin="600,60,0,0" Visibility="Hidden" Background="White" FontSize="16" FontFamily="Georgia" TextAlignment="Left" Text="" Width="50" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <!--<Label Content="Max:" FontFamily="Georgia" Margin="385,59,243,0" VerticalAlignment="Top" Height="30" FontSize="16"/>-->
-                    <TextBox x:Name="TextBoxMax" Margin="670,60,0,0" Visibility="Hidden"  Background="White" FontSize="16" FontFamily="Georgia" TextAlignment="Left" Text="" Width="50" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-                    <Button Height="25" Name="SearchPrice_btn" Visibility="Hidden" Click="SearchByPrice" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,23,20,0" Width="25">
+                    <TextBox x:Name="TextBoxMin" GotFocus="textBoxMin_GetFocus" LostFocus="textBoxMin_LostFocus" Margin="595,60,0,0" Visibility="Hidden" Background="White" FontSize="16" FontFamily="Georgia" TextAlignment="Left" Text="" Width="50" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox x:Name="TextBoxMax" GotFocus="textBoxMax_GetFocus" LostFocus="textBoxMax_LostFocus" Margin="647,60,0,0" Visibility="Hidden" Background="White" FontSize="16" FontFamily="Georgia" TextAlignment="Left" Text="" Width="50" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Button Height="25" Name="SearchPrice_btn"  Click="SearchByPrice" Visibility="Hidden" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,60,0,0" Width="25">
                         <Image Height="25" Source="/Images/account-search-outline.png" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,0,0" Width="20"></Image>
                     </Button>
                     <TextBox x:Name="TextBoxSearch" Margin="600,60,0,0" TextChanged="TextBoxSearch_TextChanged" Background="White" FontSize="16" FontFamily="Georgia" TextAlignment="Left" Text="" Width="120" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                     <ComboBox Margin="470,60,0,0" Name="ComboBoxSearch"  SelectionChanged="ComboBoxSearchByChanged"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="25">
-                        <!--<ComboBoxItem Content=""></ComboBoxItem>-->
+                        <ComboBoxItem Content=""></ComboBoxItem>
                         <ComboBoxItem Content="Medicine id" ></ComboBoxItem>
                         <ComboBoxItem Content="Medicine name"></ComboBoxItem>
                         <ComboBoxItem Content="Manufacturer"></ComboBoxItem>
@@ -52,9 +50,7 @@
                         <ComboBoxItem Content="Quantity"></ComboBoxItem>
                         <ComboBoxItem Content="Ingredients"></ComboBoxItem>
                     </ComboBox>
-                    <!--<Button Content="Medical record " Height="30" Width="110" Margin="445,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenMedicalRecord"/>
-                    <Button Content="Issue a prescription" Height="30" Width="110" Margin="325,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenIssuePrescripption"/>-->
-
+                   
                     <DataGrid x:Name="dataGridMedicines" d:ItemsSource="{Binding Medicines}" IsReadOnly="True "  
                   SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Center" 
                   Height="270" VerticalAlignment="Top" Width="724" Margin="0,95,0,0">

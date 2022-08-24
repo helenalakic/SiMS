@@ -38,12 +38,12 @@
                     <Label Content="Password:" HorizontalAlignment="Right" Margin="0,160,230,0"  VerticalAlignment="Top" Height="35" Width="120" FontSize="14"/>
                     <Label Content="User type:" HorizontalAlignment="Right" Margin="0,220,230,0"  VerticalAlignment="Top" Height="35" Width="120" FontSize="14"/>
 
-                    <TextBox x:Name="firstName"  Width="140" Height="22" Margin="125,105,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
-                    <TextBox x:Name="lastName"  Width="140" Height="22" Margin="125,165,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
-                    <TextBox x:Name="phoneNumber"  Width="140" Height="22" Margin="125,225,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
-                    <TextBox x:Name="umcn"  Width="140" Height="22" Margin="125,285,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
-                    <TextBox x:Name="email"  Width="140" Height="22" Margin="0,105,140,0" HorizontalAlignment="Right" VerticalAlignment="Top"></TextBox>
-                    <TextBox x:Name="password"  Width="140" Height="22" Margin="0,165,140,0" HorizontalAlignment="Right" VerticalAlignment="Top"></TextBox>
+                    <TextBox x:Name="firstNameTextBox"  Width="140" Height="22" Margin="125,105,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                    <TextBox x:Name="lastNameTextBox"  Width="140" Height="22" Margin="125,165,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                    <TextBox x:Name="phoneNumberTextBox"  Width="140" Height="22" Margin="125,225,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                    <TextBox x:Name="umcnTextBox"  Width="140" Height="22" Margin="125,285,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                    <TextBox x:Name="emailTextBox"  Width="140" Height="22" Margin="0,105,140,0" HorizontalAlignment="Right" VerticalAlignment="Top"></TextBox>
+                    <TextBox x:Name="passwordTextBox"  Width="140" Height="22" Margin="0,165,140,0" HorizontalAlignment="Right" VerticalAlignment="Top"></TextBox>
                     <ComboBox Margin="0,225,140,0" Name="ComboBoxUser" SelectionChanged="SortBy" HorizontalAlignment="Right" VerticalAlignment="Top" Width="140" Height="22">
                         <!--<ComboBoxItem Content=""></ComboBoxItem>-->
                         <ComboBoxItem Content="Doctor" ></ComboBoxItem>

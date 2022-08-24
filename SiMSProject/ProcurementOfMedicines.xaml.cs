@@ -35,14 +35,20 @@ namespace SiMSProject
             medicineProcurement = medicine;
             medicineController = new MedicineController();
 
-            this.medicineId.Text = medicine.MedicineId;
-            this.medicineName.Text = medicine.MedicineName;
+            this.medicineIdTextBox.Text = medicine.MedicineId;
+            this.medicineNameTextBox.Text = medicine.MedicineName;
 
         }
 
         private void ClickToProcurement(object sender, RoutedEventArgs e)
         {
-            var quantity = this.quantity.Text;
+            //TO DO null or empty
+            if (quantityTextBox.Text == "" || quantityTextBox.Text == null)
+            {
+                MessageBox.Show("Fields cannot be empty!");
+                return;
+            }
+            var quantity = this.quantityTextBox.Text;
             medicineProcurement.Quantity = Int32.Parse(quantity);
             medicineController.Update(medicineProcurement);
 

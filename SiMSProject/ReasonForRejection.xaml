@@ -14,10 +14,10 @@
             <Label Content="User type:" HorizontalAlignment="Left" Margin="40,20,0,0"  VerticalAlignment="Top" Height="35" Width="120" FontSize="14"/>
             <Label Content="Enter a reason:" HorizontalAlignment="Left" Margin="40,20,0,0"  VerticalAlignment="Top" Height="35" Width="120" FontSize="14"/>
 
-            <TextBox x:Name="firstName"  Width="140" Height="22" Margin="150,-195,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True"></TextBox>
-            <TextBox x:Name="lastName"  Width="140" Height="22" Margin="150,-140,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True"></TextBox>
-            <TextBox x:Name="userType"  Width="140" Height="22" Margin="150,-90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True"></TextBox>
-            <TextBox x:Name="reason"  Width="140" Height="80" Margin="150,-35,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+            <TextBox x:Name="firstNameTextBox"  Width="140" Height="22" Margin="150,-195,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True"></TextBox>
+            <TextBox x:Name="lastNameTextBox"  Width="140" Height="22" Margin="150,-140,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True"></TextBox>
+            <TextBox x:Name="userTypeTextBox"  Width="140" Height="22" Margin="150,-90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" IsReadOnly="True"></TextBox>
+            <TextBox x:Name="reasonTextBox"  Width="140" Height="80" Margin="150,-35,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
 
 
 
