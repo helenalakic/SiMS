@@ -9,7 +9,7 @@
     <Grid>
         <Label Content="Name:" HorizontalAlignment="Left" Margin="40,70,0,0"  VerticalAlignment="Top" Height="35" Width="110" FontSize="14"/>
         <Label Content="Description:" HorizontalAlignment="Left" Margin="40,150,0,0"  VerticalAlignment="Top" Height="35" Width="110" FontSize="14"/>
-        <TextBox x:Name="nameTextBox"  Width="140" Height="22" Margin="30,74,0,0" HorizontalAlignment="Center" VerticalAlignment="Top" IsReadOnly="True"></TextBox>
+        <TextBox x:Name="nameTextBox"  Width="140" Height="22" Margin="30,74,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"></TextBox>
         <TextBox x:Name="descriptionTextBox"  Width="140" Height="80" Margin="30,150,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"></TextBox>
         <Button Width="70" Height="20" Name="OkButton" Margin="0,0,0,50" VerticalAlignment="Bottom" HorizontalAlignment="Center" Click="ToOk">OK</Button>
 

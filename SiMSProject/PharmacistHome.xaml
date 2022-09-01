@@ -50,8 +50,8 @@
                         <ComboBoxItem Content="Quantity"></ComboBoxItem>
                         <ComboBoxItem Content="Ingredients"></ComboBoxItem>
                     </ComboBox>
-                   
-                    <DataGrid x:Name="dataGridMedicines" d:ItemsSource="{Binding Medicines}" IsReadOnly="True "  
+
+                    <DataGrid x:Name="dataGridMedicines" d:ItemsSource="{Binding Medicines}" SelectedItem="{Binding selectedMedicinePh}" IsReadOnly="True "  
                   SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Center" 
                   Height="270" VerticalAlignment="Top" Width="724" Margin="0,95,0,0">
                         <DataGrid.Columns>

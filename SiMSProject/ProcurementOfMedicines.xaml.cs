@@ -1,20 +1,9 @@
 ﻿using Model;
 using SiMSProject.Controller;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace SiMSProject
 {
@@ -26,7 +15,9 @@ namespace SiMSProject
         private MedicineController medicineController;
         private Medicine medicineProcurement;
         private ObservableCollection<Medicine> Medicines { get; set; }
-
+        private Timer aTimer;
+        private int quantity { get; set; }
+        private DateTime dateOfProcurement { get; set; }
 
         public ProcurementOfMedicines(Medicine medicine)
         {
@@ -40,20 +31,50 @@ namespace SiMSProject
 
         }
 
+        private void startTimer()
+        {
+            //60*2*1000 - two minutes - for testing
+            //60*60*1000 - one hour
+            //60*60*24*1000 - one day
+            aTimer = new Timer(10000);
+            aTimer.Elapsed += new ElapsedEventHandler(OnTimedEvent);
+            aTimer.Start();
+        }
+
+
+        private void OnTimedEvent(Object source, ElapsedEventArgs e)
+        {
+            Console.WriteLine("The Elapsed event was raised at {0}", e.SignalTime);
+
+            if (dateOfProcurement < DateTime.Now)
+            {
+                medicineProcurement.Quantity += quantity;
+                medicineController.Update(medicineProcurement);
+                aTimer.Stop();
+            }
+        }
+
         private void ClickToProcurement(object sender, RoutedEventArgs e)
         {
-            //TO DO null or empty
-            if (quantityTextBox.Text == "" || quantityTextBox.Text == null)
+            if (string.IsNullOrEmpty(this.quantityTextBox.Text))
             {
                 MessageBox.Show("Fields cannot be empty!");
                 return;
             }
-            var quantity = this.quantityTextBox.Text;
-            medicineProcurement.Quantity = Int32.Parse(quantity);
-            medicineController.Update(medicineProcurement);
 
+            quantity = Int32.Parse(this.quantityTextBox.Text);
+            
+            if (string.IsNullOrEmpty(this.DateTextBox.Text))
+            {
+                medicineProcurement.Quantity += quantity;
+                medicineController.Update(medicineProcurement);
+            } else {
+                dateOfProcurement = Convert.ToDateTime(this.DateTextBox.Text);
+                Console.WriteLine(this.DateTextBox.Text);
+                startTimer();
+            }
+            
             this.Hide();
-
         }
     }
 }

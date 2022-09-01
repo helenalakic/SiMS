@@ -25,10 +25,12 @@ namespace SiMSProject
     public partial class CreateMedicine : Page
     {
         private MedicineController medicineController;
+        private Medicine medicine { get; set; }
         public CreateMedicine()
         {
             InitializeComponent();
             medicineController = new MedicineController();
+            medicine = new Medicine();
         }
 
         private void ClickToCreateMedicine(object sender, RoutedEventArgs e)
@@ -47,7 +49,6 @@ namespace SiMSProject
             Console.WriteLine(quantityInStock);
             Console.WriteLine(price);
 
-            Medicine medicine = new Medicine();
             medicine.MedicineId = medicineId.ToString();
             medicine.MedicineName = medicineName.ToString();
             medicine.Manufacturer = manufacturer.ToString();
@@ -65,8 +66,7 @@ namespace SiMSProject
             Console.WriteLine(medicine.Price);
 
 
-            Medicine createdMedicine = new Medicine();
-            createdMedicine = medicineController.CreateMedicine(medicine);
+
 
             var fieldsEmpty = false;
 
@@ -78,17 +78,32 @@ namespace SiMSProject
                 fieldsEmpty = true;
                 return;
             }
+
+            Medicine createdMedicine = new Medicine();
+            createdMedicine = medicineController.CreateMedicine(medicine);
+
+
+            if (medicine.Ingredients.Count >= 1)
+            {
+                var isUpdated = medicineController.Update(medicine);
+                System.Windows.MessageBox.Show("The medicine is pending approval.");
+                return;
+            }
+
+
             if (createdMedicine == null)
             {
                 System.Windows.MessageBox.Show("This medicine already exist!");
                 return;
             }
-            if(!fieldsEmpty && createdMedicine != null)
+
+
+            if (!fieldsEmpty && createdMedicine != null)
             {
                 medicineController.Add(createdMedicine);
                 System.Windows.MessageBox.Show("The medicine is pending approval.");
             }
-           
+
         }
 
         private void SignOut(object sender, RoutedEventArgs e)
@@ -114,6 +129,26 @@ namespace SiMSProject
         {
             this.NavigationService.Navigate(new Uri("Registration.xaml", UriKind.Relative));
 
+        }
+
+        private void AddIngredients(object sender, RoutedEventArgs e)
+        {
+            if(string.IsNullOrEmpty(medicineIdTextBox.Text))
+            {
+                System.Windows.MessageBox.Show("You need to enter medicine id!");
+                return;
+            }
+            medicine.MedicineId = medicineIdTextBox.Text;
+           
+            Window win = new Ingredients(medicine);
+            win.ShowDialog();
+           
+        }
+
+        private void AddedIngredients(object sender, RoutedEventArgs e)
+        {
+            var allIngredients = string.Join("\r\n", medicine.Ingredients.Values.Select(x => "Name: " + x.IngredientName + ", Description: " + x.IngredientDescription).ToList());
+            System.Windows.MessageBox.Show("All ingredients: \r\n" + allIngredients);
         }
     }
 }

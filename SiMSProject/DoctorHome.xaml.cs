@@ -27,6 +27,7 @@ namespace SiMSProject
         private MedicineController medicineController;
         private List<Medicine> MedicineList { get; set; }
         private ObservableCollection<Medicine> Medicines { get; set; }
+        public static Medicine selectedMedicineDh { get; set; }
 
         public DoctorHome()
         {
@@ -172,8 +173,8 @@ namespace SiMSProject
 
         private void IngredientsButton(object sender, RoutedEventArgs e)
         {
-            Window win = new Ingredients();
-            win.ShowDialog();
+            var allIngredients = string.Join("\r\n", selectedMedicineDh.Ingredients.Values.Select(x => "Name: " + x.IngredientName + ", Description: " + x.IngredientDescription).ToList());
+            System.Windows.MessageBox.Show("All ingredients: \r\n" + allIngredients);
         }
         private void SearchByPrice(object sender, RoutedEventArgs e)
         {
