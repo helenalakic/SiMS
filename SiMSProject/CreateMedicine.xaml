@@ -34,15 +34,18 @@
                     <Label Content="Medicine id:" HorizontalAlignment="Left" Margin="20,100,0,10"  VerticalAlignment="Top" Height="35" Width="100" FontSize="14"/>
                     <Label Content="Medicine name:" HorizontalAlignment="Left" Margin="20,160,0,10"  VerticalAlignment="Top" Height="35" Width="107" FontSize="14"/>
                     <Label Content="Manufacturer:" HorizontalAlignment="Left" Margin="20,220,0,10"  VerticalAlignment="Top" Height="35" Width="120" FontSize="14"/>
-                    <Label Content="Ingredients:" HorizontalAlignment="Left" Margin="20,280,0,10"  VerticalAlignment="Top" Height="35" Width="120" FontSize="14"/>
+                    <Label Content="Add ingredients:" HorizontalAlignment="Left" Margin="20,270,0,10"  VerticalAlignment="Top" Height="35" Width="120" FontSize="14"/>
+                    <Label Content="Added ingredients:" HorizontalAlignment="Left" Margin="20,330,0,10"  VerticalAlignment="Top" Height="35" Width="120" FontSize="14"/>
                     <Label Content="Quantity:" HorizontalAlignment="Right" Margin="0,100,230,0"  VerticalAlignment="Top" Height="35" Width="120" FontSize="14"/>
                     <Label Content="Quantity in stock:" HorizontalAlignment="Right" Margin="0,160,230,0"  VerticalAlignment="Top" Height="35" Width="120" FontSize="14"/>
                     <Label Content="Price:" HorizontalAlignment="Right" Margin="0,220,230,0"  VerticalAlignment="Top" Height="35" Width="120" FontSize="14"/>
 
-                    <TextBox x:Name="medicineIdTextBox"  Width="140" Height="22" Margin="125,105,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
-                    <TextBox x:Name="medicineNameTextBox"  Width="140" Height="22" Margin="125,165,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
-                    <TextBox x:Name="manufacturerTextBox"  Width="140" Height="22" Margin="125,225,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                    <TextBox x:Name="medicineIdTextBox"  Width="140" Height="22" Margin="140,105,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                    <TextBox x:Name="medicineNameTextBox"  Width="140" Height="22" Margin="140,165,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
+                    <TextBox x:Name="manufacturerTextBox"  Width="140" Height="22" Margin="140,225,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>
                     <!--<TextBox x:Name="ingredients"  Width="140" Height="22" Margin="125,285,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"></TextBox>-->
+                    <Button Width="140" Height="20" Name="addIngredients" Content="Add ingredients" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="140,285,0,0" Click="AddIngredients"></Button>
+                    <Button Width="140" Height="20" Name="addedIngredients" Content="Added ingredients" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="140,335,0,0" Click="AddedIngredients"></Button>
                     <TextBox x:Name="quantityTextBox"  Width="140" Height="22" Margin="0,105,90,0" HorizontalAlignment="Right" VerticalAlignment="Top"></TextBox>
                     <TextBox x:Name="quantityInStockTextBox"  Width="140" Height="22" Margin="0,165,90,0" HorizontalAlignment="Right" VerticalAlignment="Top"></TextBox>
                     <TextBox x:Name="priceTextBox"  Width="140" Height="22" Margin="0,225,90,0" HorizontalAlignment="Right" VerticalAlignment="Top"></TextBox>

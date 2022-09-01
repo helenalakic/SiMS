@@ -135,8 +135,8 @@ namespace SiMSProject
 
         private void IngredientsButton(object sender, RoutedEventArgs e)
         {
-            Window win = new Ingredients();
-            win.ShowDialog();
+            var allIngredients = string.Join("\r\n", pa.Ingredients.Values.Select(x => "Name: " + x.IngredientName + ", Description: " + x.IngredientDescription).ToList());
+            System.Windows.MessageBox.Show("All ingredients: \r\n" + allIngredients);
         }
         private void TextBoxSearch_TextChanged(object sender, TextChangedEventArgs e)
         {

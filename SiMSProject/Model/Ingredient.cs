@@ -9,8 +9,8 @@ namespace Model
 {
     public class Ingredient
     {
-        private String ingredientName;
-        private String ingredientDescription;
+        public String IngredientName { get; set; }
+        public String IngredientDescription { get; set; }
 
     }
 }

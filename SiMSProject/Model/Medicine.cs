@@ -19,7 +19,7 @@ namespace Model
         public String MedicineName { get; set; }
         public String Manufacturer { get; set; }
         public int Quantity { get; set; }
-        public IDictionary<string, Ingredient> Ingredients { get; set; }
+        public IDictionary<string, Ingredient> Ingredients { get; set; } = new Dictionary<string, Ingredient>();
         public MedicineStatusEnum MedicineStatus { get; set; } = MedicineStatusEnum.PendingApproval;
         public bool Deleted { get; set; }
         public int QuantityInStock { get; set; }
@@ -57,6 +57,25 @@ namespace Model
             DeclinedBy = string.IsNullOrEmpty(values[8]) ? new User() : userService.GetUserByUmcn(values[8]);
             ReasonForRejection = values[9];
 
+            if (string.IsNullOrEmpty(values[10]))
+            {
+                Ingredients = new Dictionary<string, Ingredient>();
+            }
+            else
+            {
+                var allIngrediants = values[10].Split('#');
+                foreach (string ingridient in allIngrediants)
+                {
+                    var ing = ingridient.Split('!');
+                    Ingredient m = new Ingredient();
+                    m.IngredientName = ing[0];
+                    m.IngredientDescription = ing[1];
+                 //   m = medi.GetUserByUmcn(umcn);
+
+                    Ingredients.Add(m.IngredientName, m);
+                }
+            }
+
             //var ingredientsString = values[4].Split(',');
             //var ingredientsKey = ingredientsString[0];
             //var ingredientsValue = ingredientsString[1];
@@ -65,6 +84,8 @@ namespace Model
 
         public string[] toCSV()
         {
+
+            
 
             string[] medicine =
             {
@@ -78,8 +99,9 @@ namespace Model
                 string.Join("x", AcceptedByUsers.Select(user => user.Umcn).ToList()),
                 DeclinedBy != null ? DeclinedBy.Umcn : "",
                 ReasonForRejection,
-               // ingredient.ingredientName,
-            };
+                string.Join("#", Ingredients.Values.Select(x => x.IngredientName + "!" + x.IngredientDescription).ToList()),
+
+             };
 
             return medicine;
         }

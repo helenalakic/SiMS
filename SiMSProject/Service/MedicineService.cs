@@ -82,5 +82,6 @@ namespace SiMSProject.Service
             return GetAllPendingApprovalMedicines().Where(x => x.Price >= min && x.Price <= max).ToList();
         }
         
+
     }
 }

@@ -54,7 +54,7 @@
                     <!--<Button Content="Medical record " Height="30" Width="110" Margin="445,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenMedicalRecord" Grid.ColumnSpan="2"/>
                     <Button Content="Issue a prescription" Height="30" Width="110" Margin="325,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="OpenIssuePrescripption"/>-->
 
-                    <DataGrid x:Name="dataGridMedicines" ItemsSource="{Binding Medicines}" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Center" 
+                    <DataGrid x:Name="dataGridMedicines" ItemsSource="{Binding Medicines}" SelectedItem="{Binding selectedMedicineDh}" IsReadOnly="True" SelectionMode="Single" AutoGenerateColumns="False" HorizontalAlignment="Center" 
                   Height="270" VerticalAlignment="Top" Width="724" Margin="0,95,0,0">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="medicineId" Binding="{Binding MedicineId}" Width="*"/>

@@ -1,14 +1,22 @@
-5a|rapten|galen|765|50|1000|Accepted|123x222x444||
-7b|brufen|pharm|70|20|200|Rejected|123||
-1p|paracetamol|galen|2|40|3500|Rejected||222|Wrong manufacturer
-789a|krema|placenta|8|9|6600|Rejected|||
-121p|cefaleksin|crystal derma|1|99|150|Rejected|||
-12m|amoksicilin|crystal derma|14|8|150|Rejected|||
-43kk|presing|galia|43|344|994|Rejected||222|The name is not valid
-54kkd|vitamin c|mani|34|88|34|Rejected||222|The name is not correct
-a8s|vitamin cink|oligogal|200|4|442|Rejected||222|Manufacturer is not valid
-99k|cink|oligogal|9|1919|11|Accepted|222x123x444||
-p59|serum|iribiol w|8|3|10500|Rejected||222|Wrong quantity of medicine
-30u|maska|viviant|1|5|9|PendingApproval|||
-s999c|spf gel|heliocare|3|10|3500|Rejected||222|fssf
-j777|kafetin|galen|3|93590|200|PendingApproval|||
+5a|rapten|galen|10|50|1000|Accepted|123x222x444|||mg!magnezijum#ca!kalcijum
+7b|fervex|pharma|11|24|888|PendingApproval||||paracetamol!paracetamol-plus
+1p|paracetamol|galen|2|40|3500|Rejected||222|Wrong manufacturer|ca!kalcijum
+|||0|0|0|PendingApproval||||antibiotik-ca!nanana
+|||0|0|0|PendingApproval||||ant!nanna
+|||0|0|0|PendingApproval||||zn!cink
+|||0|0|0|PendingApproval||||c!vitaminC
+43sg|||0|0|0|PendingApproval||||zn!cink
+56dhb|||0|0|0|PendingApproval||||zn!cink
+43fs|||0|0|0|PendingApproval||||zn!cink
+76dnn|||0|0|0|PendingApproval||||c!vitaminC#zn!cink#antibiotik!antibiotikbla-bla
+hj2828|vitamind|bal|99|777|65|PendingApproval||||aaa!b1b1
+hj3939|andol|apoteka|2|33|555|PendingApproval||||vitaminMg!magnezijum
+24fs3|||0|0|0|PendingApproval||||mg!magnezijum
+34ddf3|andol|galen pl|43|65|654|PendingApproval||||zn!cink#mg!magnezijum
+34j40|presing|pharm|34|444|87|PendingApproval|123|||
+fe2|defrinol|pharma plus|45|44|356|PendingApproval||||
+83n3|||0|0|0|PendingApproval||||paracetamol!paracetamol-plus
+fwe45|rinasek|ph|4|55|999|PendingApproval||||paracetamol!paracetamol-plus
+io334|rinostop|dalia|33|2|432|PendingApproval||||
+43dda|fervex|pharma|11|24|888|PendingApproval||||paracetamol!paracetamol-plus
+7br|||0|0|0|PendingApproval||||r!rrr

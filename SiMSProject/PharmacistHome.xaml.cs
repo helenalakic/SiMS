@@ -28,6 +28,8 @@ namespace SiMSProject
         private List<Medicine> MedicineList { get; set; }
         private ObservableCollection<Medicine> Medicines { get; set; }
         public User User = LoginPage.LoggedUser;
+        public static Medicine selectedMedicinePh { get; set; }
+
 
         public PharmacistHome()
         {
@@ -151,8 +153,8 @@ namespace SiMSProject
 
         private void IngredientsButton(object sender, RoutedEventArgs e)
         {
-            Window win = new Ingredients();
-            win.ShowDialog();
+            var allIngredients = string.Join("\r\n", selectedMedicinePh.Ingredients.Values.Select(x => "Name: " + x.IngredientName + ", Description: " + x.IngredientDescription).ToList());
+            System.Windows.MessageBox.Show("All ingredients: \r\n" + allIngredients);
         }
 
         private void SearchByPrice(object sender, RoutedEventArgs e)

@@ -3,19 +3,9 @@ using SiMSProject.Controller;
 using SiMSProject.Model;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Timers;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+
 
 namespace SiMSProject
 {
@@ -26,7 +16,7 @@ namespace SiMSProject
     {
         private UserController UserController;
         private MedicineController MedicineController;
-        private static Timer aTimer;
+        private Timer aTimer;
 
 
         public User LoggedUser = new User();
@@ -38,14 +28,7 @@ namespace SiMSProject
 
             MainFrame.NavigationService.Navigate(loginPage);
 
-            startTimer();
-           
-
-
-
-
-            Console.WriteLine("Press the Enter key to exit the program at any time... ");
-            Console.ReadLine();
+          //  startTimer();
 
 
             // ************** USERS ************** 
@@ -97,7 +80,7 @@ namespace SiMSProject
             //UserController.Add(user3);
 
 
-            // **************MEDICINES * *************
+            // **************MEDICINES **************
             MedicineController = new MedicineController();
             Medicine medicine = new Medicine();
             medicine.MedicineId = "5a";
@@ -113,6 +96,17 @@ namespace SiMSProject
             medicine.DeclinedBy = new User();
             medicine.ReasonForRejection = "";
 
+            Ingredient i = new Ingredient();
+            i.IngredientName = "mg";
+            i.IngredientDescription = "magnezijum";
+            medicine.Ingredients.Add(i.IngredientName, i);
+
+            Ingredient i2 = new Ingredient();
+            i2.IngredientName = "ca";
+            i2.IngredientDescription = "kalcijum";
+            medicine.Ingredients.Add(i2.IngredientName, i2);
+
+
             Medicine medicine1 = new Medicine();
             medicine1.MedicineId = "7b";
             medicine1.MedicineName = "brufen";
@@ -124,7 +118,7 @@ namespace SiMSProject
             medicine1.AcceptedByUsers.Add(user);
             medicine1.DeclinedBy = new User();
             medicine1.ReasonForRejection = "";
-
+            medicine1.Ingredients = new Dictionary<string, Ingredient>();
 
             Medicine medicine2 = new Medicine();
             medicine2.MedicineId = "1p";
@@ -137,6 +131,7 @@ namespace SiMSProject
             medicine2.AcceptedByUsers = new List<User>();
             medicine2.DeclinedBy = user1;
             medicine2.ReasonForRejection = "Wrong manufacturer";
+            medicine2.Ingredients.Add(i2.IngredientName, i2);
 
             //MedicineController.Add(medicine);
             //MedicineController.Add(medicine1);
@@ -144,36 +139,6 @@ namespace SiMSProject
 
 
 
-        }
-
-        private void startTimer()
-        {
-            aTimer = new Timer();
-            aTimer.Interval = 2000;
-
-            // Hook up the Elapsed event for the timer. 
-            aTimer.Elapsed += OnTimedEvent;
-
-            // Have the timer fire repeated events (true is the default)
-            aTimer.AutoReset = true;
-
-            // Start the timer
-            aTimer.Enabled = true;
-
-          
-        }
-
-        private static void OnTimedEvent(Object source, System.Timers.ElapsedEventArgs e)
-        {
-            Console.WriteLine("The Elapsed event was raised at {0}", e.SignalTime);
-            var dateNow = DateTime.Now;
-            var nabavkaDateTime = new DateTime(2022, 8, 25);
-
-            if (nabavkaDateTime >= dateNow)
-            {
-                Console.WriteLine("IZVRIO SE");
-                //izvrsi neki kod za navakufhhc
-            }
         }
     }
 }
