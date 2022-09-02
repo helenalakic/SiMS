@@ -11,13 +11,13 @@ namespace SiMSProject.Service
 {
     public class MedicineService
     {
-        private MedicineStorage medicineStorage;
-        private UserStorage userStorage;
+        private MedicineRepository medicineStorage;
+        private UserRepository userStorage;
 
         public MedicineService()
         {
-            medicineStorage = new MedicineStorage();
-            userStorage = new UserStorage();
+            medicineStorage = new MedicineRepository();
+            userStorage = new UserRepository();
         }
 
         public void Add(Medicine medicine)
@@ -80,8 +80,66 @@ namespace SiMSProject.Service
         public List<Medicine> GetPricesOfPendingApprovalMedicines(double min, double max)
         {
             return GetAllPendingApprovalMedicines().Where(x => x.Price >= min && x.Price <= max).ToList();
+
         }
         
+        public bool CheckIfMedicineAcceptedByYou(User u, Medicine m)
+        {
+            foreach (User user in m.AcceptedByUsers)
+            {
+                if (user.Umcn.Equals(u.Umcn))
+                {
+                   
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        public bool IsMedicineAcceptedByRelevantUsers(Medicine m)
+        {
+            int countDoctors = m.AcceptedByUsers.Where(x => x.UserType.ToString().Equals("Doctor")).ToList().Count();
+            int countPharmacists = m.AcceptedByUsers.Where(x => x.UserType.ToString().Equals("Pharmacist")).ToList().Count();
+
+
+            if (countDoctors >= 1 && countPharmacists >= 2)
+            {
+                m.MedicineStatus = MedicineStatusEnum.Accepted;
+                Update(m);
+
+                return true;
+            }
+
+            return false;
+        }
+
+        public DateTime? MedicineProcurement(int quantity, string date, Medicine medicine)
+        {
+            DateTime dateOfProcurement;
+            if (string.IsNullOrEmpty(date))
+            {
+                medicine.Quantity += quantity;
+                Update(medicine);
+                return null;
+            }
+            else
+            {
+                return dateOfProcurement = Convert.ToDateTime(date);
+            }
+          
+        
+        }
+
+        public bool CheckProcurementDate(DateTime dateOfProcurement, Medicine medicine, int quantity)
+        {
+            if (dateOfProcurement < DateTime.Now)
+            {
+                medicine.Quantity += quantity;
+                Update(medicine);
+                return true;
+            }
+            return false;
+        }
 
     }
 }

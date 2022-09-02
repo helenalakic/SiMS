@@ -36,6 +36,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DynamicExpresso.Core, Version=2.13.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DynamicExpresso.Core.2.13.0\lib\netstandard2.0\DynamicExpresso.Core.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
@@ -102,10 +105,10 @@
     </Compile>
     <Compile Include="Service\MedicineService.cs" />
     <Compile Include="Service\UserService.cs" />
-    <Compile Include="Storage\MedicineStorage.cs" />
-    <Compile Include="Storage\Serialization\Serializable.cs" />
-    <Compile Include="Storage\Serialization\Serializer.cs" />
-    <Compile Include="Storage\UserStorage.cs" />
+    <Compile Include="Repository\MedicineRepository.cs" />
+    <Compile Include="Repository\Serialization\Serializable.cs" />
+    <Compile Include="Repository\Serialization\Serializer.cs" />
+    <Compile Include="Repository\UserRepository.cs" />
     <Compile Include="ViewReasonForRejection.xaml.cs">
       <DependentUpon>ViewReasonForRejection.xaml</DependentUpon>
     </Compile>
@@ -202,6 +205,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

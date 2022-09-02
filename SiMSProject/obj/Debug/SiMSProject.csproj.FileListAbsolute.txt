@@ -66,3 +66,5 @@ C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\In
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\Ingredients.baml
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\ViewReasonForRejection.g.cs
 C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\ViewReasonForRejection.baml
+C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\bin\Debug\DynamicExpresso.Core.dll
+C:\Users\Helena Lakic\Desktop\SIMS-projekat-Helena\SiMS\SiMSProject\obj\Debug\SiMSProject.csproj.CopyComplete

@@ -64,7 +64,8 @@ namespace SiMSProject
             else
             {
                 MessageBox.Show("Incorrect email or password!");
-                if (counter > 3)
+                var checkCounter = UserController.IsLoggedIncorrectly(counter);
+                if (!checkCounter)
                 { 
                     MessageBox.Show("You cannot access the program!");
                     LoginButton.IsEnabled = false;

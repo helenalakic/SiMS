@@ -64,5 +64,26 @@ namespace SiMSProject.Controller
             return medicineService.GetPricesOfPendingApprovalMedicines(min, max);
         }
 
+        public bool CheckIfMedicineAcceptedByYou(User u, Medicine m)
+        {
+            return medicineService.CheckIfMedicineAcceptedByYou(u, m);
+        }
+
+        public bool IsMedicineAcceptedByRelevantUsers(Medicine m)
+        {
+            return medicineService.IsMedicineAcceptedByRelevantUsers(m);
+        }
+
+        public DateTime? MedicineProcurement(int quantity, string date, Medicine medicine)
+        {
+            return medicineService.MedicineProcurement(quantity, date, medicine);
+        }
+
+
+        public bool CheckProcurementDate(DateTime dateOfProcurement, Medicine medicine, int quantity)
+        {
+            return medicineService.CheckProcurementDate(dateOfProcurement, medicine, quantity);
+        }
+
     }
 }

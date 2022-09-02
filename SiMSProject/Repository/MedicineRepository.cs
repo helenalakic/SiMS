@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace SiMSProject.Storage
 {
-    public class MedicineStorage
+    public class MedicineRepository
     {
 
         private string fileName = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\SiMSProject\Resources\Data\MedicineStorage.csv";
         private Serializer<Medicine> medicineSerializer = new();
 
-        public MedicineStorage()
+        public MedicineRepository()
         {
             if (!File.Exists(fileName))
             {

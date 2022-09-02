@@ -10,11 +10,11 @@ namespace SiMSProject.Service
 {
     public class UserService
     {
-        private UserStorage userStorage;
+        private UserRepository userStorage;
 
         public UserService()
         {
-            userStorage = new UserStorage();
+            userStorage = new UserRepository();
         }
 
         public void Add(User user)
@@ -35,6 +35,11 @@ namespace SiMSProject.Service
               
             }
             return null;
+        }
+
+        public bool IsLoggedIncorrectly(int counter)
+        {
+            return counter > 3 ? false : true;
         }
 
         public User RegisterUser(User user)

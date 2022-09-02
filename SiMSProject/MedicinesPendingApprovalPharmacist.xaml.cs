@@ -36,10 +36,10 @@ namespace SiMSProject
             InitializeComponent();
             this.DataContext = this;
 
-            TextBoxMin.Text = "Min";
-            TextBoxMin.Foreground = Brushes.Gray;
-            TextBoxMax.Text = "Max";
-            TextBoxMax.Foreground = Brushes.Gray;
+            //TextBoxMin.Text = "Min";
+            //TextBoxMin.Foreground = Brushes.Gray;
+            //TextBoxMax.Text = "Max";
+            //TextBoxMax.Foreground = Brushes.Gray;
 
             medicineController = new MedicineController();
             PendingApprovalMedicineList = new List<Medicine>();
@@ -80,14 +80,13 @@ namespace SiMSProject
         {
             User u = LoginPage.LoggedUser;
 
-            foreach(User user in pa.AcceptedByUsers)
+            var isAcceptedByYou = medicineController.CheckIfMedicineAcceptedByYou(u, pa);
+            if (isAcceptedByYou)
             {
-                if (user.Umcn.Equals(u.Umcn))
-                {
-                    System.Windows.MessageBox.Show("You've already approved this medicine!");
-                    return;
-                }
+                System.Windows.MessageBox.Show("You've already approved this medicine!");
+                return;
             }
+
 
             if (System.Windows.Forms.MessageBox.Show("Are you sure you want to approve this medicine", "Approve the medicine", MessageBoxButtons.YesNo)
                == (DialogResult)MessageBoxResult.Yes)
@@ -96,15 +95,9 @@ namespace SiMSProject
                 medicineController.Update(pa);
             }
 
-            int countDoctors = pa.AcceptedByUsers.Where(x => x.UserType.ToString().Equals("Doctor")).ToList().Count();
-            Console.WriteLine("BROJ DOKTORA U LISTI " + countDoctors);
-            int countPharmacists = pa.AcceptedByUsers.Where(x => x.UserType.ToString().Equals("Pharmacist")).ToList().Count();
-            Console.WriteLine("BROJ FARMACEUTaA U LISTI " + countPharmacists);
-
-            if(countDoctors >= 1 && countPharmacists >= 2)
+            var isAccepted = medicineController.IsMedicineAcceptedByRelevantUsers(pa);
+            if(isAccepted)
             {
-                pa.MedicineStatus = MedicineStatusEnum.Accepted;
-                medicineController.Update(pa);
                 System.Windows.MessageBox.Show("Medicine is accepted and you can find it in list of All Medicines");
 
                 PendingApprovalMedicines.Remove(pa);
@@ -240,41 +233,41 @@ namespace SiMSProject
             this.TextBoxMax.Visibility = Visibility.Visible;
             this.SearchPrice_btn.Visibility = Visibility.Visible;
         }
-        private void textBoxMin_GetFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxMin.Text.Trim().Equals("Min"))
-            {
-                TextBoxMin.Text = "";
-                TextBoxMin.Foreground = Brushes.Black;
-            }
-        }
+        //private void textBoxMin_GetFocus(object sender, RoutedEventArgs e)
+        //{
+        //    if (TextBoxMin.Text.Trim().Equals("Min"))
+        //    {
+        //        TextBoxMin.Text = "";
+        //        TextBoxMin.Foreground = Brushes.Black;
+        //    }
+        //}
 
-        private void textBoxMin_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxMin.Text.Trim().Equals(String.Empty))
-            {
-                TextBoxMin.Text = "Min";
-                TextBoxMin.Foreground = Brushes.Gray;
-            }
-        }
+        //private void textBoxMin_LostFocus(object sender, RoutedEventArgs e)
+        //{
+        //    if (TextBoxMin.Text.Trim().Equals(String.Empty))
+        //    {
+        //        TextBoxMin.Text = "Min";
+        //        TextBoxMin.Foreground = Brushes.Gray;
+        //    }
+        //}
 
-        private void textBoxMax_GetFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxMax.Text.Trim().Equals("Min"))
-            {
-                TextBoxMax.Text = "";
-                TextBoxMax.Foreground = Brushes.Black;
-            }
+        //private void textBoxMax_GetFocus(object sender, RoutedEventArgs e)
+        //{
+        //    if (TextBoxMax.Text.Trim().Equals("Max"))
+        //    {
+        //        TextBoxMax.Text = "";
+        //        TextBoxMax.Foreground = Brushes.Black;
+        //    }
 
-        }
+        //}
 
-        private void textBoxMax_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxMax.Text.Trim().Equals(String.Empty))
-            {
-                TextBoxMax.Text = "Min";
-                TextBoxMax.Foreground = Brushes.Gray;
-            }
-        }
+        //private void textBoxMax_LostFocus(object sender, RoutedEventArgs e)
+        //{
+        //    if (TextBoxMax.Text.Trim().Equals(String.Empty))
+        //    {
+        //        TextBoxMax.Text = "Max";
+        //        TextBoxMax.Foreground = Brushes.Gray;
+        //    }
+        //}
     }
 }

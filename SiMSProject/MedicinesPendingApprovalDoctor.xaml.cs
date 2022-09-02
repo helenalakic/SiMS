@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using DynamicExpresso;
+using Model;
 using SiMSProject.Controller;
 using SiMSProject.Model;
 using System;
@@ -161,8 +162,10 @@ namespace SiMSProject
             }
             if (comboBoxSearchName.Equals("Ingredients"))
             {
-                //kod za pretragu
-                return;
+
+                this.SearchIngredient_btn.Visibility = Visibility.Visible;
+
+         
             }
         }
 
@@ -205,7 +208,7 @@ namespace SiMSProject
         }
         private void SearchByPrice(object sender, RoutedEventArgs e)
         {
-            var resultMin = string.IsNullOrEmpty(this.TextBoxMin.Text) ? 0.0 : Double.Parse(this.TextBoxMin.Text);
+            var resultMin = string.IsNullOrEmpty(this.TextBoxMin.Text) ? 0.0 : Double.Parse(this.TextBoxMin.Text); //puca ovde
             var resultMax = string.IsNullOrEmpty(this.TextBoxMax.Text) ? 0.0 : Double.Parse(this.TextBoxMax.Text);
 
             List<Medicine> medicinePriceList = new List<Medicine>();
@@ -252,7 +255,7 @@ namespace SiMSProject
 
         private void textBoxMax_GetFocus(object sender, RoutedEventArgs e)
         {
-            if (TextBoxMax.Text.Trim().Equals("Min"))
+            if (TextBoxMax.Text.Trim().Equals("Max"))
             {
                 TextBoxMax.Text = "";
                 TextBoxMax.Foreground = Brushes.Black;
@@ -264,8 +267,30 @@ namespace SiMSProject
         {
             if (TextBoxMax.Text.Trim().Equals(String.Empty))
             {
-                TextBoxMax.Text = "Min";
+                TextBoxMax.Text = "Max";
                 TextBoxMax.Foreground = Brushes.Gray;
+            }
+        }
+
+        private void SearchByIngredient(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TextBoxSearch.Text))
+            {
+                var resultList = PendingApprovalMedicines.Where(medicine =>
+                {
+                    var variables = TextBoxSearch.Text.ToLower().Split(new[] { "(", "||", "&&", ")", " " }, StringSplitOptions.RemoveEmptyEntries);
+                    var interpreter = new Interpreter();
+                    foreach (var variable in variables)
+                    {
+                        var ingredients = string.Join(", ", medicine.Ingredients.Keys);
+
+                        interpreter.SetVariable(variable, ingredients.Contains(variable));
+                    }
+                    return (bool)interpreter.Eval(TextBoxSearch.Text);
+                });
+
+                dataGridMedicines.ItemsSource = resultList;
+
             }
         }
     }

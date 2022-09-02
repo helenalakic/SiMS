@@ -228,7 +228,7 @@ namespace SiMSProject
 
         private void textBoxMax_GetFocus(object sender, RoutedEventArgs e)
         {
-            if (TextBoxMax.Text.Trim().Equals("Min"))
+            if (TextBoxMax.Text.Trim().Equals("Max"))
             {
                 TextBoxMax.Text = "";
                 TextBoxMax.Foreground = Brushes.Black;
@@ -240,7 +240,7 @@ namespace SiMSProject
         {
             if (TextBoxMax.Text.Trim().Equals(String.Empty))
             {
-                TextBoxMax.Text = "Min";
+                TextBoxMax.Text = "Max";
                 TextBoxMax.Foreground = Brushes.Gray;
             }
         }
