@@ -45,12 +45,11 @@ namespace SiMSProject
         private void OnTimedEvent(Object source, ElapsedEventArgs e)
         {
             Console.WriteLine("The Elapsed event was raised at {0}", e.SignalTime);
-
-            if (dateOfProcurement < DateTime.Now)
+            var isUpdatedQuantity = medicineController.CheckProcurementDate(dateOfProcurement, medicineProcurement, quantity);
+            if (isUpdatedQuantity)
             {
-                medicineProcurement.Quantity += quantity;
-                medicineController.Update(medicineProcurement);
                 aTimer.Stop();
+
             }
         }
 
@@ -63,14 +62,10 @@ namespace SiMSProject
             }
 
             quantity = Int32.Parse(this.quantityTextBox.Text);
-            
-            if (string.IsNullOrEmpty(this.DateTextBox.Text))
+
+            var date = medicineController.MedicineProcurement(quantity, this.DateTextBox.Text, medicineProcurement);
+            if(date != null)
             {
-                medicineProcurement.Quantity += quantity;
-                medicineController.Update(medicineProcurement);
-            } else {
-                dateOfProcurement = Convert.ToDateTime(this.DateTextBox.Text);
-                Console.WriteLine(this.DateTextBox.Text);
                 startTimer();
             }
             

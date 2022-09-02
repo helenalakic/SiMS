@@ -27,6 +27,11 @@ namespace SiMSProject.Controller
 			 return userService.LoginUser(username, password);
         }
 
+		public bool IsLoggedIncorrectly(int counter)
+        {
+			return userService.IsLoggedIncorrectly(counter);
+        }
+
 		public List<User> GetAllUsers()
         {
 			return userService.GetAllUsers();
@@ -53,12 +58,6 @@ namespace SiMSProject.Controller
 		{
 			userService.UnblockUser(user);
 		}
-		//public bool IsUserBlocked(string username, string password)
-  //      {
-		//	return userService.IsUserBlocked(username, password);
-  //      }
-
-
 		public User GetUserByUmcn(String umcn)
         {
 			return userService.GetUserByUmcn(umcn);

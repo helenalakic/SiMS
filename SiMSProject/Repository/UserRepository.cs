@@ -8,13 +8,13 @@ using System.Threading.Tasks;
 
 namespace SiMSProject.Storage
 {
-    public class UserStorage
+    public class UserRepository
     {
 
         private string fileName = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName + @"\SiMSProject\Resources\Data\UserStorage.csv";
         private Serializer<User> userSerializer = new();
 
-        public UserStorage()
+        public UserRepository()
         {
             if (!File.Exists(fileName))
             {
