@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using DynamicExpresso;
+using Model;
 using SiMSProject.Controller;
 using SiMSProject.Model;
 using System;
@@ -162,8 +163,7 @@ namespace SiMSProject
             }
             if (comboBoxSearchName.Equals("Ingredients"))
             {
-                //kod za pretragu
-                return;
+                this.SearchIngredient_btn.Visibility = Visibility.Visible;
             }
         }
 
@@ -269,5 +269,34 @@ namespace SiMSProject
         //        TextBoxMax.Foreground = Brushes.Gray;
         //    }
         //}
+
+        private void SearchByIngredient(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TextBoxSearch.Text))
+            {
+                var resultList = PendingApprovalMedicines.Where(medicine =>
+                {
+                    var variables = TextBoxSearch.Text.ToLower().Split(new[] { "(", "||", "&&", ")", " " }, StringSplitOptions.RemoveEmptyEntries);
+                    var interpreter = new Interpreter();
+                    foreach (var variable in variables)
+                    {
+                        var ingredients = string.Join(", ", medicine.Ingredients.Keys);
+
+                        interpreter.SetVariable(variable, ingredients.ToLower().Contains(variable));
+                    }
+                    try
+                    {
+                        return (bool)interpreter.Eval(TextBoxSearch.Text);
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                });
+
+                dataGridMedicines.ItemsSource = resultList;
+
+            }
+        }
     }
 }

@@ -41,6 +41,9 @@
                     <Button Height="25" Name="SearchPrice_btn"  Click="SearchByPrice" Visibility="Hidden" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,60,36,0" Width="25">
                         <Image Height="25" Source="/Images/account-search-outline.png" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,0,0" Width="20"></Image>
                     </Button>
+                    <Button Height="25" Name="SearchIngredient_btn"  Click="SearchByIngredient"  VerticalAlignment="Top" Visibility="Hidden" HorizontalAlignment="Right" Margin="0,60,15,0" Width="25">
+                        <Image Height="25" Source="/Images/account-search-outline.png" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,0,0,0" Width="20"></Image>
+                    </Button>
                     <TextBox x:Name="TextBoxSearch" Margin="600,60,0,0" TextChanged="TextBoxSearch_TextChanged" Background="White" FontSize="16" FontFamily="Georgia" TextAlignment="Left" Text="" Width="120" Height="25" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                     <ComboBox Margin="470,60,0,0" Name="ComboBoxSearch"  SelectionChanged="ComboBoxSearchByChanged"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="25">
                         <!--<ComboBoxItem Content=""></ComboBoxItem>-->

@@ -1,5 +1,7 @@
-5a|rapten|galen|20|50|1000|Accepted|123x222x444|||mg!magnezijum#ca!kalcijum
+5a|rapten|galen|35|50|1000|Accepted|123x222x444|||mg!magnezijum#ca!kalcijum
 7b|brufen|pharm|70|20|200|Accepted|123x222x444|||
 1p|paracetamol|galen|2|40|3500|Rejected||222|Wrong manufacturer|ca!kalcijum
-79an|andol|pharm|44|2|500|PendingApproval||||vitamin!zn
-77dda|panadol|pha|3|43|443|PendingApproval||||vitamin!d i a#mg!magnezijum
+79an|andol|pharm|44|2|500|Rejected||222|Wrong medicine id|vitamin!zn
+77dda|panadol|pha|3|43|443|Rejected|123|123|Wrong id|vitamin!d i a#mg!magnezijum
+kk9|pantenol|krema|88|5|600|PendingApproval|222|||vitamin!c i b
+k456|akka|aaaa|99|44|11|PendingApproval||||vitamin!cink zn

@@ -1,4 +1,5 @@
-﻿using Model;
+﻿using DynamicExpresso;
+using Model;
 using SiMSProject.Controller;
 using System;
 using System.Collections.Generic;
@@ -36,10 +37,10 @@ namespace SiMSProject
             InitializeComponent();
             this.DataContext = this;
 
-            TextBoxMin.Text = "Min";
-            TextBoxMin.Foreground = Brushes.Gray;
-            TextBoxMax.Text = "Max";
-            TextBoxMax.Foreground = Brushes.Gray;
+            //TextBoxMin.Text = "Min";
+            //TextBoxMin.Foreground = Brushes.Gray;
+            //TextBoxMax.Text = "Max";
+            //TextBoxMax.Foreground = Brushes.Gray;
 
             medicineController = new MedicineController();
             MedicineList = new List<Medicine>();
@@ -96,8 +97,7 @@ namespace SiMSProject
             }
             if (comboBoxSearchName.Equals("Ingredients"))
             {
-                //kod za pretragu
-                return;
+                this.SearchIngredient_btn.Visibility = Visibility.Visible;
             }
         }
 
@@ -208,40 +208,68 @@ namespace SiMSProject
             this.TextBoxMax.Visibility = Visibility.Visible;
             this.SearchPrice_btn.Visibility = Visibility.Visible;
         }
-        private void textBoxMin_GetFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxMin.Text.Trim().Equals("Min"))
-            {
-                TextBoxMin.Text = "";
-                TextBoxMin.Foreground = Brushes.Black;
-            }
-        }
+        //private void textBoxMin_GetFocus(object sender, RoutedEventArgs e)
+        //{
+        //    if (TextBoxMin.Text.Trim().Equals("Min"))
+        //    {
+        //        TextBoxMin.Text = "";
+        //        TextBoxMin.Foreground = Brushes.Black;
+        //    }
+        //}
 
-        private void textBoxMin_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxMin.Text.Trim().Equals(String.Empty))
-            {
-                TextBoxMin.Text = "Min";
-                TextBoxMin.Foreground = Brushes.Gray;
-            }
-        }
+        //private void textBoxMin_LostFocus(object sender, RoutedEventArgs e)
+        //{
+        //    if (TextBoxMin.Text.Trim().Equals(String.Empty))
+        //    {
+        //        TextBoxMin.Text = "Min";
+        //        TextBoxMin.Foreground = Brushes.Gray;
+        //    }
+        //}
 
-        private void textBoxMax_GetFocus(object sender, RoutedEventArgs e)
-        {
-            if (TextBoxMax.Text.Trim().Equals("Max"))
-            {
-                TextBoxMax.Text = "";
-                TextBoxMax.Foreground = Brushes.Black;
-            }
+        //private void textBoxMax_GetFocus(object sender, RoutedEventArgs e)
+        //{
+        //    if (TextBoxMax.Text.Trim().Equals("Max"))
+        //    {
+        //        TextBoxMax.Text = "";
+        //        TextBoxMax.Foreground = Brushes.Black;
+        //    }
 
-        }
+        //}
 
-        private void textBoxMax_LostFocus(object sender, RoutedEventArgs e)
+        //private void textBoxMax_LostFocus(object sender, RoutedEventArgs e)
+        //{
+        //    if (TextBoxMax.Text.Trim().Equals(String.Empty))
+        //    {
+        //        TextBoxMax.Text = "Max";
+        //        TextBoxMax.Foreground = Brushes.Gray;
+        //    }
+        //}
+        private void SearchByIngredient(object sender, RoutedEventArgs e)
         {
-            if (TextBoxMax.Text.Trim().Equals(String.Empty))
+            if (!string.IsNullOrEmpty(TextBoxSearch.Text))
             {
-                TextBoxMax.Text = "Max";
-                TextBoxMax.Foreground = Brushes.Gray;
+                var resultList = Medicines.Where(medicine =>
+                {
+                    var variables = TextBoxSearch.Text.ToLower().Split(new[] { "(", "||", "&&", ")", " " }, StringSplitOptions.RemoveEmptyEntries);
+                    var interpreter = new Interpreter();
+                    foreach (var variable in variables)
+                    {
+                        var ingredients = string.Join(", ", medicine.Ingredients.Keys);
+
+                        interpreter.SetVariable(variable, ingredients.ToLower().Contains(variable));
+                    }
+                    try
+                    {
+                        return (bool)interpreter.Eval(TextBoxSearch.Text);
+                    }
+                    catch
+                    {
+                        return false;
+                    }
+                });
+
+                dataGridMedicines.ItemsSource = resultList;
+
             }
         }
     }

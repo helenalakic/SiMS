@@ -40,7 +40,6 @@ namespace SiMSProject
 
         private void LoginUser(object sender, RoutedEventArgs e)
         {
-            //TO DO premjestiti u servis
             counter++;
             var username = this.usernameTextBox.Text;
             var password = this.passwordTextBox.Text;
